@@ -7,6 +7,7 @@
 //
 
 #import "RMSecondViewController.h"
+#import "resConstants.h"
 
 @interface RMSecondViewController ()
 
@@ -18,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Second", @"Second");
+        self.title = NSLocalizedString(Tab_Title_History, @"Second");
         self.tabBarItem.image = [UIImage imageNamed:@"second"];
     }
     return self;

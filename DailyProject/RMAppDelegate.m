@@ -9,8 +9,9 @@
 #import "RMAppDelegate.h"
 
 #import "RMFirstViewController.h"
-
+#import "ArticlesMultiPageViewController.h"
 #import "RMSecondViewController.h"
+#import "CommonHelper.h"
 
 @implementation RMAppDelegate
 
@@ -23,7 +24,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self initLaunch];
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    CGRect rc = [[UIScreen mainScreen]applicationFrame];
+    
     // Override point for customization after application launch.
     UIViewController *viewController1, *viewController2;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -33,8 +38,10 @@
         viewController1 = [[[RMFirstViewController alloc] initWithNibName:@"RMFirstViewController_iPad" bundle:nil] autorelease];
         viewController2 = [[[RMSecondViewController alloc] initWithNibName:@"RMSecondViewController_iPad" bundle:nil] autorelease];
     }
+    UIViewController* dailyArticlesController = [[[ArticlesMultiPageViewController alloc]initWithFrame:rc]autorelease];
+    
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = @[viewController1, viewController2];
+    self.tabBarController.viewControllers = @[dailyArticlesController,viewController1, viewController2];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -80,5 +87,15 @@
 {
 }
 */
+#pragma  mark init launch methods
+-(void)initLaunch
+{
+    //init launch task
+    if([CommonHelper initLaunch])
+    {
+        [CommonHelper setGold:kDefaultGold];
+        [CommonHelper setNotInitLaunch];
+    }
+}
 
 @end

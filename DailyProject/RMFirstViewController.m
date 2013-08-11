@@ -7,6 +7,7 @@
 //
 
 #import "RMFirstViewController.h"
+#import "resConstants.h"
 
 @interface RMFirstViewController ()
 
@@ -18,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"First", @"First");
+        self.title = NSLocalizedString(Tab_Title_Favorites, @"First");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
     }
     return self;
