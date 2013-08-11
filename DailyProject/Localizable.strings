@@ -19,6 +19,8 @@
 "kLikeNumberPlus"="喜欢 +1";
 "kLikeNumberMinus"="喜欢 -1";
 "kCommentNumber"="%d";
+"kFavoriteNumberPlus"="收藏 +1";
+"kFavoriteNumberMinus"="收藏 -1";
 
 //setting
 "AboutTitle"="关于";

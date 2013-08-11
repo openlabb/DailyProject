@@ -30,4 +30,7 @@
 #define kLikeNumberPlus @"kLikeNumberPlus"
 #define kLikeNumberMinus @"kLikeNumberMinus"
 #define kCommentNumber @"kCommentNumber"
+
+#define kFavoriteNumberPlus @"kFavoriteNumberPlus"
+#define kFavoriteNumberMinus @"kFavoriteNumberMinus"
 #endif

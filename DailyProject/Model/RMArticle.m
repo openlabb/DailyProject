@@ -14,4 +14,5 @@
 @synthesize content;
 @synthesize url;
 @synthesize likeNumber;
+@synthesize favoriteNumber;
 @end
