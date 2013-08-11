@@ -6,21 +6,21 @@
 //  Copyright (c) 2013 iDreems. All rights reserved.
 //
 
-#import "RMSecondViewController.h"
+#import "RMHistoryViewController.h"
 #import "resConstants.h"
 
-@interface RMSecondViewController ()
+@interface RMHistoryViewController ()
 
 @end
 
-@implementation RMSecondViewController
+@implementation RMHistoryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(Tab_Title_History, @"Second");
-        self.tabBarItem.image = [UIImage imageNamed:@"second"];
+        self.title = NSLocalizedString(Tab_Title_History, @"");
+        self.tabBarItem.image = [UIImage imageNamed:kIconHistory];
     }
     return self;
 }

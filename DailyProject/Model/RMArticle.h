@@ -12,9 +12,9 @@
 
 @interface RMArticle : NSObject
 
-
 @property(nonatomic,copy)NSString* title;
 @property(nonatomic,copy)NSString* summary;
 @property(nonatomic,copy)NSString* content;
-
+@property(nonatomic,copy)NSString* url;
+@property(nonatomic,assign)NSInteger likeNumber;
 @end

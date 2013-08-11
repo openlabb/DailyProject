@@ -10,7 +10,7 @@
 #import "ArticleListViewController.h"
 #import "MobiSageSDK.h"
 #import "CommonHelper.h"
-#import "Constants.h"
+#import "appConstants.h"
 #import "DAPagesContainer.h"
 #import "resConstants.h"
 

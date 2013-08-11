@@ -13,3 +13,19 @@
 "Tab_Title_History"="穿越";
 "Tab_Title_RecommmendApps"="推荐";
 "Tab_Title_Setting"="设置";
+
+//每日精华
+"kLikeNumber"="%d";
+"kLikeNumberPlus"="喜欢 +1";
+"kLikeNumberMinus"="喜欢 -1";
+"kCommentNumber"="%d";
+
+//setting
+"AboutTitle"="关于";
+"CloseBackgroundTip"="退出时弹出状态栏提示";
+"kMoreFeedBackKey"="反馈";
+"kMoreRateKey"="评分";
+"Premium"="赚积分(当前积分:%d)";
+
+"kEmailFeedbackBody"= "我喜欢的功能是：\n\n不喜欢的功能是:\n\n希望增加的功能是:\n\n其他建议：\n";
+"appFriendlyTip"="内容天天变，明天再来奥！(可在设置中关闭)";

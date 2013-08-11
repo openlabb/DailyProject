@@ -18,4 +18,16 @@
 #define Tab_Title_RecommmendApps @"Tab_Title_RecommmendApps"
 #define Tab_Title_Setting @"Tab_Title_Setting"
 
+#define kCloseBackgroundTip @"CloseBackgroundTip"
+#define kAboutTitle @"AboutTitle"
+#define kMoreFeedBackKey @"kMoreFeedBackKey"
+#define kMoreRateKey @"kMoreRateKey"
+#define Premium @"Premium"
+#define kEmailFeedbackBody @"kEmailFeedbackBody"
+#define appFriendlyTip @"appFriendlyTip"
+
+#define kLikeNumber @"kLikeNumber"
+#define kLikeNumberPlus @"kLikeNumberPlus"
+#define kLikeNumberMinus @"kLikeNumberMinus"
+#define kCommentNumber @"kCommentNumber"
 #endif

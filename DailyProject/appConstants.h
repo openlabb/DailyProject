@@ -17,6 +17,22 @@
 #endif
 
 
+#define kIPhoneFontSize  20//pt
+#define kIPadFontSizeEx  28//pt
+#define kItemPerSection 2
+//#define kHuakangFontName @"DFPShaoNvW5"
+
+#define kAdd2Favorite @"kAdd2Favorite"
+
+//icon for tabbar
+#define kIconHistory @"ICN_history"
+#define kIconHomePage @"ICN_homepage"
+#define kIconFavorite @"ICN_badge-favorite"
+#define kIconSetting @"ICN_setting"
+
+#define kPostNotification @"kPostNotification"//notification for post
+#define kPostResponseData @"kPostResponseData"
+
 #define kTitleFontSize 17.0f
 #define kContentFontSize 16.0f
 #define kUIFont4Content [UIFont fontWithName:@"Times New Roman" size:kContentFontSize]
@@ -36,5 +52,8 @@
 #define kDefaultGold 10//default gold
 #define kGoldByClickingBanner 15
 #define kGoldByClickingRecommendView 40
+
+
+#define UMENG_APPKEY @"5207827b56240b84d106f5ee"
 
 #endif

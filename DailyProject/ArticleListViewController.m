@@ -112,9 +112,8 @@
         [tmp replaceOccurrencesOfString:PAGE_SEPARATOR withString:@"\n" options:NSLiteralSearch range:range];
         article.content  = tmp;
         
-        
         article.summary = [row objectForKey:@"Summary"];
-        
+        article.url = [row objectForKey:@"PageUrl"];
         
         [data addObject:article];
     }
@@ -183,6 +182,8 @@
         if (!article.summary) {
             article.summary = [row objectForKey:@"Summary"];
         }
+        
+        article.url = [row objectForKey:@"PageUrl"];
         
         [data addObject:article];
     }

@@ -12,4 +12,6 @@
 @synthesize title;
 @synthesize summary;
 @synthesize content;
+@synthesize url;
+@synthesize likeNumber;
 @end

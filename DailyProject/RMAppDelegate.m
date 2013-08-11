@@ -8,10 +8,20 @@
 
 #import "RMAppDelegate.h"
 
-#import "RMFirstViewController.h"
+#import "RMFavoriteViewController.h"
 #import "ArticlesMultiPageViewController.h"
-#import "RMSecondViewController.h"
+#import "RMHistoryViewController.h"
 #import "CommonHelper.h"
+#import "SettingsViewController.h"
+#import "resConstants.h"
+#import "UMSocial.h"
+
+
+@interface RMAppDelegate()
+{
+    BOOL      _EnterBylocalNotification;
+}
+@end
 
 @implementation RMAppDelegate
 
@@ -30,18 +40,21 @@
     CGRect rc = [[UIScreen mainScreen]applicationFrame];
     
     // Override point for customization after application launch.
-    UIViewController *viewController1, *viewController2;
+    UIViewController *favoriteViewController, *historyViewController;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        viewController1 = [[[RMFirstViewController alloc] initWithNibName:@"RMFirstViewController_iPhone" bundle:nil] autorelease];
-        viewController2 = [[[RMSecondViewController alloc] initWithNibName:@"RMSecondViewController_iPhone" bundle:nil] autorelease];
+        favoriteViewController = [[[RMFavoriteViewController alloc] initWithNibName:@"RMFavoriteViewController_iPhone" bundle:nil] autorelease];
+        historyViewController = [[[RMHistoryViewController alloc] initWithNibName:@"RMHistoryViewController_iPhone" bundle:nil] autorelease];
     } else {
-        viewController1 = [[[RMFirstViewController alloc] initWithNibName:@"RMFirstViewController_iPad" bundle:nil] autorelease];
-        viewController2 = [[[RMSecondViewController alloc] initWithNibName:@"RMSecondViewController_iPad" bundle:nil] autorelease];
+        favoriteViewController = [[[RMFavoriteViewController alloc] initWithNibName:@"RMFavoriteViewController_iPad" bundle:nil] autorelease];
+        historyViewController = [[[RMHistoryViewController alloc] initWithNibName:@"RMHistoryViewController_iPad" bundle:nil] autorelease];
     }
     UIViewController* dailyArticlesController = [[[ArticlesMultiPageViewController alloc]initWithFrame:rc]autorelease];
     
+    UIViewController* tmp = [[[SettingsViewController alloc]init]autorelease];
+    UINavigationController* setting = [[[UINavigationController alloc]initWithRootViewController:tmp]autorelease];
+    
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = @[dailyArticlesController,viewController1, viewController2];
+    self.tabBarController.viewControllers = @[dailyArticlesController,historyViewController, favoriteViewController,setting];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -55,8 +68,16 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    _EnterBylocalNotification = NO;
+    NSLog(@"applicationDidEnterBackground");
+    
+    if ([self scheduleNotificationWhenQuit]) {
+        
+        const NSTimeInterval kDelay = 0;//1;
+        NSString* popContent = NSLocalizedString(appFriendlyTip,"");
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        [self scheduleLocalNotification:popContent delayTimeInterval:kDelay];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -90,12 +111,66 @@
 #pragma  mark init launch methods
 -(void)initLaunch
 {
+    [UMSocialData setAppKey:UMENG_APPKEY];
     //init launch task
     if([CommonHelper initLaunch])
     {
         [CommonHelper setGold:kDefaultGold];
         [CommonHelper setNotInitLaunch];
+        
+        //enable quit notification
+        [self setQuitNotification:YES];
     }
 }
+
+#pragma mark  quit switch
+#define kQuitNotificationKey @"kQuitNotificationKey"
+-(BOOL)scheduleNotificationWhenQuit
+{
+    NSUserDefaults* defaultSetting = [NSUserDefaults standardUserDefaults];
+    return [defaultSetting boolForKey:kQuitNotificationKey];
+}
+-(void)setQuitNotification:(BOOL)enable
+{
+    NSUserDefaults* defaultSetting = [NSUserDefaults standardUserDefaults];
+    [defaultSetting setBool:enable forKey:kQuitNotificationKey];
+    [defaultSetting synchronize];
+}
+
+#pragma mark schedule notification
+
+-(void)scheduleLocalNotification:(NSString*)alertBody
+{
+    UILocalNotification *notification=[[UILocalNotification alloc] init];
+    if (notification!=nil) {
+        NSDate *now=[NSDate date];
+#define kOneDayInSeconds 24*60*60
+        notification.fireDate=[now dateByAddingTimeInterval:kOneDayInSeconds];
+        NSLog(@"alertDate::%@",now);
+        notification.timeZone=[NSTimeZone defaultTimeZone];
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        notification.applicationIconBadgeNumber = notification.applicationIconBadgeNumber+1;
+        notification.alertBody=alertBody;
+        [[UIApplication sharedApplication]   scheduleLocalNotification:notification];
+    }
+    [notification release];
+}
+-(void)scheduleLocalNotification:(NSString*)alertBody delayTimeInterval:(NSTimeInterval)delay
+{
+    UILocalNotification *notification=[[UILocalNotification alloc] init];
+    if (notification!=nil) {
+        NSDate *now=[NSDate date];
+        notification.fireDate=[now dateByAddingTimeInterval:delay];
+        NSLog(@"alertDate::%@",now);
+        notification.timeZone=[NSTimeZone defaultTimeZone];
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        notification.applicationIconBadgeNumber = notification.applicationIconBadgeNumber;
+        notification.alertBody=alertBody;
+        notification.hasAction = NO;
+        [[UIApplication sharedApplication]   scheduleLocalNotification:notification];
+    }
+    [notification release];
+}
+
 
 @end

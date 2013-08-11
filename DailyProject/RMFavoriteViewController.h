@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMFirstViewController : UIViewController
+@interface RMFavoriteViewController : UIViewController
 
 @end
