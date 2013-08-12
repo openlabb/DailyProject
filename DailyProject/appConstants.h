@@ -64,4 +64,5 @@
 #define UMENG_APPKEY @"5207827b56240b84d106f5ee"
 
 #define kFavoriteDBChangedEvent @"kFavoriteDBChangedEvent"
+#define kHideFavoriteFlag -1
 #endif

@@ -18,4 +18,5 @@
 @property(nonatomic,copy)NSString* url;
 @property(nonatomic,assign)NSInteger likeNumber;
 @property(nonatomic,assign)NSInteger favoriteNumber;
+@property(nonatomic,assign)NSInteger commentNumber;
 @end

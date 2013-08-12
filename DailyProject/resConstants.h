@@ -31,6 +31,7 @@
 #define kLikeNumberMinus @"kLikeNumberMinus"
 #define kCommentNumber @"kCommentNumber"
 
+#define kFavoriteNumber @"kFavoriteNumber"
 #define kFavoriteNumberPlus @"kFavoriteNumberPlus"
 #define kFavoriteNumberMinus @"kFavoriteNumberMinus"
 #endif

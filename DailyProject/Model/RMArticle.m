@@ -15,4 +15,5 @@
 @synthesize url;
 @synthesize likeNumber;
 @synthesize favoriteNumber;
+@synthesize commentNumber;
 @end

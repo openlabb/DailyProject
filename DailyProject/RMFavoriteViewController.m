@@ -36,7 +36,6 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view, typically from a nib.
-    [self makeSureDBExist];
     
     ArticleListViewController *jj = [[[ArticleListViewController alloc] init]autorelease];
     jj.title = NSLocalizedString(Tab_Title_Favorites, nil);
@@ -68,18 +67,6 @@
         }
     }
 }
--(void)makeSureDBExist
-{
-    SQLiteManager* dbManager = [[[SQLiteManager alloc]initWithDatabaseNamed:FAVORITE_DB_NAME]autorelease];
-    if (![dbManager openDatabase]) {
-        //create table
-        
-        NSString *sqlCreateTable = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (%@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT PRIMARY KEY )",kDBTableName,kDBTitle,kDBSummary,kDBContent,kDBPageUrl];
-        [dbManager doQuery:sqlCreateTable];
-        
-        [dbManager closeDatabase];
-    }
-}
 
 -(NSArray*)getTableValue:(NSString*)dbName withTableName:(NSString*)tableName withRange:(NSRange)range
 {
@@ -97,18 +84,36 @@
         article.summary = [item objectForKey:kDBSummary];
         article.content = [item objectForKey:kDBContent];
         article.url = [item objectForKey:kDBPageUrl];
+        
+        article.likeNumber = ((NSString*)[item objectForKey:kLikeNumber]).intValue;
+        article.commentNumber = ((NSString*)[item objectForKey:kCommentNumber]).intValue;
+        article.favoriteNumber = ((NSString*)[item objectForKey:kFavoriteNumber]).intValue;
         [data addObject:article];
     }
     return data;
 }
 
+
++(void)makeSureDBExist
+{
+    SQLiteManager* dbManager = [[[SQLiteManager alloc]initWithDatabaseNamed:FAVORITE_DB_NAME]autorelease];
+    if (![dbManager openDatabase]) {
+        //create table
+        
+        NSString *sqlCreateTable = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (%@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT PRIMARY KEY,%@ INTEGER,%@ INTEGER,%@ INTEGER )",kDBTableName,kDBTitle,kDBSummary,kDBContent,kDBPageUrl,kCommentNumber,kFavoriteNumber,kLikeNumber];
+        [dbManager doQuery:sqlCreateTable];
+        
+        [dbManager closeDatabase];
+    }
+}
+
 +(void)addToFavorite:(RMArticle*)article
 {
-
+    [RMFavoriteViewController makeSureDBExist];
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:FAVORITE_DB_NAME]autorelease];
     NSString *sql = [NSString stringWithFormat:
-                      @"INSERT INTO '%@' ('%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%@', '%@')",
-                      kDBTableName, kDBTitle, kDBSummary, kDBContent,kDBPageUrl, article.title,article.summary,article.content,article.url];
+                      @"INSERT INTO '%@' ('%@', '%@', '%@', '%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%@', '%@', '%d', '%d', '%d')",
+                      kDBTableName, kDBTitle, kDBSummary, kDBContent,kDBPageUrl,kCommentNumber,kFavoriteNumber,kLikeNumber, article.title,article.summary,article.content,article.url,article.commentNumber,article.favoriteNumber,article.likeNumber];
     [dbManager doQuery:sql];
     
     [[NSNotificationCenter defaultCenter]postNotificationName:kFavoriteDBChangedEvent object:nil];
