@@ -19,7 +19,7 @@
 "kLikeNumberPlus"="喜欢 +1";
 "kLikeNumberMinus"="喜欢 -1";
 "kCommentNumber"="%d";
-"kFavoriteNumberPlus"="收藏 +1";
+"kFavoriteNumberPlus"="已收藏";
 "kFavoriteNumberMinus"="收藏 -1";
 
 //setting

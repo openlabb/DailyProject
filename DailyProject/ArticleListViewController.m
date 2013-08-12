@@ -10,6 +10,7 @@
 #import "RMArticlesView.h"
 #import "CommonHelper.h"
 #import "EarnGoldMultiPageViewController.h"
+#import "RMArticle.h"
 
 @interface ArticleListViewController ()<tableViewClickDelegate>
 @property(nonatomic,retain)RMArticlesView* articleController;
@@ -21,6 +22,7 @@
 @synthesize title;
 @synthesize dataList;
 @synthesize dataDelegate;
+@synthesize tableViewRefreshLoadMoreDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +50,9 @@
     
     self.articleController.delegate = self;
     self.articleController.tableViewDelegate = self;
+    if (self.tableViewRefreshLoadMoreDelegate) {
+        self.articleController.tableViewRefreshHanlder = self.tableViewRefreshLoadMoreDelegate;
+    }
     
     if(!existView)
     {
@@ -88,6 +93,11 @@
 #pragma  mark tableviewDelegate
 - (BOOL)canSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    RMArticle* article = [self.dataList objectAtIndex:indexPath.row];
+    if (kHideFavoriteFlag==article.favoriteNumber) {//favorite items
+        return YES;
+    }
+    
     //FIXME::temp for test
     NSInteger gold = [CommonHelper gold];
     [CommonHelper setGold:--gold];
@@ -132,5 +142,25 @@
 {
     [self stopActivityIndicatorView];
     [self.articleController setData:dataList];
+}
+-(void)setTableViewRefreshLoadMoreDelegate:(id<TableViewRefreshLoadMoreDelegate>)delegate
+{
+    tableViewRefreshLoadMoreDelegate = delegate;
+    if(tableViewRefreshLoadMoreDelegate)
+    {
+        [tableViewRefreshLoadMoreDelegate retain];
+    }
+    if(self.articleController)
+    {
+        self.articleController.tableViewRefreshHanlder = delegate;
+    }
+}
+-(void)setData:(NSArray*)data
+{
+    [self.articleController setData:data];
+}
+-(NSArray*)getData
+{
+    return self.articleController.data;
 }
 @end

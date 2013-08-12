@@ -15,8 +15,11 @@
 #import "RMArticle.h"
 #import "DAPagesContainer.h"
 
-@interface RMFavoriteViewController ()<ArticleListViewDelegate>
+#define kLoadMoreUnit 10
+
+@interface RMFavoriteViewController ()<ArticleListViewDelegate,TableViewRefreshLoadMoreDelegate>
 @property(nonatomic,retain)RMArticlesView* articleController;
+@property(nonatomic,assign)NSInteger loadMoreStartIndex;
 @end
 
 @implementation RMFavoriteViewController
@@ -40,6 +43,7 @@
     ArticleListViewController *jj = [[[ArticleListViewController alloc] init]autorelease];
     jj.title = NSLocalizedString(Tab_Title_Favorites, nil);
     jj.dataDelegate = self;
+    jj.tableViewRefreshLoadMoreDelegate = self;
     
     self.pagesContainer.viewControllers = @[jj];
     
@@ -122,7 +126,43 @@
 #pragma mark ArticleListViewDelegate
 - (NSArray*)loadData:(NSString*)dbName withKeyWord:(NSString*)keywords
 {
-    NSRange range = NSMakeRange(0, 10);
+    self.loadMoreStartIndex = 0;
+    NSRange range = NSMakeRange(self.loadMoreStartIndex, kLoadMoreUnit);
     return [self getTableValue:FAVORITE_DB_NAME withTableName:kDBTableName withRange:range];
+}
+
+#pragma mark TableViewRefreshLoadMoreDelegate
+- (void)PullToLoadMoreHandler
+{
+    self.loadMoreStartIndex += kLoadMoreUnit;
+    NSRange range = NSMakeRange(self.loadMoreStartIndex, kLoadMoreUnit);
+    NSArray* newItems = [self getTableValue:FAVORITE_DB_NAME withTableName:kDBTableName withRange:range];
+    if (!newItems || newItems.count==0) {
+        //forbide load more
+        for(UIViewController* controller in self.pagesContainer.viewControllers)
+        {
+            if ([controller isKindOfClass:[ArticleListViewController class]]) {
+                ((ArticleListViewController*)controller).tableViewRefreshLoadMoreDelegate = nil;
+            }
+        }
+        return;
+    }
+    
+    //update tableview
+    ArticleListViewController* listController = nil;
+    for(UIViewController* controller in self.pagesContainer.viewControllers)
+    {
+        if ([controller isKindOfClass:[ArticleListViewController class]]) {
+            listController = ((ArticleListViewController*)controller);
+            break;
+        }
+    }
+    
+    if (listController) {
+        NSArray* items = [listController getData];
+        NSMutableArray* newMergedItems = [NSMutableArray arrayWithArray:items];
+        [newMergedItems addObjectsFromArray:newItems];
+        [listController setData:newMergedItems];
+    }
 }
 @end

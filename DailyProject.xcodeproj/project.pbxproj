@@ -270,11 +270,6 @@
 		3076210017B7734D00239F51 /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 307620FB17B7734D00239F51 /* StringUtil.m */; };
 		3076210A17B7770900239F51 /* 两性保健.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3076210317B7770900239F51 /* 两性保健.sql */; };
 		3076210B17B7770900239F51 /* 两性心理.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3076210417B7770900239F51 /* 两性心理.sql */; };
-		3076210C17B7770900239F51 /* 吐槽实录.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3076210517B7770900239F51 /* 吐槽实录.sql */; };
-		3076210D17B7770900239F51 /* 夫妻笑话.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3076210617B7770900239F51 /* 夫妻笑话.sql */; };
-		3076210E17B7770900239F51 /* 情感攻略.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3076210717B7770900239F51 /* 情感攻略.sql */; };
-		3076210F17B7770900239F51 /* 情感美文.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3076210817B7770900239F51 /* 情感美文.sql */; };
-		3076211017B7770900239F51 /* 生活健康.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3076210917B7770900239F51 /* 生活健康.sql */; };
 		3076212E17B77B5100239F51 /* ThemeImage in Resources */ = {isa = PBXBuildFile; fileRef = 3076212D17B77B5000239F51 /* ThemeImage */; };
 		3076213A17B77FD400239F51 /* ICN_badge-favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3076213017B77FD400239F51 /* ICN_badge-favorite.png */; };
 		3076213B17B77FD400239F51 /* ICN_badge-favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3076213117B77FD400239F51 /* ICN_badge-favorite@2x.png */; };
@@ -302,6 +297,7 @@
 		307621AB17B8CAAA00239F51 /* DAAppsViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 307621A517B8CAAA00239F51 /* DAAppsViewController.bundle */; };
 		307621AC17B8CAAA00239F51 /* DAAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 307621A717B8CAAA00239F51 /* DAAppsViewController.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
 		307621AD17B8CAAA00239F51 /* DAAppViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 307621A917B8CAAA00239F51 /* DAAppViewCell.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		307621B717B99BAF00239F51 /* UIScrollView+AH3DPullRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 307621B617B99BAF00239F51 /* UIScrollView+AH3DPullRefresh.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -756,11 +752,6 @@
 		307620FB17B7734D00239F51 /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
 		3076210317B7770900239F51 /* 两性保健.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "两性保健.sql"; sourceTree = "<group>"; };
 		3076210417B7770900239F51 /* 两性心理.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "两性心理.sql"; sourceTree = "<group>"; };
-		3076210517B7770900239F51 /* 吐槽实录.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "吐槽实录.sql"; sourceTree = "<group>"; };
-		3076210617B7770900239F51 /* 夫妻笑话.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "夫妻笑话.sql"; sourceTree = "<group>"; };
-		3076210717B7770900239F51 /* 情感攻略.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "情感攻略.sql"; sourceTree = "<group>"; };
-		3076210817B7770900239F51 /* 情感美文.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "情感美文.sql"; sourceTree = "<group>"; };
-		3076210917B7770900239F51 /* 生活健康.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "生活健康.sql"; sourceTree = "<group>"; };
 		3076212D17B77B5000239F51 /* ThemeImage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ThemeImage; sourceTree = "<group>"; };
 		3076212F17B77BF500239F51 /* appConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = appConstants.h; sourceTree = "<group>"; };
 		3076213017B77FD400239F51 /* ICN_badge-favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICN_badge-favorite.png"; sourceTree = "<group>"; };
@@ -806,6 +797,8 @@
 		307621A717B8CAAA00239F51 /* DAAppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAAppsViewController.m; sourceTree = "<group>"; };
 		307621A817B8CAAA00239F51 /* DAAppViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAAppViewCell.h; sourceTree = "<group>"; };
 		307621A917B8CAAA00239F51 /* DAAppViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAAppViewCell.m; sourceTree = "<group>"; };
+		307621B517B99BAF00239F51 /* UIScrollView+AH3DPullRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AH3DPullRefresh.h"; sourceTree = "<group>"; };
+		307621B617B99BAF00239F51 /* UIScrollView+AH3DPullRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AH3DPullRefresh.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -993,6 +986,7 @@
 		30761B3617B76B6800239F51 /* iOS_Lib */ = {
 			isa = PBXGroup;
 			children = (
+				307621B417B99BAF00239F51 /* AH3DPullRefresh */,
 				307621A217B8CAAA00239F51 /* DAAppsViewController */,
 				3076217517B7D76D00239F51 /* UMSocial_Sdk_2.2.1.1 */,
 				30761B3717B76B6800239F51 /* Additions */,
@@ -1945,11 +1939,6 @@
 			children = (
 				3076210317B7770900239F51 /* 两性保健.sql */,
 				3076210417B7770900239F51 /* 两性心理.sql */,
-				3076210517B7770900239F51 /* 吐槽实录.sql */,
-				3076210617B7770900239F51 /* 夫妻笑话.sql */,
-				3076210717B7770900239F51 /* 情感攻略.sql */,
-				3076210817B7770900239F51 /* 情感美文.sql */,
-				3076210917B7770900239F51 /* 生活健康.sql */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -2052,6 +2041,15 @@
 				307621A917B8CAAA00239F51 /* DAAppViewCell.m */,
 			);
 			path = DAAppsViewController;
+			sourceTree = "<group>";
+		};
+		307621B417B99BAF00239F51 /* AH3DPullRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				307621B517B99BAF00239F51 /* UIScrollView+AH3DPullRefresh.h */,
+				307621B617B99BAF00239F51 /* UIScrollView+AH3DPullRefresh.m */,
+			);
+			path = AH3DPullRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2176,11 +2174,6 @@
 				307620B917B76E3600239F51 /* release.rtf in Resources */,
 				3076210A17B7770900239F51 /* 两性保健.sql in Resources */,
 				3076210B17B7770900239F51 /* 两性心理.sql in Resources */,
-				3076210C17B7770900239F51 /* 吐槽实录.sql in Resources */,
-				3076210D17B7770900239F51 /* 夫妻笑话.sql in Resources */,
-				3076210E17B7770900239F51 /* 情感攻略.sql in Resources */,
-				3076210F17B7770900239F51 /* 情感美文.sql in Resources */,
-				3076211017B7770900239F51 /* 生活健康.sql in Resources */,
 				3076212E17B77B5100239F51 /* ThemeImage in Resources */,
 				3076213A17B77FD400239F51 /* ICN_badge-favorite.png in Resources */,
 				3076213B17B77FD400239F51 /* ICN_badge-favorite@2x.png in Resources */,
@@ -2373,6 +2366,7 @@
 				307621AA17B8CAAA00239F51 /* DAAppObject.m in Sources */,
 				307621AC17B8CAAA00239F51 /* DAAppsViewController.m in Sources */,
 				307621AD17B8CAAA00239F51 /* DAAppViewCell.m in Sources */,
+				307621B717B99BAF00239F51 /* UIScrollView+AH3DPullRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

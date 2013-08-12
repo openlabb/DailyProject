@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "RMArticlesView.h"
 
 @protocol ArticleListViewDelegate<NSObject>
 
@@ -17,6 +18,10 @@
 @interface ArticleListViewController : BaseViewController
 @property(nonatomic,retain)NSString* title;
 @property(nonatomic,retain)id<ArticleListViewDelegate> dataDelegate;
+@property(nonatomic,retain)id<TableViewRefreshLoadMoreDelegate> tableViewRefreshLoadMoreDelegate;
 
 -(void)refreshData;
+
+-(void)setData:(NSArray*)data;
+-(NSArray*)getData;
 @end
