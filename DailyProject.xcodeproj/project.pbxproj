@@ -298,6 +298,10 @@
 		3076219F17B7D76F00239F51 /* UMSnsAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3076219117B7D76F00239F51 /* UMSnsAccountViewController.xib */; };
 		307621A017B7D76F00239F51 /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3076219217B7D76F00239F51 /* UMSShareListController.xib */; };
 		307621A117B7D76F00239F51 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3076219317B7D76F00239F51 /* UMSocialSDKResourcesNew.bundle */; };
+		307621AA17B8CAAA00239F51 /* DAAppObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 307621A417B8CAAA00239F51 /* DAAppObject.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		307621AB17B8CAAA00239F51 /* DAAppsViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 307621A517B8CAAA00239F51 /* DAAppsViewController.bundle */; };
+		307621AC17B8CAAA00239F51 /* DAAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 307621A717B8CAAA00239F51 /* DAAppsViewController.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		307621AD17B8CAAA00239F51 /* DAAppViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 307621A917B8CAAA00239F51 /* DAAppViewCell.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -795,6 +799,13 @@
 		3076219217B7D76F00239F51 /* UMSShareListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSShareListController.xib; sourceTree = "<group>"; };
 		3076219317B7D76F00239F51 /* UMSocialSDKResourcesNew.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResourcesNew.bundle; sourceTree = "<group>"; };
 		3076219417B7D76F00239F51 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
+		307621A317B8CAAA00239F51 /* DAAppObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAAppObject.h; sourceTree = "<group>"; };
+		307621A417B8CAAA00239F51 /* DAAppObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAAppObject.m; sourceTree = "<group>"; };
+		307621A517B8CAAA00239F51 /* DAAppsViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DAAppsViewController.bundle; sourceTree = "<group>"; };
+		307621A617B8CAAA00239F51 /* DAAppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAAppsViewController.h; sourceTree = "<group>"; };
+		307621A717B8CAAA00239F51 /* DAAppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAAppsViewController.m; sourceTree = "<group>"; };
+		307621A817B8CAAA00239F51 /* DAAppViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAAppViewCell.h; sourceTree = "<group>"; };
+		307621A917B8CAAA00239F51 /* DAAppViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAAppViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -982,6 +993,7 @@
 		30761B3617B76B6800239F51 /* iOS_Lib */ = {
 			isa = PBXGroup;
 			children = (
+				307621A217B8CAAA00239F51 /* DAAppsViewController */,
 				3076217517B7D76D00239F51 /* UMSocial_Sdk_2.2.1.1 */,
 				30761B3717B76B6800239F51 /* Additions */,
 				30761FF817B76C8F00239F51 /* AdPlatform */,
@@ -2028,6 +2040,20 @@
 			path = SocialSDKXib;
 			sourceTree = "<group>";
 		};
+		307621A217B8CAAA00239F51 /* DAAppsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				307621A317B8CAAA00239F51 /* DAAppObject.h */,
+				307621A417B8CAAA00239F51 /* DAAppObject.m */,
+				307621A517B8CAAA00239F51 /* DAAppsViewController.bundle */,
+				307621A617B8CAAA00239F51 /* DAAppsViewController.h */,
+				307621A717B8CAAA00239F51 /* DAAppsViewController.m */,
+				307621A817B8CAAA00239F51 /* DAAppViewCell.h */,
+				307621A917B8CAAA00239F51 /* DAAppViewCell.m */,
+			);
+			path = DAAppsViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2174,6 +2200,7 @@
 				3076219F17B7D76F00239F51 /* UMSnsAccountViewController.xib in Resources */,
 				307621A017B7D76F00239F51 /* UMSShareListController.xib in Resources */,
 				307621A117B7D76F00239F51 /* UMSocialSDKResourcesNew.bundle in Resources */,
+				307621AB17B8CAAA00239F51 /* DAAppsViewController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2343,6 +2370,9 @@
 				307620FF17B7734D00239F51 /* HTTPHelper.m in Sources */,
 				3076210017B7734D00239F51 /* StringUtil.m in Sources */,
 				3076214617B7825200239F51 /* SettingsViewController.m in Sources */,
+				307621AA17B8CAAA00239F51 /* DAAppObject.m in Sources */,
+				307621AC17B8CAAA00239F51 /* DAAppsViewController.m in Sources */,
+				307621AD17B8CAAA00239F51 /* DAAppViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

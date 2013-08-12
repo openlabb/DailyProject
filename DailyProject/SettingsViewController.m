@@ -16,6 +16,7 @@
 #import "CoinsManager.h"
 #import "EarnGoldMultiPageViewController.h"
 #import "resConstants.h"
+#import "DAAppsViewController.h"
 
 NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 
@@ -213,12 +214,13 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 			staticContentCell.reuseIdentifier = reuseIdentifier;
 			cell.selectionStyle = UITableViewCellStyleDefault;
             
-			cell.textLabel.text =NSLocalizedString(Tab_Title_Favorites, @"");
+			cell.textLabel.text =NSLocalizedString(Tab_Title_RecommmendApps, @"");
 			//cell.imageView.image = [UIImage imageNamed:kIconFavorite];
             
 		} whenSelected:^(NSIndexPath *indexPath) {
-//            FlipViewController *flip = [[[FlipViewController alloc]initWithNibName:@"FlipViewController" bundle:nil]autorelease];
-//			[self.navigationController pushViewController:flip animated:YES];
+            DAAppsViewController *appsViewController = [[[DAAppsViewController alloc] init]autorelease];
+            [appsViewController loadAppsWithArtistId:kArtistId completionBlock:nil];
+            [self.navigationController pushViewController:appsViewController animated:YES];
 		}];
 	}];
     
@@ -266,7 +268,7 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 -(void)addSections
 {
     [self addGeneralSection];
-//    [self addFavorite];
+    [self addFavorite];
     [self addQuitTipSettingSection];
     if([[CoinsManager sharedInstance]getLeftCoins]<=0 && [[[AdsConfiguration sharedInstance]getScenedItems:kAdDisplay withType:@""]count]>0)
     {

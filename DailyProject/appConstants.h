@@ -62,7 +62,7 @@
 
 
 #define UMENG_APPKEY @"5207827b56240b84d106f5ee"
-
+#define kArtistId 463201091// @"iDreems",
 #define kFavoriteDBChangedEvent @"kFavoriteDBChangedEvent"
 #define kHideFavoriteFlag -1
 #endif
