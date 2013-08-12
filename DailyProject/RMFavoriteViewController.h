@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MultiPageViewController.h"
 
-@interface RMFavoriteViewController : UIViewController
+@class RMArticle;
+@interface RMFavoriteViewController : MultiPageViewController
+
++(void)addToFavorite:(RMArticle*)article;
 
 @end

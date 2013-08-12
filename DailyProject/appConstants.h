@@ -16,6 +16,13 @@
 #define NSLog(...) {}
 #endif
 
+//db design 
+#define FAVORITE_DB_NAME    @"favorite.sqlite"
+#define kDBTableName    @"Content"
+#define kDBTitle         @"Title"
+#define kDBSummary       @"Summary"
+#define kDBContent       @"Content"
+#define kDBPageUrl       @"PageUrl"
 
 #define kIPhoneFontSize  20//pt
 #define kIPadFontSizeEx  28//pt
@@ -56,4 +63,5 @@
 
 #define UMENG_APPKEY @"5207827b56240b84d106f5ee"
 
+#define kFavoriteDBChangedEvent @"kFavoriteDBChangedEvent"
 #endif
