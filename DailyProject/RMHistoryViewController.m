@@ -24,7 +24,17 @@
     }
     return self;
 }
-							
+-(id)initWithFrame:(CGRect)rc
+{
+    self = [super initWithFrame:rc];
+    
+    //    //for tab item
+    self.title = NSLocalizedString(Tab_Title_History, @"");
+    self.tabBarItem.image = [UIImage imageNamed:kIconHistory];
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

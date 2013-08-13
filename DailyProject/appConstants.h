@@ -11,7 +11,7 @@
 
 
 //close log
-#define __RELEASE__
+//#define __RELEASE__
 #ifdef __RELEASE__
 #define NSLog(...) {}
 #endif
@@ -45,8 +45,8 @@
 #define kUIFont4Content [UIFont fontWithName:@"Times New Roman" size:kContentFontSize]
 #define kUIFont4Title [UIFont boldSystemFontOfSize:kTitleFontSize]
 
-#define kTabHeight 49.0f
-#define kTopTabHeight 33.0f
+#define kTabHeight 44.0f
+#define kTopTabHeight 44.0f//33.0f
 #define kNavigationBarHeight 44.0f
 #define kTabbarHeight kTabHeight
 

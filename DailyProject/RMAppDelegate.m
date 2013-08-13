@@ -39,16 +39,11 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     CGRect rc = [[UIScreen mainScreen]applicationFrame];
     
-    // Override point for customization after application launch.
-    UIViewController *favoriteViewController, *historyViewController;
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        favoriteViewController = [[[RMFavoriteViewController alloc] initWithNibName:@"RMFavoriteViewController_iPhone" bundle:nil] autorelease];
-        historyViewController = [[[RMHistoryViewController alloc] initWithNibName:@"RMHistoryViewController_iPhone" bundle:nil] autorelease];
-    } else {
-        favoriteViewController = [[[RMFavoriteViewController alloc] initWithNibName:@"RMFavoriteViewController_iPad" bundle:nil] autorelease];
-        historyViewController = [[[RMHistoryViewController alloc] initWithNibName:@"RMHistoryViewController_iPad" bundle:nil] autorelease];
-    }
+    rc.size.height -= (kTopTabHeight+kTabbarHeight);
     UIViewController* dailyArticlesController = [[[ArticlesMultiPageViewController alloc]initWithFrame:rc]autorelease];
+    
+    UIViewController *favoriteViewController = [[[RMFavoriteViewController alloc] initWithFrame:rc] autorelease];
+    UIViewController * historyViewController = [[[RMHistoryViewController alloc] initWithFrame:rc] autorelease];
     
     UIViewController* tmp = [[[SettingsViewController alloc]init]autorelease];
     UINavigationController* setting = [[[UINavigationController alloc]initWithRootViewController:tmp]autorelease];

@@ -26,10 +26,10 @@
     self = [super init];
     self.rect = rc;
     
-    //for tab item
-    self.title = NSLocalizedString(Tab_Title_DailyArticles, "");
-    self.tabBarItem.image = [UIImage imageNamed:kIconHomePage];
-    self.navigationItem.title = NSLocalizedString(Title, "");
+//    //for tab item
+//    self.title = NSLocalizedString(Tab_Title_DailyArticles, "");
+//    self.tabBarItem.image = [UIImage imageNamed:kIconHomePage];
+//    self.navigationItem.title = NSLocalizedString(Title, "");
     
     return self;
 }
@@ -46,7 +46,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.pagesContainer = [[DAPagesContainer alloc] init];
+    self.pagesContainer = [[DAPagesContainer alloc] init:self.rect];
     self.pagesContainer.topBarBackgroundColor = TintColor;
     
     [self.pagesContainer willMoveToParentViewController:self];

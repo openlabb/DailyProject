@@ -33,14 +33,25 @@
     }
     return self;
 }
-						
+-(id)initWithFrame:(CGRect)rc
+{
+    self = [super initWithFrame:rc];
+    
+    //    //for tab item
+    self.title = NSLocalizedString(Tab_Title_Favorites, @"");
+    self.tabBarItem.image = [UIImage imageNamed:kIconFavorite];
+    
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.view.frame = self.rect;
 	// Do any additional setup after loading the view, typically from a nib.
+    CGRect frame = self.view.frame;
     
-    ArticleListViewController *jj = [[[ArticleListViewController alloc] init]autorelease];
+    
+    ArticleListViewController *jj = [[[ArticleListViewController alloc] initWithRect:frame]autorelease];
     jj.title = NSLocalizedString(Tab_Title_Favorites, nil);
     jj.dataDelegate = self;
     jj.tableViewRefreshLoadMoreDelegate = self;
@@ -132,20 +143,13 @@
 }
 
 #pragma mark TableViewRefreshLoadMoreDelegate
-- (void)PullToLoadMoreHandler
+- (BOOL)PullToLoadMoreHandler
 {
     self.loadMoreStartIndex += kLoadMoreUnit;
     NSRange range = NSMakeRange(self.loadMoreStartIndex, kLoadMoreUnit);
     NSArray* newItems = [self getTableValue:FAVORITE_DB_NAME withTableName:kDBTableName withRange:range];
     if (!newItems || newItems.count==0) {
-        //forbide load more
-        for(UIViewController* controller in self.pagesContainer.viewControllers)
-        {
-            if ([controller isKindOfClass:[ArticleListViewController class]]) {
-                ((ArticleListViewController*)controller).tableViewRefreshLoadMoreDelegate = nil;
-            }
-        }
-        return;
+        return NO;
     }
     
     //update tableview
@@ -164,5 +168,6 @@
         [newMergedItems addObjectsFromArray:newItems];
         [listController setData:newMergedItems];
     }
+    return YES;
 }
 @end

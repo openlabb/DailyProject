@@ -20,6 +20,7 @@
 @property(nonatomic,retain)id<ArticleListViewDelegate> dataDelegate;
 @property(nonatomic,retain)id<TableViewRefreshLoadMoreDelegate> tableViewRefreshLoadMoreDelegate;
 
+-(id)initWithRect:(CGRect)rc;
 -(void)refreshData;
 
 -(void)setData:(NSArray*)data;

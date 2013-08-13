@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MultiPageViewController.h"
 
-@interface RMHistoryViewController : UIViewController
+@interface RMHistoryViewController : MultiPageViewController
 
 @end

@@ -48,10 +48,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.frame = self.rect;
     
 	// Do any additional setup after loading the view.
 #ifdef kMakeup
-    UIViewController *mb = [[[ArticleListViewController alloc] init]autorelease];
+    UIViewController *mb = [[[ArticleListViewController alloc] initWithFrame:self.rect]autorelease];
     mb.title = @"美白小窍门";
     
     UIViewController *bs = [[[ArticleListViewController alloc] init]autorelease];
@@ -82,31 +83,31 @@
     
     self.pagesContainer.viewControllers = @[mb, bs,tj,jj,qj,dj];
 #else
-    ArticleListViewController *mb = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *mb = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     mb.title = @"夫妻笑话";
     mb.dataDelegate = self;
     
-    ArticleListViewController *tj = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *tj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     tj.title = @"情感攻略";
     tj.dataDelegate = self;
     
-    ArticleListViewController *bs = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *bs = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     bs.title = @"生活健康";
     bs.dataDelegate = self;
     
-    ArticleListViewController *jj = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *jj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     jj.title = @"吐槽实录";
     jj.dataDelegate = self;
     
-    ArticleListViewController *qgmw = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *qgmw = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     qgmw.title = @"情感美文";
     qgmw.dataDelegate = self;
     
-    ArticleListViewController *xxl = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *xxl = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     xxl.title = @"两性心理";
     xxl.dataDelegate = self;
     
-    ArticleListViewController *xbj = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *xbj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     xbj.title = @"两性保健";
     xbj.dataDelegate = self;
     

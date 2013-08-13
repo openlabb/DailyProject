@@ -11,11 +11,13 @@
 #import "CommonHelper.h"
 #import "EarnGoldMultiPageViewController.h"
 #import "RMArticle.h"
+#import "DAPagesContainer.h"
 
 @interface ArticleListViewController ()<tableViewClickDelegate>
 @property(nonatomic,retain)RMArticlesView* articleController;
 @property(nonatomic,retain)NSArray* dataList;
 @property(nonatomic,assign)BOOL loadingData;
+@property(nonatomic,assign)CGRect frame;
 @end
 
 @implementation ArticleListViewController
@@ -23,7 +25,12 @@
 @synthesize dataList;
 @synthesize dataDelegate;
 @synthesize tableViewRefreshLoadMoreDelegate;
-
+-(id)initWithRect:(CGRect)rc
+{
+    self = [super init];
+    _frame = rc;
+    return self;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,9 +43,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.frame = _frame;
 	// Do any additional setup after loading the view.
-    CGRect rc = self.view.frame;
-    //rc.size.height = kDeviceHeight - kTabHeight - kNavigationBarHeight;
+    CGRect rc = _frame;
+    if (self.parentViewController.tabBarController) {
+        rc.size.height -= kTabbarHeight;
+    }
+    if(self.navigationController)
+    {
+        rc.size.height -= kNavigationBarHeight;
+    }
+    if ([self.parentViewController isKindOfClass:[DAPagesContainer class]]) {
+        rc.size.height -= kTopTabHeight;
+    }
+    
+//    rc.size.height -= kTopTabHeight;
+
     rc.origin.y = 0;
     
     BOOL existView = YES;
@@ -141,7 +161,7 @@
 -(void)loadDataOnMainThread
 {
     [self stopActivityIndicatorView];
-    [self.articleController setData:dataList];
+    [self.articleController setItemArray:dataList];
 }
 -(void)setTableViewRefreshLoadMoreDelegate:(id<TableViewRefreshLoadMoreDelegate>)delegate
 {
@@ -157,10 +177,10 @@
 }
 -(void)setData:(NSArray*)data
 {
-    [self.articleController setData:data];
+    [self.articleController setItemArray:data];
 }
 -(NSArray*)getData
 {
-    return self.articleController.data;
+    return self.articleController.itemArray;
 }
 @end
