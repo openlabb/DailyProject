@@ -65,4 +65,7 @@
 #define kArtistId 463201091// @"iDreems",
 #define kFavoriteDBChangedEvent @"kFavoriteDBChangedEvent"
 #define kHideFavoriteFlag -1
+#define kDaysOfYear 365
+
+
 #endif

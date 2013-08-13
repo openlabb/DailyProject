@@ -9,5 +9,10 @@
 #import "MultiPageViewController.h"
 
 @interface ArticlesMultiPageViewController : MultiPageViewController
+{
+    NSDate *_viewDate;
+}
+@property(nonatomic,assign)NSDate *viewDate;
 
+-(void)refreshData;
 @end
