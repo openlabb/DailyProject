@@ -9,6 +9,7 @@
 #import "BannerViewController.h"
 #import "MobiSageSDK.h"
 #import "CommonHelper.h"
+#import "AdsConfig.h"
 
 @interface BannerViewController ()<MobiSageAdBannerDelegate>
 @property(nonatomic,assign)BOOL validClick;
@@ -87,6 +88,7 @@
         NSLog(@"invalid mobiSageAdBannerClick");
         [CommonHelper setGold:[CommonHelper gold]-kGoldByClickingBanner];
     }
+    
     
     self.validClick = NO;
     NSLog(@"mobiSageAdBannerClick");

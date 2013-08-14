@@ -11,7 +11,7 @@
 
 
 //close log
-//#define __RELEASE__
+#define __RELEASE__
 #ifdef __RELEASE__
 #define NSLog(...) {}
 #endif
@@ -36,6 +36,7 @@
 #define kIconHomePage @"ICN_homepage"
 #define kIconFavorite @"ICN_badge-favorite"
 #define kIconSetting @"ICN_setting"
+#define kICN_recommend_tab @"ICN_recommend_tab"
 
 #define kPostNotification @"kPostNotification"//notification for post
 #define kPostResponseData @"kPostResponseData"
@@ -67,5 +68,8 @@
 #define kHideFavoriteFlag -1
 #define kDaysOfYear 365
 
+
+#define kDefaultMobisageId @"e270159b22cc4c98a64e4402db48e96d"
+#define kMobisageRecommendTableViewCount 14
 
 #endif

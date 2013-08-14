@@ -9,9 +9,10 @@
 #import "RecommendViewController.h"
 #import "CommonHelper.h"
 #import "MobiSageSDK.h"
+#import "MobiSageRecommendView+MobiSageRecommendViewEx.h"
 
-#define kAdMaxCount 4
 #define kCellHeight 157
+#define kMobisageRecommendCount 4
 
 @interface RecommendViewController ()<MobiSageRecommendDelegate>
 @property (nonatomic, retain) MSRecommendContentView *recommendView;
@@ -38,7 +39,7 @@
     
     CGRect rect = self.view.frame;
     rect.size.height = 4*kTitleFontSize;
-        
+    
     UILabel* label = [[[UILabel alloc]initWithFrame:rect]autorelease];
     label.font = [UIFont boldSystemFontOfSize:kTitleFontSize];
     label.baselineAdjustment = UIBaselineAdjustmentNone;
@@ -52,14 +53,23 @@
 
     
     rect.origin.y += rect.size.height;
-    rect.size.height = kCellHeight*kAdMaxCount;
+    rect.size.height = kCellHeight * kMobisageRecommendCount *(300.0/640.0);
     
-    self.recommendView = [[[MSRecommendContentView alloc] initWithdelegate:self width:300.0f adCount:kAdMaxCount] autorelease];
+    self.recommendView = [[MSRecommendContentView alloc] initWithdelegate:self width:300.0f adCount:kMobisageRecommendCount];
+    [self.recommendView release];
+    
     self.recommendView.frame = rect;
     [self.view addSubview:self.recommendView];
     
     //hook tableview in this view
-    [self.recommendView hookTableView];
+    if ([self.recommendView respondsToSelector:@selector(hookTableView)]) {
+        [self.recommendView performSelector:@selector(hookTableView)];
+    }
+}
+- (void)viewDidUnload {
+    self.recommendView = nil;
+    
+    [super viewDidUnload];
 }
 
 - (void)didReceiveMemoryWarning

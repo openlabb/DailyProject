@@ -214,7 +214,7 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 			staticContentCell.reuseIdentifier = reuseIdentifier;
 			cell.selectionStyle = UITableViewCellStyleDefault;
             
-			cell.textLabel.text =NSLocalizedString(Tab_Title_RecommmendApps, @"");
+			cell.textLabel.text =NSLocalizedString(RecommmendApps, @"");
 			//cell.imageView.image = [UIImage imageNamed:kIconFavorite];
             
 		} whenSelected:^(NSIndexPath *indexPath) {

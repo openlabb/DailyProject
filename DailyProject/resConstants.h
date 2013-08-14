@@ -25,6 +25,7 @@
 #define Premium @"Premium"
 #define kEmailFeedbackBody @"kEmailFeedbackBody"
 #define appFriendlyTip @"appFriendlyTip"
+#define RecommmendApps @"RecommmendApps"
 
 #define kLikeNumber @"kLikeNumber"
 #define kLikeNumberPlus @"kLikeNumberPlus"

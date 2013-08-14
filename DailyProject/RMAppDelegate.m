@@ -7,7 +7,6 @@
 //
 
 #import "RMAppDelegate.h"
-
 #import "RMFavoriteViewController.h"
 #import "ArticlesMultiPageViewController.h"
 #import "RMHistoryViewController.h"
@@ -15,7 +14,13 @@
 #import "SettingsViewController.h"
 #import "resConstants.h"
 #import "UMSocial.h"
-
+#import "Flurry.h"
+#import "iRate.h"
+#import "iVersion.h"
+#import "MobisageRecommendTableViewController.h"
+#import "AdsConfig.h"
+#import "AdsConfiguration.h"
+#import "HTTPHelper.h"
 
 @interface RMAppDelegate()
 {
@@ -24,6 +29,15 @@
 @end
 
 @implementation RMAppDelegate
++ (void)initialize
+{
+    //configure iRate
+    [iRate sharedInstance].daysUntilPrompt = 5;
+    [iRate sharedInstance].usesUntilPrompt = 5;
+    
+//    [iVersion sharedInstance].appStoreID = 355313284;
+//    [iVersion sharedInstance].remoteVersionsPlistURL = @"http://example.com/versions.plist";
+}
 
 - (void)dealloc
 {
@@ -44,16 +58,25 @@
     
     UIViewController *favoriteViewController = [[[RMFavoriteViewController alloc] initWithFrame:rc] autorelease];
     UIViewController * historyViewController = [[[RMHistoryViewController alloc] initWithFrame:rc] autorelease];
+    UIViewController* recommendController = [[[MobisageRecommendTableViewController alloc] init] autorelease];
     
     UIViewController* tmp = [[[SettingsViewController alloc]init]autorelease];
     UINavigationController* setting = [[[UINavigationController alloc]initWithRootViewController:tmp]autorelease];
     
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = @[dailyArticlesController,historyViewController, favoriteViewController,setting];
+    self.tabBarController.viewControllers = @[dailyArticlesController,historyViewController, favoriteViewController,recommendController,setting];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    [self startAdsConfigReceive];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(notifyClick_Ad:) name:MobiSageAdView_Click_AD object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMobisageRecommendSingleTap:) name:kClickRecommendViewEvent object:nil];
+    
     return YES;
 }
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -167,5 +190,70 @@
     [notification release];
 }
 
+#pragma mark ad click event handler
+/**
+ banner ad clicked,increment gold
+ */
+-(void)notifyClick_Ad:(NSNotification*)notification
+{
+    [CommonHelper setGold:[CommonHelper gold]+kGoldByClickingBanner];
+    NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingBanner] forKey:kClickBannerEvent];
+    [Flurry logEvent:kGoldEvent withParameters:dict];
+    
+    
+    NSLog(@"notify:%@,gold:%d",notification.name,[CommonHelper gold]);
+}
+-(void)handleMobisageRecommendSingleTap:(NSNotification*)notification
+{
+    if (notification && [notification.name isEqualToString:kClickRecommendViewEvent]) {
+        [CommonHelper setGold:[CommonHelper gold]+kGoldByClickingRecommendView];
+        
+        NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingRecommendView] forKey:kClickRecommendViewEvent];
+        [Flurry logEvent:kGoldEvent withParameters:dict];
+    }
+}
+#pragma mark ads utils
+
+-(void)getResult:(NSNotification*)notification
+{
+    if (notification && ![notification.object isKindOfClass:[NSError class]]) {
+        //parse ads and send notification
+        AdsConfiguration* adsConfig = [AdsConfiguration sharedInstance];
+        [adsConfig initWithJson:[notification.userInfo objectForKey:kPostResponseData]];
+        
+        //flurry
+        [Flurry startSession:[[AdsConfiguration sharedInstance]FlurryId]];
+        //向微信注册
+        [WXApi registerApp:[[AdsConfiguration sharedInstance]wechatId]];
+//        [self checkUpdate];
+//        [iVersion sharedInstance].appStoreID = [[AdsConfiguration sharedInstance]appleId];
+        
+        //notify
+        [[NSNotificationCenter defaultCenter]postNotificationName:kAdsConfigUpdated object:nil];
+    }
+    
+}
+- (void)startAdsConfigReceive
+// Starts a connection to download the current URL.
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getResult:) name:kPostNotification object:nil];
+    //new method to get ads
+    [self beginPostRequest:kAdsJsonUrl withDictionary:[CommonHelper getAdPostReqParams]];
+
+}
+#pragma mark HTTP util methods
+-(void)beginRequest:(FileModel *)fileInfo isBeginDown:(BOOL)isBeginDown setAllowResumeForFileDownloads:(BOOL)allow
+{
+    [[HTTPHelper sharedInstance]beginRequest:fileInfo isBeginDown:isBeginDown setAllowResumeForFileDownloads:allow];
+}
+-(void)beginRequest:(FileModel *)fileInfo isBeginDown:(BOOL)isBeginDown
+{
+    [[HTTPHelper sharedInstance]beginRequest:fileInfo isBeginDown:isBeginDown];
+}
+
+-(void)beginPostRequest:(NSString*)url withDictionary:(NSDictionary*)postData
+{
+    [[HTTPHelper sharedInstance]beginPostRequest:url withDictionary:postData];
+}
 
 @end

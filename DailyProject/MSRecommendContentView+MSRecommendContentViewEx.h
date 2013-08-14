@@ -8,8 +8,6 @@
 
 #import "MobiSageSDK.h"
 
-#define kSingleTapNotification @"kSingleTapNotification"
-
 @interface MSRecommendContentView (MSRecommendContentViewEx)
 -(void)hookTableView;
 @end

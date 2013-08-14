@@ -127,7 +127,7 @@
     xbj.title = @"两性保健";
     xbj.dataDelegate = self;
     
-    self.pagesContainer.viewControllers = @[mb,qgmw,bs,tj,jj,xbj,xxl];
+    self.pagesContainer.viewControllers = @[xbj,xxl,mb,qgmw,bs,tj,jj];
 #endif
 }
 

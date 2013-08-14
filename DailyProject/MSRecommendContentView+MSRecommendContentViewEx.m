@@ -8,6 +8,7 @@
 
 #import "MSRecommendContentView+MSRecommendContentViewEx.h"
 #import <UIKit/UIKit.h>
+#import "AdsConfig.h"
 
 @implementation MSRecommendContentView (MSRecommendContentViewEx)
 -(void)hookTableView
@@ -25,7 +26,7 @@
 }
 -(void)handleSingleTap:(UIView*)view
 {
-    [[NSNotificationCenter defaultCenter]postNotificationName:kSingleTapNotification object:self];
+    [[NSNotificationCenter defaultCenter]postNotificationName:kClickRecommendViewEvent object:self];
     NSLog(@"handleSingleTap");
 }
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer

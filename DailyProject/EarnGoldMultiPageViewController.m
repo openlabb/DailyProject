@@ -35,7 +35,8 @@
 }
 - (void) viewWillAppear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForegroundNotification) name:UIApplicationWillEnterForegroundNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSingleTap:) name:kSingleTapNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSingleTap:) name:kClickRecommendViewEvent object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleBannerSingleTap:) name:kClickBannerEvent object:nil];
 }
 
 -(void) viewDidDisappear:(BOOL)animated{
@@ -45,6 +46,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [[MobiSageManager getInstance]setPublisherID:[[AdsConfiguration sharedInstance]mobisageId]];
     self.mInitGold = [CommonHelper gold];
     self.title = [NSString stringWithFormat:NSLocalizedString(@"Premium", @""),self.mInitGold];
@@ -92,7 +94,15 @@
 }
 -(void)handleSingleTap:(NSNotification*)notification
 {
-    if (notification && [notification.name isEqualToString:kSingleTapNotification]) {
+//    if (notification && [notification.name isEqualToString:kClickRecommendViewEvent])
+    {
+        [self appWillEnterForegroundNotification];
+    }
+}
+-(void)handleBannerSingleTap:(NSNotification*)notification
+{
+//    if (notification && [notification.name isEqualToString:kMobisageRecommnedAdSingleTapNotification])
+    {
         [self appWillEnterForegroundNotification];
     }
 }

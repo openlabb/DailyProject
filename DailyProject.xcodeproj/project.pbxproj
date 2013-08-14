@@ -23,7 +23,6 @@
 		30761B2A17B76ACD00239F51 /* ArticlesMultiPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B1217B76ACD00239F51 /* ArticlesMultiPageViewController.m */; };
 		30761B2B17B76ACD00239F51 /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B1417B76ACD00239F51 /* BannerViewController.m */; };
 		30761B2C17B76ACD00239F51 /* EarnGoldMultiPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B1617B76ACD00239F51 /* EarnGoldMultiPageViewController.m */; };
-		30761B3217B76ACD00239F51 /* MobiSageRecommendView+MobiSageRecommendViewEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B2317B76ACD00239F51 /* MobiSageRecommendView+MobiSageRecommendViewEx.m */; };
 		30761B3317B76ACD00239F51 /* MSRecommendContentView+MSRecommendContentViewEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B2517B76ACD00239F51 /* MSRecommendContentView+MSRecommendContentViewEx.m */; };
 		30761B3417B76ACD00239F51 /* MultiPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B2717B76ACD00239F51 /* MultiPageViewController.m */; };
 		30761B3517B76ACD00239F51 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B2917B76ACD00239F51 /* RecommendViewController.m */; };
@@ -117,7 +116,6 @@
 		30761EB017B76B6900239F51 /* DAPageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761BD317B76B6800239F51 /* DAPageIndicatorView.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
 		30761EB117B76B6900239F51 /* DAPagesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761BD517B76B6800239F51 /* DAPagesContainer.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
 		30761EB217B76B6900239F51 /* DAPagesContainerTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761BD717B76B6800239F51 /* DAPagesContainerTopBar.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
-		30761EC017B76B6900239F51 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30761BF017B76B6800239F51 /* libFlurry.a */; };
 		30761EC117B76B6900239F51 /* GifView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761BF317B76B6800239F51 /* GifView.m */; };
 		30761EC217B76B6900239F51 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761BF617B76B6800239F51 /* MBProgressHUD.m */; };
 		30761ECC17B76B6900239F51 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761C0A17B76B6800239F51 /* IAPHelper.m */; };
@@ -316,6 +314,12 @@
 		307621EA17BA285000239F51 /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 307621E517BA285000239F51 /* left_arrow@2x.png */; };
 		307621EB17BA285000239F51 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 307621E617BA285000239F51 /* right_arrow.png */; };
 		307621EC17BA285000239F51 /* right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 307621E717BA285000239F51 /* right_arrow@2x.png */; };
+		30E8830017BC350E002F92E0 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E882FF17BC350E002F92E0 /* libFlurry.a */; };
+		30E8830517BC366E002F92E0 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30E8830217BC366E002F92E0 /* iVersion.bundle */; };
+		30E8830617BC366E002F92E0 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E8830417BC366E002F92E0 /* iVersion.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		30E8830917BC390A002F92E0 /* MobisageRecommendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E8830817BC390A002F92E0 /* MobisageRecommendTableViewController.m */; };
+		30E8830C17BC3BF4002F92E0 /* ICN_recommend_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E8830A17BC3BF4002F92E0 /* ICN_recommend_tab.png */; };
+		30E8830D17BC3BF4002F92E0 /* ICN_recommend_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E8830B17BC3BF4002F92E0 /* ICN_recommend_tab@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -345,8 +349,6 @@
 		30761B1417B76ACD00239F51 /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 		30761B1517B76ACD00239F51 /* EarnGoldMultiPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarnGoldMultiPageViewController.h; sourceTree = "<group>"; };
 		30761B1617B76ACD00239F51 /* EarnGoldMultiPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarnGoldMultiPageViewController.m; sourceTree = "<group>"; };
-		30761B2217B76ACD00239F51 /* MobiSageRecommendView+MobiSageRecommendViewEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MobiSageRecommendView+MobiSageRecommendViewEx.h"; sourceTree = "<group>"; };
-		30761B2317B76ACD00239F51 /* MobiSageRecommendView+MobiSageRecommendViewEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MobiSageRecommendView+MobiSageRecommendViewEx.m"; sourceTree = "<group>"; };
 		30761B2417B76ACD00239F51 /* MSRecommendContentView+MSRecommendContentViewEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSRecommendContentView+MSRecommendContentViewEx.h"; sourceTree = "<group>"; };
 		30761B2517B76ACD00239F51 /* MSRecommendContentView+MSRecommendContentViewEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSRecommendContentView+MSRecommendContentViewEx.m"; sourceTree = "<group>"; };
 		30761B2617B76ACD00239F51 /* MultiPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiPageViewController.h; sourceTree = "<group>"; };
@@ -489,8 +491,6 @@
 		30761BD517B76B6800239F51 /* DAPagesContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAPagesContainer.m; sourceTree = "<group>"; };
 		30761BD617B76B6800239F51 /* DAPagesContainerTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAPagesContainerTopBar.h; sourceTree = "<group>"; };
 		30761BD717B76B6800239F51 /* DAPagesContainerTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAPagesContainerTopBar.m; sourceTree = "<group>"; };
-		30761BEF17B76B6800239F51 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		30761BF017B76B6800239F51 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		30761BF217B76B6800239F51 /* GifView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifView.h; sourceTree = "<group>"; };
 		30761BF317B76B6800239F51 /* GifView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifView.m; sourceTree = "<group>"; };
 		30761BF517B76B6800239F51 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -840,6 +840,15 @@
 		307621E517BA285000239F51 /* left_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_arrow@2x.png"; sourceTree = "<group>"; };
 		307621E617BA285000239F51 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
 		307621E717BA285000239F51 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
+		30E882FE17BC350E002F92E0 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		30E882FF17BC350E002F92E0 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		30E8830217BC366E002F92E0 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
+		30E8830317BC366E002F92E0 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
+		30E8830417BC366E002F92E0 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
+		30E8830717BC390A002F92E0 /* MobisageRecommendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobisageRecommendTableViewController.h; sourceTree = "<group>"; };
+		30E8830817BC390A002F92E0 /* MobisageRecommendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobisageRecommendTableViewController.m; sourceTree = "<group>"; };
+		30E8830A17BC3BF4002F92E0 /* ICN_recommend_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ICN_recommend_tab.png; sourceTree = "<group>"; };
+		30E8830B17BC3BF4002F92E0 /* ICN_recommend_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICN_recommend_tab@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -878,7 +887,6 @@
 				307620BF17B7702F00239F51 /* PassKit.framework in Frameworks */,
 				307620BD17B7702900239F51 /* AdSupport.framework in Frameworks */,
 				307620BB17B7700A00239F51 /* SystemConfiguration.framework in Frameworks */,
-				30761EC017B76B6900239F51 /* libFlurry.a in Frameworks */,
 				30761FDB17B76B6A00239F51 /* Unrar4iOS.framework in Frameworks */,
 				3076206917B76C9000239F51 /* libMobiSageRecommend.a in Frameworks */,
 				3076206A17B76C9000239F51 /* libMobiSageSDK.a in Frameworks */,
@@ -886,6 +894,7 @@
 				3076219617B7D76F00239F51 /* libWeChatSDK_armv7_armv7s.a in Frameworks */,
 				3076219717B7D76F00239F51 /* libUMSocial_Sdk_2.2.1.1.a in Frameworks */,
 				3076219817B7D76F00239F51 /* libUMSocial_Sdk_Comment_2.2.1.1.a in Frameworks */,
+				30E8830017BC350E002F92E0 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -982,6 +991,8 @@
 		30761B0B17B7687000239F51 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				30E8830A17BC3BF4002F92E0 /* ICN_recommend_tab.png */,
+				30E8830B17BC3BF4002F92E0 /* ICN_recommend_tab@2x.png */,
 				3076213017B77FD400239F51 /* ICN_badge-favorite.png */,
 				3076213117B77FD400239F51 /* ICN_badge-favorite@2x.png */,
 				3076213417B77FD400239F51 /* ICN_homepage.png */,
@@ -997,15 +1008,17 @@
 		30761B0C17B7689700239F51 /* TabControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3076214717B7942100239F51 /* TabEllite */,
-				3076214417B7825000239F51 /* SettingsViewController.h */,
-				3076214517B7825100239F51 /* SettingsViewController.m */,
 				30761B1117B76ACD00239F51 /* ArticlesMultiPageViewController.h */,
 				30761B1217B76ACD00239F51 /* ArticlesMultiPageViewController.m */,
+				30E8830717BC390A002F92E0 /* MobisageRecommendTableViewController.h */,
+				30E8830817BC390A002F92E0 /* MobisageRecommendTableViewController.m */,
 				3034918417B7663600BFA351 /* RMFavoriteViewController.h */,
 				3034918517B7663600BFA351 /* RMFavoriteViewController.m */,
 				3034918B17B7663600BFA351 /* RMHistoryViewController.h */,
 				3034918C17B7663600BFA351 /* RMHistoryViewController.m */,
+				3076214417B7825000239F51 /* SettingsViewController.h */,
+				3076214517B7825100239F51 /* SettingsViewController.m */,
+				3076214717B7942100239F51 /* TabEllite */,
 			);
 			name = TabControllers;
 			sourceTree = "<group>";
@@ -1023,20 +1036,20 @@
 		30761B3617B76B6800239F51 /* iOS_Lib */ = {
 			isa = PBXGroup;
 			children = (
-				307621E017BA284E00239F51 /* CKCalendarView */,
-				307621B817BA064800239F51 /* DCPathButton */,
-				307621B417B99BAF00239F51 /* AH3DPullRefresh */,
-				307621A217B8CAAA00239F51 /* DAAppsViewController */,
-				3076217517B7D76D00239F51 /* UMSocial_Sdk_2.2.1.1 */,
+				30E8830117BC366E002F92E0 /* iVersion */,
 				30761B3717B76B6800239F51 /* Additions */,
 				30761FF817B76C8F00239F51 /* AdPlatform */,
+				307621B417B99BAF00239F51 /* AH3DPullRefresh */,
 				30761B3E17B76B6800239F51 /* ASIHTTPRequest */,
 				30761B7517B76B6800239F51 /* autohideMenu */,
 				30761BA817B76B6800239F51 /* BrowseGallery */,
 				30761BAB17B76B6800239F51 /* ChargePlugin */,
 				30761BB017B76B6800239F51 /* CIALBrowser */,
+				307621E017BA284E00239F51 /* CKCalendarView */,
+				307621A217B8CAAA00239F51 /* DAAppsViewController */,
 				30761BD117B76B6800239F51 /* DAPagesContainer */,
-				30761BED17B76B6800239F51 /* Flurry-iOS-4.2.1 */,
+				307621B817BA064800239F51 /* DCPathButton */,
+				30E882FC17BC350E002F92E0 /* Flurry-iOS-4.2.3 */,
 				30761BF117B76B6800239F51 /* Gifview */,
 				30761BF417B76B6800239F51 /* HUD */,
 				30761C0817B76B6800239F51 /* InAppPurchase */,
@@ -1060,6 +1073,7 @@
 				30761DEA17B76B6900239F51 /* TitleWithSubtitleTableView */,
 				30761DF917B76B6900239F51 /* Toast */,
 				30761DFC17B76B6900239F51 /* Touchjson */,
+				3076217517B7D76D00239F51 /* UMSocial_Sdk_2.2.1.1 */,
 				30761E1717B76B6900239F51 /* UnPackage */,
 				307620F417B7734D00239F51 /* Utils */,
 				30761E4417B76B6900239F51 /* XPathQuery */,
@@ -1275,23 +1289,6 @@
 				30761BD717B76B6800239F51 /* DAPagesContainerTopBar.m */,
 			);
 			path = DAPagesContainer;
-			sourceTree = "<group>";
-		};
-		30761BED17B76B6800239F51 /* Flurry-iOS-4.2.1 */ = {
-			isa = PBXGroup;
-			children = (
-				30761BEE17B76B6800239F51 /* Flurry */,
-			);
-			path = "Flurry-iOS-4.2.1";
-			sourceTree = "<group>";
-		};
-		30761BEE17B76B6800239F51 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				30761BEF17B76B6800239F51 /* Flurry.h */,
-				30761BF017B76B6800239F51 /* libFlurry.a */,
-			);
-			path = Flurry;
 			sourceTree = "<group>";
 		};
 		30761BF117B76B6800239F51 /* Gifview */ = {
@@ -1995,8 +1992,6 @@
 				30761B1417B76ACD00239F51 /* BannerViewController.m */,
 				30761B1517B76ACD00239F51 /* EarnGoldMultiPageViewController.h */,
 				30761B1617B76ACD00239F51 /* EarnGoldMultiPageViewController.m */,
-				30761B2217B76ACD00239F51 /* MobiSageRecommendView+MobiSageRecommendViewEx.h */,
-				30761B2317B76ACD00239F51 /* MobiSageRecommendView+MobiSageRecommendViewEx.m */,
 				30761B2417B76ACD00239F51 /* MSRecommendContentView+MSRecommendContentViewEx.h */,
 				30761B2517B76ACD00239F51 /* MSRecommendContentView+MSRecommendContentViewEx.m */,
 			);
@@ -2146,6 +2141,33 @@
 				307621E717BA285000239F51 /* right_arrow@2x.png */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		30E882FC17BC350E002F92E0 /* Flurry-iOS-4.2.3 */ = {
+			isa = PBXGroup;
+			children = (
+				30E882FD17BC350E002F92E0 /* Flurry */,
+			);
+			path = "Flurry-iOS-4.2.3";
+			sourceTree = "<group>";
+		};
+		30E882FD17BC350E002F92E0 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				30E882FE17BC350E002F92E0 /* Flurry.h */,
+				30E882FF17BC350E002F92E0 /* libFlurry.a */,
+			);
+			path = Flurry;
+			sourceTree = "<group>";
+		};
+		30E8830117BC366E002F92E0 /* iVersion */ = {
+			isa = PBXGroup;
+			children = (
+				30E8830217BC366E002F92E0 /* iVersion.bundle */,
+				30E8830317BC366E002F92E0 /* iVersion.h */,
+				30E8830417BC366E002F92E0 /* iVersion.m */,
+			);
+			path = iVersion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2304,6 +2326,9 @@
 				307621EA17BA285000239F51 /* left_arrow@2x.png in Resources */,
 				307621EB17BA285000239F51 /* right_arrow.png in Resources */,
 				307621EC17BA285000239F51 /* right_arrow@2x.png in Resources */,
+				30E8830517BC366E002F92E0 /* iVersion.bundle in Resources */,
+				30E8830C17BC3BF4002F92E0 /* ICN_recommend_tab.png in Resources */,
+				30E8830D17BC3BF4002F92E0 /* ICN_recommend_tab@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2322,7 +2347,6 @@
 				30761B2A17B76ACD00239F51 /* ArticlesMultiPageViewController.m in Sources */,
 				30761B2B17B76ACD00239F51 /* BannerViewController.m in Sources */,
 				30761B2C17B76ACD00239F51 /* EarnGoldMultiPageViewController.m in Sources */,
-				30761B3217B76ACD00239F51 /* MobiSageRecommendView+MobiSageRecommendViewEx.m in Sources */,
 				30761B3317B76ACD00239F51 /* MSRecommendContentView+MSRecommendContentViewEx.m in Sources */,
 				30761B3417B76ACD00239F51 /* MultiPageViewController.m in Sources */,
 				30761B3517B76ACD00239F51 /* RecommendViewController.m in Sources */,
@@ -2481,6 +2505,8 @@
 				307621D017BA064900239F51 /* DCSubButton.m in Sources */,
 				307621DF17BA064900239F51 /* NSMutableArray+addImage.m in Sources */,
 				307621E817BA285000239F51 /* CKCalendarView.m in Sources */,
+				30E8830617BC366E002F92E0 /* iVersion.m in Sources */,
+				30E8830917BC390A002F92E0 /* MobisageRecommendTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2584,6 +2610,7 @@
 					"\"$(SRCROOT)/../iOS_Lib/AdPlatform/youmi\"",
 					"\"$(SRCROOT)/../iOS_Lib/UMSocial_Sdk_All_2.2.1.1/UMSocial_Sdk_2.2.1.1/frameworks/Wechat\"",
 					"\"$(SRCROOT)/../iOS_Lib/UMSocial_Sdk_All_2.2.1.1/UMSocial_Sdk_2.2.1.1\"",
+					"\"$(SRCROOT)/../iOS_Lib/Flurry-iOS-4.2.3/Flurry\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -2616,6 +2643,7 @@
 					"\"$(SRCROOT)/../iOS_Lib/AdPlatform/youmi\"",
 					"\"$(SRCROOT)/../iOS_Lib/UMSocial_Sdk_All_2.2.1.1/UMSocial_Sdk_2.2.1.1/frameworks/Wechat\"",
 					"\"$(SRCROOT)/../iOS_Lib/UMSocial_Sdk_All_2.2.1.1/UMSocial_Sdk_2.2.1.1\"",
+					"\"$(SRCROOT)/../iOS_Lib/Flurry-iOS-4.2.3/Flurry\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
