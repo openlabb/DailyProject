@@ -17,7 +17,7 @@
 
 #define kLoadMoreUnit 10
 
-@interface RMFavoriteViewController ()<ArticleListViewDelegate,TableViewRefreshLoadMoreDelegate>
+@interface RMFavoriteViewController ()<ArticleListViewDelegate,TableViewRefreshLoadMoreDelegate,TableViewClickDelegate>
 @property(nonatomic,retain)RMArticlesView* articleController;
 @property(nonatomic,assign)NSInteger loadMoreStartIndex;
 @end
@@ -53,10 +53,11 @@
     
     ArticleListViewController *jj = [[[ArticleListViewController alloc] initWithRect:frame]autorelease];
     jj.title = NSLocalizedString(Tab_Title_Favorites, nil);
+    
     jj.dataDelegate = self;
     jj.tableViewRefreshLoadMoreDelegate = self;
-    
     self.pagesContainer.viewControllers = @[jj];
+    jj.tableViewClickDelegate = self;
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(favoriteDBChanged) name:kFavoriteDBChangedEvent object:nil];
 }
@@ -121,7 +122,14 @@
         [dbManager closeDatabase];
     }
 }
-
++(void)removeFromDB:(NSString*)url
+{
+    SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:FAVORITE_DB_NAME]autorelease];
+    NSString *sql = [NSString stringWithFormat:@"delete from Content where PageUrl = '%@'",url];
+    [dbManager doQuery:sql];
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:kFavoriteDBChangedEvent object:nil];
+}
 +(void)addToFavorite:(RMArticle*)article
 {
     [RMFavoriteViewController makeSureDBExist];
@@ -169,5 +177,36 @@
         [listController setData:newMergedItems];
     }
     return YES;
+}
+#pragma mark TableViewClickDelegate
+
+-(BOOL)canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+- (void)tableViewCommitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"tableViewCommitEditingStyle");
+    //update tableview
+    ArticleListViewController* listController = nil;
+    for(UIViewController* controller in self.pagesContainer.viewControllers)
+    {
+        if ([controller isKindOfClass:[ArticleListViewController class]]) {
+            listController = ((ArticleListViewController*)controller);
+            break;
+        }
+    }
+    NSString* pageUrl = nil;
+    if (listController) {
+        NSMutableArray* items = [NSMutableArray arrayWithArray:[listController getData]];
+        RMArticle* article = [items objectAtIndex:indexPath.row];
+        pageUrl = article.url;
+        
+        [items removeObjectAtIndex:indexPath.row];
+        [listController setData:items];
+    }
+    
+    //remove from database
+    [RMFavoriteViewController removeFromDB:pageUrl];
 }
 @end

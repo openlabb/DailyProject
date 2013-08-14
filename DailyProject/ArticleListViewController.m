@@ -13,7 +13,7 @@
 #import "RMArticle.h"
 #import "DAPagesContainer.h"
 
-@interface ArticleListViewController ()<tableViewClickDelegate>
+@interface ArticleListViewController ()<TableViewClickDelegate>
 @property(nonatomic,retain)RMArticlesView* articleController;
 @property(nonatomic,retain)NSArray* dataList;
 @property(nonatomic,assign)BOOL loadingData;
@@ -25,6 +25,7 @@
 @synthesize dataList;
 @synthesize dataDelegate;
 @synthesize tableViewRefreshLoadMoreDelegate;
+@synthesize tableViewClickDelegate;
 -(id)initWithRect:(CGRect)rc
 {
     self = [super init];
@@ -137,7 +138,10 @@
     UINavigationController* navi = [[[UINavigationController alloc]initWithRootViewController:controller]autorelease];
     [(UIViewController*)responder presentViewController:navi animated:YES completion:nil];
 }
-
+-(BOOL)canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
 #pragma mark update data methods
 -(void)refreshData
 {
@@ -173,6 +177,17 @@
     if(self.articleController)
     {
         self.articleController.tableViewRefreshHanlder = delegate;
+    }
+}
+-(void)setTableViewClickDelegate:(id<TableViewClickDelegate>)delegate
+{
+    tableViewClickDelegate = delegate;
+    if(tableViewClickDelegate)
+    {
+        [tableViewClickDelegate retain];
+    }
+    if (self.articleController) {
+        self.articleController.tableViewDelegate = self.tableViewClickDelegate;
     }
 }
 -(void)setData:(NSArray*)data

@@ -19,6 +19,7 @@
 @property(nonatomic,retain)NSString* title;
 @property(nonatomic,retain)id<ArticleListViewDelegate> dataDelegate;
 @property(nonatomic,retain)id<TableViewRefreshLoadMoreDelegate> tableViewRefreshLoadMoreDelegate;
+@property(nonatomic,retain)id<TableViewClickDelegate> tableViewClickDelegate;
 
 -(id)initWithRect:(CGRect)rc;
 -(void)refreshData;
