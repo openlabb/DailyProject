@@ -35,4 +35,6 @@
 #define kFavoriteNumber @"kFavoriteNumber"
 #define kFavoriteNumberPlus @"kFavoriteNumberPlus"
 #define kFavoriteNumberMinus @"kFavoriteNumberMinus"
+
+#define kLoadingDataTipMessage @"kLoadingDataTipMessage"
 #endif

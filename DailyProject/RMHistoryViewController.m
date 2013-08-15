@@ -70,9 +70,9 @@
                                   centerImage:@"custom_center"
                                   centerBackground:nil
                                   subImages:^(DCPathButton *dc){
-                                      [dc subButtonImage:@"custom_1" withTag:0];
-                                      [dc subButtonImage:@"custom_2" withTag:1];
-                                      [dc subButtonImage:@"custom_3" withTag:2];
+                                      [dc subButtonImage:@"custom_5" withTag:0];
+                                      [dc subButtonImage:@"custom_3" withTag:1];
+                                      [dc subButtonImage:@"custom_2" withTag:2];
                                       //[dc subButtonImage:@"custom_4" withTag:3];
                                       //[dc subButtonImage:@"custom_5" withTag:4];
                                       //[dc subButtonImage:@"custom_1" withTag:5];

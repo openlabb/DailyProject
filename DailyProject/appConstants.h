@@ -72,4 +72,5 @@
 #define kDefaultMobisageId @"e270159b22cc4c98a64e4402db48e96d"
 #define kMobisageRecommendTableViewCount 14
 
+#define kAdDisplayCount 10//没启动软件多少次，显示闪屏广告
 #endif

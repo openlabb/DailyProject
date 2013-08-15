@@ -12,12 +12,15 @@
 #import "EarnGoldMultiPageViewController.h"
 #import "RMArticle.h"
 #import "DAPagesContainer.h"
+#import "MBProgressHUD.h"
+
 
 @interface ArticleListViewController ()<TableViewClickDelegate>
 @property(nonatomic,retain)RMArticlesView* articleController;
 @property(nonatomic,retain)NSArray* dataList;
 @property(nonatomic,assign)BOOL loadingData;
 @property(nonatomic,assign)CGRect frame;
+@property(nonatomic,retain)MBProgressHUD* HUD;
 @end
 
 @implementation ArticleListViewController
@@ -26,6 +29,8 @@
 @synthesize dataDelegate;
 @synthesize tableViewRefreshLoadMoreDelegate;
 @synthesize tableViewClickDelegate;
+@synthesize HUD;
+
 -(id)initWithRect:(CGRect)rc
 {
     self = [super init];
@@ -88,6 +93,7 @@
 }
 -(void)addActivityIndicatorView
 {
+#if 0
     UIActivityIndicatorView* view = [[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge]autorelease];
     view.frame = self.view.frame;
     view.color = [UIColor orangeColor];
@@ -95,15 +101,34 @@
     
     [self.view addSubview:view];
     [view startAnimating];
+#else
+    //初始化进度框，置于当前的View当中
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.HUD release];
+    [self.view addSubview:self.HUD];
+    
+    //如果设置此属性则当前的view置于后台
+//    self.HUD.dimBackground = YES;
+    
+    //设置对话框文字
+    HUD.labelText = NSLocalizedString(kLoadingDataTipMessage, "");
+    
+    //显示对话框
+    [self.HUD show:YES];
+#endif
 }
 -(void)stopActivityIndicatorView
 {
+#if 0
     for (UIView* view in [self.view subviews]) {
         if([view isKindOfClass:[UIActivityIndicatorView class]])
         {
             [((UIActivityIndicatorView*)view) stopAnimating];
         }
     }
+#else
+    [self.HUD hide:YES];
+#endif
 }
 - (void)didReceiveMemoryWarning
 {

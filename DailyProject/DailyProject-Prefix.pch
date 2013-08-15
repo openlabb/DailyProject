@@ -16,4 +16,5 @@
 #endif
 
 #import "appConstants.h"
+#import "resConstants.h"
 

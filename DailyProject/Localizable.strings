@@ -32,3 +32,4 @@
 
 "kEmailFeedbackBody"= "我喜欢的功能是：\n\n不喜欢的功能是:\n\n希望增加的功能是:\n\n其他建议：\n";
 "appFriendlyTip"="内容天天变，明天再来奥！(可在设置中关闭)";
+"kLoadingDataTipMessage"="奋力加载中...";
