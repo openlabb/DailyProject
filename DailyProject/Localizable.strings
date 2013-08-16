@@ -26,9 +26,9 @@
 "AboutTitle"="关于";
 "CloseBackgroundTip"="退出时弹出状态栏提示";
 "kMoreFeedBackKey"="反馈";
-"kMoreRateKey"="评分";
+"kMoreRateKey"="评价一下";
 "Premium"="赚积分(当前积分:%d)";
-"RecommmendApps"="推荐应用";
+"RecommmendApps"="自家应用";
 
 "kEmailFeedbackBody"= "我喜欢的功能是：\n\n不喜欢的功能是:\n\n希望增加的功能是:\n\n其他建议：\n";
 "appFriendlyTip"="内容天天变，明天再来奥！(可在设置中关闭)";

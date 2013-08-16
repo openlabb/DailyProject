@@ -39,16 +39,6 @@
     //configure iRate
     [iRate sharedInstance].daysUntilPrompt = 5;
     [iRate sharedInstance].usesUntilPrompt = 5;
-    
-//    [iVersion sharedInstance].appStoreID = 355313284;
-//    [iVersion sharedInstance].remoteVersionsPlistURL = @"http://example.com/versions.plist";
-}
-
-- (void)dealloc
-{
-    [_window release];
-    [_tabBarController release];
-    [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -60,43 +50,43 @@
     
     rc.size.height -= (kTopTabHeight+kTabbarHeight);
     UIViewController* dailyArticlesController = [[[ArticlesMultiPageViewController alloc]initWithFrame:rc]autorelease];
-    
     UIViewController *favoriteViewController = [[[RMFavoriteViewController alloc] initWithFrame:rc] autorelease];
-    UIViewController * historyViewController = [[[RMHistoryViewController alloc] initWithFrame:rc] autorelease];
     UIViewController* recommendController = [[[MobisageRecommendTableViewController alloc] init] autorelease];
-    
     UIViewController* tmp = [[[SettingsViewController alloc]init]autorelease];
     UINavigationController* setting = [[[UINavigationController alloc]initWithRootViewController:tmp]autorelease];
     
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = @[dailyArticlesController,/*historyViewController,*/ favoriteViewController,recommendController,setting];
+    if(singleDataFile)
+    {
+        self.tabBarController.viewControllers = @[dailyArticlesController,favoriteViewController,recommendController,setting];
+    }
+    else
+    {
+        UIViewController* historyViewController = [[[RMHistoryViewController alloc] initWithFrame:rc] autorelease];
+        self.tabBarController.viewControllers = @[dailyArticlesController,historyViewController, favoriteViewController,recommendController,setting];
+    }
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
+    
+    //start ad
     [self startAdsConfigReceive];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(notifyClick_Ad:) name:MobiSageAdView_Click_AD object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMobisageRecommendSingleTap:) name:kClickRecommendViewEvent object:nil];
+    //push ad
+    [self registerPushAds:launchOptions];
     
-#ifdef DPRAPR_PUSH
-    // 开启开发者测试模式
-#ifdef __PUSH_ON__TEST_MODE__
-    [DMAPTools developerTestMode];
-#endif//__PUSH_ON__TEST_MODE__
-    
-    // Required
-    [DMAPService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    // Required
-    [DMAPService setupWithOption:launchOptions];
-#endif
     return YES;
 }
-
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
     //   token deviceId  publicKey
 #ifdef DPRAPR_PUSH
     [DMAPService registerDeviceToken:deviceToken];
+    
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:deviceToken,kDeviceToken, nil];
+    [Flurry logEvent:kDeviceToken withParameters:dict];
 #endif
 }
 
@@ -111,6 +101,8 @@
     // Required
 #ifdef DPRAPR_PUSH
     [DMAPService handleRemoteNotification:userInfo];
+    
+    [Flurry logEvent:kDidReceiveRemoteNotification withParameters:userInfo];
 #endif
 }
 
@@ -149,7 +141,12 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+- (void)dealloc
+{
+    [_window release];
+    [_tabBarController release];
+    [super dealloc];
+}
 /*
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
@@ -175,6 +172,10 @@
         
         //enable quit notification
         [self setQuitNotification:YES];
+    }
+    if(singleDataFile)
+    {
+        [self setQuitNotification:NO];
     }
 }
 
@@ -292,5 +293,22 @@
 {
     [[HTTPHelper sharedInstance]beginPostRequest:url withDictionary:postData];
 }
+
+#pragma mark push ads
+-(void)registerPushAds:(NSDictionary *)launchOptions
+{
+#ifdef DPRAPR_PUSH
+    // 开启开发者测试模式
+#ifdef __PUSH_ON__TEST_MODE__
+    [DMAPTools developerTestMode];
+#endif//__PUSH_ON__TEST_MODE__
+    
+    // Required
+    [DMAPService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    // Required
+    [DMAPService setupWithOption:launchOptions];
+#endif
+}
+
 
 @end

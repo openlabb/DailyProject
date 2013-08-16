@@ -192,8 +192,6 @@
 }
 -(NSArray*)getSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords
 {
-    //single file
-#define kDataFile @"data.sql"
     NSString* resourceDbFile = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle]resourcePath],kDataFile];
     if ([[NSFileManager defaultManager]fileExistsAtPath:resourceDbFile]) {
         return [self getCommonSqlData:kDataFile withKeyWord:keywords];

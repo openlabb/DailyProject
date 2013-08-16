@@ -112,7 +112,7 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
     // Set up recipients
     //    NSArray *toRecipients = [NSArray arrayWithObject:@"first@example.com"];
     //    NSArray *bccRecipients = [NSArray arrayWithObjects:@"second@example.com", @"third@example.com", nil];
-    NSArray *recipients = [NSArray arrayWithObject:@"feedback4iosapp@gmail.com"];
+    NSArray *recipients = [NSArray arrayWithObject:kDefaultEmailRecipients];
     
     //
     //    [picker setToRecipients:toRecipients];
@@ -209,7 +209,7 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
         }
 	}];
 }
--(void)addFavorite
+-(void)addMyAppList
 {
     [self addSection:^(JMStaticContentTableViewSection *section, NSUInteger sectionIndex) {
 		[section addCell:^(JMStaticContentTableViewCell *staticContentCell, UITableViewCell *cell, NSIndexPath *indexPath) {
@@ -221,7 +221,7 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
             
 		} whenSelected:^(NSIndexPath *indexPath) {
             DAAppsViewController *appsViewController = [[[DAAppsViewController alloc] init]autorelease];
-            [appsViewController loadAppsWithArtistId:kArtistId completionBlock:nil];
+            [appsViewController loadAppsWithSearchTerm:kItunesSearchTerm completionBlock:nil];
             [self.navigationController pushViewController:appsViewController animated:YES];
 		}];
 	}];
@@ -270,8 +270,11 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 -(void)addSections
 {
     [self addGeneralSection];
-    [self addFavorite];
-    [self addQuitTipSettingSection];
+    [self addMyAppList];
+    if(!singleDataFile)
+    {
+        [self addQuitTipSettingSection];
+    }
     if([[CoinsManager sharedInstance]getLeftCoins]<=0 && [[[AdsConfiguration sharedInstance]getScenedItems:kAdDisplay withType:@""]count]>0)
     {
         [self addUpdateToPremiumSection];

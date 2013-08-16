@@ -791,6 +791,7 @@
 		3034917217B7663600BFA351 /* DailyProject */ = {
 			isa = PBXGroup;
 			children = (
+				30761B3617B76B6800239F51 /* iOS_Lib */,
 				3076208E17B76E1800239F51 /* Model */,
 				30761B0C17B7689700239F51 /* TabControllers */,
 				3034917B17B7663600BFA351 /* RMAppDelegate.h */,
@@ -805,7 +806,6 @@
 			children = (
 				3076212D17B77B5000239F51 /* ThemeImage */,
 				3076210217B776DA00239F51 /* data */,
-				30761B3617B76B6800239F51 /* iOS_Lib */,
 				30761B0D17B768C400239F51 /* appImages */,
 				30761B0B17B7687000239F51 /* images */,
 				3034917417B7663600BFA351 /* DailyProject-Info.plist */,

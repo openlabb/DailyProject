@@ -10,7 +10,7 @@
 #define DailyProject_appConstants_h
 
 
-//#define __RELEASE__//发布时打开
+#define __RELEASE__//发布时打开
 //#define __PUSH_ON__TEST_MODE__//testmode
 
 #ifdef __RELEASE__
@@ -18,6 +18,12 @@
 #define DPRAPR_PUSH//push广告开关
 
 #endif//__RELEASE__
+
+
+#define kDefaultEmailRecipients @"feedback4iosapp@gmail.com"
+//single file
+#define kDataFile @"data.sql"
+#define singleDataFile [[NSFileManager defaultManager]fileExistsAtPath:[NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle]resourcePath],kDataFile]]
 
 //db design 
 #define FAVORITE_DB_NAME    @"favorite.sqlite"
@@ -66,7 +72,8 @@
 
 
 #define UMENG_APPKEY @"5207827b56240b84d106f5ee"
-#define kArtistId 463201091// @"iDreems", 
+#define kArtistId 463201091// @"iDreems",
+#define kItunesSearchTerm @"idreems.com"
 #define kFavoriteDBChangedEvent @"kFavoriteDBChangedEvent"
 #define kHideFavoriteFlag -1
 #define kDaysOfYear 365
