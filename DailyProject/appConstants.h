@@ -11,7 +11,7 @@
 
 
 //close log
-#define __RELEASE__//发布时打开
+//#define __RELEASE__//发布时打开
 #ifdef __RELEASE__
 #define NSLog(...) {}
 #define DPRAPR_PUSH//push广告开关
