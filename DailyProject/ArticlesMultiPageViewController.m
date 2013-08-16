@@ -67,17 +67,25 @@
     self.view.frame = self.rect;
     
 	// Do any additional setup after loading the view.
+#define kMakeup
 #ifdef kMakeup
-    UIViewController *mb = [[[ArticleListViewController alloc] initWithFrame:self.rect]autorelease];
+    ArticleListViewController *mb = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     mb.title = @"美白小窍门";
+    mb.dataDelegate = self;
     
-    UIViewController *bs = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *bs = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     bs.title = @"保湿技巧";
+    bs.dataDelegate = self;
     
-    UIViewController *ys = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *ys = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     ys.title = @"饮食美容";
+    ys.dataDelegate = self;
     
-    self.pagesContainer.viewControllers = @[mb, bs, ys];
+    ArticleListViewController *jokes = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
+    jokes.title = @"笑话也美容";
+    jokes.dataDelegate = self;
+    
+    self.pagesContainer.viewControllers = @[mb, bs, ys,jokes];
 #elif defined kMakeToast
     UIViewController *mb = [[[ArticleListViewController alloc] init]autorelease];
     mb.title = @"祝酒词";
@@ -198,7 +206,7 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"DDD"];
     NSInteger dayInYear = [[dateFormat stringFromDate:self.viewDate] integerValue];
-    NSInteger rowCount = [dbManager getRecordCount:@"Content"];
+    NSInteger rowCount = [dbManager countOfRecords:@"Content"];
     NSInteger kMaxCountForOneDay = (rowCount-rowCount%kDaysOfYear)/kDaysOfYear;
     NSInteger startIndex = dayInYear*kMaxCountForOneDay;
     while (startIndex>rowCount) {

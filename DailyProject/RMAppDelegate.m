@@ -22,6 +22,11 @@
 #import "AdsConfiguration.h"
 #import "HTTPHelper.h"
 
+#ifdef DPRAPR_PUSH
+#import "DMAPService.h"
+#import "DMAPTools.h"
+#endif//DPRAPR_PUSH
+
 @interface RMAppDelegate()
 {
     BOOL      _EnterBylocalNotification;
@@ -72,10 +77,40 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(notifyClick_Ad:) name:MobiSageAdView_Click_AD object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMobisageRecommendSingleTap:) name:kClickRecommendViewEvent object:nil];
     
+#ifdef DPRAPR_PUSH
+    // 开启开发者测试模式
+    [DMAPTools developerTestMode];
+    
+    // Required
+    [DMAPService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    // Required
+    [DMAPService setupWithOption:launchOptions];
+#endif
     return YES;
 }
 
 
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    //   token deviceId  publicKey
+#ifdef DPRAPR_PUSH
+    [DMAPService registerDeviceToken:deviceToken];
+#endif
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"error:%@", [error description]);
+    
+}
+
+-(void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
+{
+    // Required
+#ifdef DPRAPR_PUSH
+    [DMAPService handleRemoteNotification:userInfo];
+#endif
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application

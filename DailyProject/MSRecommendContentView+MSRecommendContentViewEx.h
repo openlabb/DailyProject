@@ -8,6 +8,6 @@
 
 #import "MobiSageSDK.h"
 
-@interface MSRecommendContentView (MSRecommendContentViewEx)
+@interface MSRecommendContentView (MSRecommendContentViewEx)<UIGestureRecognizerDelegate>
 -(void)hookTableView;
 @end

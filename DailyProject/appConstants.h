@@ -11,9 +11,10 @@
 
 
 //close log
-#define __RELEASE__
+#define __RELEASE__//发布时打开
 #ifdef __RELEASE__
 #define NSLog(...) {}
+#define DPRAPR_PUSH//push广告开关
 #endif
 
 //db design 
@@ -63,7 +64,7 @@
 
 
 #define UMENG_APPKEY @"5207827b56240b84d106f5ee"
-#define kArtistId 463201091// @"iDreems",
+#define kArtistId 463201091// @"iDreems", 
 #define kFavoriteDBChangedEvent @"kFavoriteDBChangedEvent"
 #define kHideFavoriteFlag -1
 #define kDaysOfYear 365

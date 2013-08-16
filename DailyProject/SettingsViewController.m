@@ -79,7 +79,8 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
         UIAlertView* alert = [[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"EmailAlertViewTitle", @"") message:NSLocalizedString(@"EmailAlertViewMsg", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",@"") otherButtonTitles:nil]autorelease];
         [alert show];
     }
-    [self dismissModalViewControllerAnimated:YES];
+//    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #define kEmailFeedbackBody @"kEmailFeedbackBody"
@@ -117,7 +118,8 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
     //    [picker setToRecipients:toRecipients];
     [picker setToRecipients:recipients];
     
-    [self presentModalViewController:picker animated:YES];
+//    [self presentModalViewController:picker animated:YES];
+    [self presentViewController:picker animated:YES completion:nil];
 }
 -(IBAction)feedback:(id)sender
 {
