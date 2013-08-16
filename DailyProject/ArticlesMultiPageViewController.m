@@ -67,7 +67,7 @@
     self.view.frame = self.rect;
     
 	// Do any additional setup after loading the view.
-#define kMakeup
+#define kMakeToast
 #ifdef kMakeup
     ArticleListViewController *mb = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     mb.title = @"美白小窍门";
@@ -87,23 +87,29 @@
     
     self.pagesContainer.viewControllers = @[mb, bs, ys,jokes];
 #elif defined kMakeToast
-    UIViewController *mb = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *mb = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     mb.title = @"祝酒词";
+    mb.dataDelegate = self;
     
-    UIViewController *tj = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *tj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     tj.title = @"提酒词";
+    tj.dataDelegate = self;
     
-    UIViewController *bs = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *bs = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     bs.title = @"敬酒词";
+    bs.dataDelegate = self;
     
-    UIViewController *jj = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *jj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     jj.title = @"拒酒词";
+    jj.dataDelegate = self;
     
-    UIViewController *qj = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *qj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     qj.title = @"劝酒词";
+    qj.dataDelegate = self;
     
-    UIViewController *dj = [[[ArticleListViewController alloc] init]autorelease];
+    ArticleListViewController *dj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
     dj.title = @"挡酒词";
+    dj.dataDelegate = self;
     
     self.pagesContainer.viewControllers = @[mb, bs,tj,jj,qj,dj];
 #else

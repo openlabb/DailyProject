@@ -69,7 +69,7 @@
     UINavigationController* setting = [[[UINavigationController alloc]initWithRootViewController:tmp]autorelease];
     
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = @[dailyArticlesController,historyViewController, favoriteViewController,recommendController,setting];
+    self.tabBarController.viewControllers = @[dailyArticlesController,/*historyViewController,*/ favoriteViewController,recommendController,setting];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
@@ -79,7 +79,9 @@
     
 #ifdef DPRAPR_PUSH
     // 开启开发者测试模式
+#ifdef __PUSH_ON__TEST_MODE__
     [DMAPTools developerTestMode];
+#endif//__PUSH_ON__TEST_MODE__
     
     // Required
     [DMAPService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];

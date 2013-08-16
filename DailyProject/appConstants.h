@@ -10,12 +10,14 @@
 #define DailyProject_appConstants_h
 
 
-//close log
 //#define __RELEASE__//发布时打开
+//#define __PUSH_ON__TEST_MODE__//testmode
+
 #ifdef __RELEASE__
 #define NSLog(...) {}
 #define DPRAPR_PUSH//push广告开关
-#endif
+
+#endif//__RELEASE__
 
 //db design 
 #define FAVORITE_DB_NAME    @"favorite.sqlite"

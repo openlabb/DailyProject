@@ -94,7 +94,10 @@
     NSMutableArray* data = [[[NSMutableArray alloc]init]autorelease];
     
     NSArray* items =  [dbManager getRowsForQuery:query];
-    for (NSDictionary* item in items) {
+//    for (NSDictionary* item in items)
+    for (NSInteger i = items.count-1; i>=0;i--)//descending order
+    {
+        NSDictionary* item = [items objectAtIndex:i];
         RMArticle* article = [[[RMArticle alloc]init]autorelease];
         article.title = [item objectForKey:kDBTitle];
         article.summary = [item objectForKey:kDBSummary];

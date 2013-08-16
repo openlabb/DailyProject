@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3023DEBA17BD88CD00123DFD /* 保湿技巧.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEB917BD88CD00123DFD /* 保湿技巧.sql */; };
-		3023DEBC17BD88DA00123DFD /* 美白小窍门.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEBB17BD88DA00123DFD /* 美白小窍门.sql */; };
-		3023DEBE17BD88E700123DFD /* 饮食美容.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEBD17BD88E700123DFD /* 饮食美容.sql */; };
-		3023DEC017BD890000123DFD /* 笑话也美容.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEBF17BD890000123DFD /* 笑话也美容.sql */; };
+		300E14AC17BE6EFB005D8975 /* data.sql in Resources */ = {isa = PBXBuildFile; fileRef = 300E14AB17BE6EFB005D8975 /* data.sql */; };
 		3023DEC217BD8E7400123DFD /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEC117BD8E7300123DFD /* Icon-57.png */; };
 		3023DEC417BD8E7A00123DFD /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEC317BD8E7A00123DFD /* Icon-114.png */; };
 		3023DEC617BD8E9000123DFD /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEC517BD8E9000123DFD /* Icon-144.png */; };
@@ -234,10 +231,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3023DEB917BD88CD00123DFD /* 保湿技巧.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "保湿技巧.sql"; sourceTree = "<group>"; };
-		3023DEBB17BD88DA00123DFD /* 美白小窍门.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "美白小窍门.sql"; sourceTree = "<group>"; };
-		3023DEBD17BD88E700123DFD /* 饮食美容.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "饮食美容.sql"; sourceTree = "<group>"; };
-		3023DEBF17BD890000123DFD /* 笑话也美容.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "笑话也美容.sql"; sourceTree = "<group>"; };
+		300E14AB17BE6EFB005D8975 /* data.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = data.sql; sourceTree = "<group>"; };
 		3023DEC117BD8E7300123DFD /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57.png"; path = "../Icon-57.png"; sourceTree = "<group>"; };
 		3023DEC317BD8E7A00123DFD /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-114.png"; path = "../Icon-114.png"; sourceTree = "<group>"; };
 		3023DEC517BD8E9000123DFD /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../Icon-144.png"; sourceTree = "<group>"; };
@@ -1370,10 +1364,7 @@
 		3076210217B776DA00239F51 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				3023DEBF17BD890000123DFD /* 笑话也美容.sql */,
-				3023DEBD17BD88E700123DFD /* 饮食美容.sql */,
-				3023DEBB17BD88DA00123DFD /* 美白小窍门.sql */,
-				3023DEB917BD88CD00123DFD /* 保湿技巧.sql */,
+				300E14AB17BE6EFB005D8975 /* data.sql */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -1654,10 +1645,6 @@
 				30E8830C17BC3BF4002F92E0 /* ICN_recommend_tab.png in Resources */,
 				30E8830D17BC3BF4002F92E0 /* ICN_recommend_tab@2x.png in Resources */,
 				3072B9C217BC6ACD00EBAE90 /* calendar.png in Resources */,
-				3023DEBA17BD88CD00123DFD /* 保湿技巧.sql in Resources */,
-				3023DEBC17BD88DA00123DFD /* 美白小窍门.sql in Resources */,
-				3023DEBE17BD88E700123DFD /* 饮食美容.sql in Resources */,
-				3023DEC017BD890000123DFD /* 笑话也美容.sql in Resources */,
 				3023DEC217BD8E7400123DFD /* Icon-57.png in Resources */,
 				3023DEC417BD8E7A00123DFD /* Icon-114.png in Resources */,
 				3023DEC617BD8E9000123DFD /* Icon-144.png in Resources */,
@@ -1670,6 +1657,7 @@
 				3023DF1017BDB9C100123DFD /* Default-568h@2x.png in Resources */,
 				303FB9E917BE249F00747A8B /* DMAPConfig.plist in Resources */,
 				303FB9ED17BE249F00747A8B /* MobiSageRecommendBundle.bundle in Resources */,
+				300E14AC17BE6EFB005D8975 /* data.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1884,6 +1872,8 @@
 		303491A117B7663600BFA351 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ming Li (6ZAM6HQ2F7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ming Li (6ZAM6HQ2F7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../iOS_Lib/ShareSDK_v1.2.3\"",
@@ -1911,6 +1901,8 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "59A014DF-379A-4B46-9BEA-F8F52F762A3B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "59A014DF-379A-4B46-9BEA-F8F52F762A3B";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1919,6 +1911,8 @@
 		303491A217B7663600BFA351 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ming Li (QBJ9PY6FYT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ming Li (QBJ9PY6FYT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../iOS_Lib/ShareSDK_v1.2.3\"",
@@ -1946,6 +1940,8 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D1A8F856-55BE-4171-9409-593D7C42D92E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D1A8F856-55BE-4171-9409-593D7C42D92E";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
