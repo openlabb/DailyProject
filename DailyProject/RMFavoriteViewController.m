@@ -14,6 +14,7 @@
 #import "ArticleListViewController.h"
 #import "RMArticle.h"
 #import "DAPagesContainer.h"
+#import "StringUtil.h"
 
 #define kLoadMoreUnit 10
 
@@ -104,6 +105,10 @@
         article.content = [item objectForKey:kDBContent];
         article.url = [item objectForKey:kDBPageUrl];
         
+        article.title = [article.title sqliteUnescape];
+        article.summary = [article.summary sqliteUnescape];
+        article.content = [article.content sqliteUnescape];
+        
         article.likeNumber = ((NSString*)[item objectForKey:kLikeNumber]).intValue;
         article.commentNumber = ((NSString*)[item objectForKey:kCommentNumber]).intValue;
         article.favoriteNumber = ((NSString*)[item objectForKey:kFavoriteNumber]).intValue;
@@ -122,6 +127,12 @@
         NSString *sqlCreateTable = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (%@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT PRIMARY KEY,%@ INTEGER,%@ INTEGER,%@ INTEGER )",kDBTableName,kDBTitle,kDBSummary,kDBContent,kDBPageUrl,kCommentNumber,kFavoriteNumber,kLikeNumber];
         [dbManager doQuery:sqlCreateTable];
         
+        //update table for timestamp
+//        ALTER TABLE table_name
+//        ADD column_name datatype
+        //NSString* sqlUpdateTableSql = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ DOUBLE",kDBTableName,kDBFavoriteTime];
+        //[dbManager doQuery:sqlUpdateTableSql];
+        
         [dbManager closeDatabase];
     }
 }
@@ -133,31 +144,43 @@
     
     [[NSNotificationCenter defaultCenter]postNotificationName:kFavoriteDBChangedEvent object:nil];
 }
+
 +(void)addToFavorite:(RMArticle*)article
 {
     [RMFavoriteViewController makeSureDBExist];
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:FAVORITE_DB_NAME]autorelease];
+    
     NSString *sql = [NSString stringWithFormat:
                       @"INSERT INTO '%@' ('%@', '%@', '%@', '%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%@', '%@', '%d', '%d', '%d')",
-                      kDBTableName, kDBTitle, kDBSummary, kDBContent,kDBPageUrl,kCommentNumber,kFavoriteNumber,kLikeNumber, article.title,article.summary,article.content,article.url,article.commentNumber,article.favoriteNumber,article.likeNumber];
+                      kDBTableName, kDBTitle, kDBSummary, kDBContent,kDBPageUrl,kCommentNumber,kFavoriteNumber,kLikeNumber,[article.title sqliteEscape],[article.summary sqliteEscape],[article.content sqliteEscape],article.url,article.commentNumber,article.favoriteNumber,article.likeNumber];
     [dbManager doQuery:sql];
     
     [[NSNotificationCenter defaultCenter]postNotificationName:kFavoriteDBChangedEvent object:nil];
 }
 
 #pragma mark ArticleListViewDelegate
+//load data in reverse order
 - (NSArray*)loadData:(NSString*)dbName withKeyWord:(NSString*)keywords
 {
-    self.loadMoreStartIndex = 0;
+    SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:FAVORITE_DB_NAME]autorelease];
+    self.loadMoreStartIndex = [dbManager countOfRecords:kDBContent]-kLoadMoreUnit;
+    if (self.loadMoreStartIndex<0) {
+        self.loadMoreStartIndex = 0;
+    }
     NSRange range = NSMakeRange(self.loadMoreStartIndex, kLoadMoreUnit);
+    
     return [self getTableValue:FAVORITE_DB_NAME withTableName:kDBTableName withRange:range];
 }
 
 #pragma mark TableViewRefreshLoadMoreDelegate
 - (BOOL)PullToLoadMoreHandler
 {
-    self.loadMoreStartIndex += kLoadMoreUnit;
-    NSRange range = NSMakeRange(self.loadMoreStartIndex, kLoadMoreUnit);
+    if (self.loadMoreStartIndex<0) {
+        return NO;
+    }
+    
+    self.loadMoreStartIndex -= kLoadMoreUnit;
+    NSRange range = NSMakeRange(self.loadMoreStartIndex>=0?self.loadMoreStartIndex:0, kLoadMoreUnit);
     NSArray* newItems = [self getTableValue:FAVORITE_DB_NAME withTableName:kDBTableName withRange:range];
     if (!newItems || newItems.count==0) {
         return NO;

@@ -67,82 +67,29 @@
     self.view.frame = self.rect;
     
 	// Do any additional setup after loading the view.
-#define kMakeToast
-#ifdef kMakeup
-    ArticleListViewController *mb = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    mb.title = @"美白小窍门";
-    mb.dataDelegate = self;
+    NSArray* names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
     
-    ArticleListViewController *bs = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    bs.title = @"保湿技巧";
-    bs.dataDelegate = self;
     
-    ArticleListViewController *ys = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    ys.title = @"饮食美容";
-    ys.dataDelegate = self;
-    
-    ArticleListViewController *jokes = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    jokes.title = @"笑话也美容";
-    jokes.dataDelegate = self;
-    
-    self.pagesContainer.viewControllers = @[mb, bs, ys,jokes];
+#define TraditionalChineseMedicine    
+#ifdef  TraditionalChineseMedicine
+    names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
+#elif definded kMakeup
+    names = @[@"美白小窍门",@"保湿技巧",@"饮食美容",@"笑话也美容"];
 #elif defined kMakeToast
-    ArticleListViewController *mb = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    mb.title = @"祝酒词";
-    mb.dataDelegate = self;
-    
-    ArticleListViewController *tj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    tj.title = @"提酒词";
-    tj.dataDelegate = self;
-    
-    ArticleListViewController *bs = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    bs.title = @"敬酒词";
-    bs.dataDelegate = self;
-    
-    ArticleListViewController *jj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    jj.title = @"拒酒词";
-    jj.dataDelegate = self;
-    
-    ArticleListViewController *qj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    qj.title = @"劝酒词";
-    qj.dataDelegate = self;
-    
-    ArticleListViewController *dj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    dj.title = @"挡酒词";
-    dj.dataDelegate = self;
-    
-    self.pagesContainer.viewControllers = @[mb, bs,tj,jj,qj,dj];
+    names = @[@"祝酒词",@"提酒词",@"敬酒词",@"拒酒词",@"劝酒词",@"挡酒词"];
 #else
-    ArticleListViewController *mb = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    mb.title = @"夫妻笑话";
-    mb.dataDelegate = self;
-    
-    ArticleListViewController *tj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    tj.title = @"情感攻略";
-    tj.dataDelegate = self;
-    
-    ArticleListViewController *bs = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    bs.title = @"生活健康";
-    bs.dataDelegate = self;
-    
-    ArticleListViewController *jj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    jj.title = @"吐槽实录";
-    jj.dataDelegate = self;
-    
-    ArticleListViewController *qgmw = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    qgmw.title = @"情感美文";
-    qgmw.dataDelegate = self;
-    
-    ArticleListViewController *xxl = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    xxl.title = @"两性心理";
-    xxl.dataDelegate = self;
-    
-    ArticleListViewController *xbj = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
-    xbj.title = @"两性保健";
-    xbj.dataDelegate = self;
-    
-    self.pagesContainer.viewControllers = @[xbj,xxl,mb,qgmw,bs,tj,jj];
+    names = @[@"祝酒词",@"夫妻笑话",@"情感攻略",@"生活健康",@"吐槽实录",@"情感美文",@"两性心理",@"两性保健"];
 #endif
+    
+    NSMutableArray* controllers = [[[NSMutableArray alloc]initWithCapacity:names.count]autorelease];
+    for (int i =0; i<names.count; ++i) {
+        ArticleListViewController *tmp = [[[ArticleListViewController alloc] initWithRect:self.rect]autorelease];
+        tmp.title = [names objectAtIndex:i];
+        tmp.dataDelegate = self;
+        
+        [controllers addObject:tmp];
+    }
+    self.pagesContainer.viewControllers = controllers;
 }
 
 #pragma mark ArticleListViewDelegate

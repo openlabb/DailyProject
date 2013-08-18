@@ -14,11 +14,12 @@
 //#define __PUSH_ON__TEST_MODE__//testmode
 
 #ifdef __RELEASE__
-#define NSLog(...) {}
+
 #define DPRAPR_PUSH//push广告开关
 
 #endif//__RELEASE__
 
+#define NSLog(...) {}
 
 #define kDefaultEmailRecipients @"feedback4iosapp@gmail.com"
 //single file
@@ -32,6 +33,7 @@
 #define kDBSummary       @"Summary"
 #define kDBContent       @"Content"
 #define kDBPageUrl       @"PageUrl"
+#define kDBFavoriteTime  @"FavTime"
 
 #define kIPhoneFontSize  20//pt
 #define kIPadFontSizeEx  28//pt

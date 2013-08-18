@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		300E14AC17BE6EFB005D8975 /* data.sql in Resources */ = {isa = PBXBuildFile; fileRef = 300E14AB17BE6EFB005D8975 /* data.sql */; };
+		301A9AB517C0C636001638BA /* 中医育儿.sql in Resources */ = {isa = PBXBuildFile; fileRef = 301A9AB017C0C636001638BA /* 中医育儿.sql */; };
+		301A9AB617C0C636001638BA /* 养生排行.sql in Resources */ = {isa = PBXBuildFile; fileRef = 301A9AB117C0C636001638BA /* 养生排行.sql */; };
+		301A9AB717C0C636001638BA /* 女性保健.sql in Resources */ = {isa = PBXBuildFile; fileRef = 301A9AB217C0C636001638BA /* 女性保健.sql */; };
+		301A9AB817C0C636001638BA /* 男性保健.sql in Resources */ = {isa = PBXBuildFile; fileRef = 301A9AB317C0C636001638BA /* 男性保健.sql */; };
+		301A9AB917C0C636001638BA /* 老人保健.sql in Resources */ = {isa = PBXBuildFile; fileRef = 301A9AB417C0C636001638BA /* 老人保健.sql */; };
 		3023DEC217BD8E7400123DFD /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEC117BD8E7300123DFD /* Icon-57.png */; };
 		3023DEC417BD8E7A00123DFD /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEC317BD8E7A00123DFD /* Icon-114.png */; };
 		3023DEC617BD8E9000123DFD /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEC517BD8E9000123DFD /* Icon-144.png */; };
@@ -231,7 +235,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		300E14AB17BE6EFB005D8975 /* data.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = data.sql; sourceTree = "<group>"; };
+		301A9AB017C0C636001638BA /* 中医育儿.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "中医育儿.sql"; sourceTree = "<group>"; };
+		301A9AB117C0C636001638BA /* 养生排行.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "养生排行.sql"; sourceTree = "<group>"; };
+		301A9AB217C0C636001638BA /* 女性保健.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "女性保健.sql"; sourceTree = "<group>"; };
+		301A9AB317C0C636001638BA /* 男性保健.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "男性保健.sql"; sourceTree = "<group>"; };
+		301A9AB417C0C636001638BA /* 老人保健.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "老人保健.sql"; sourceTree = "<group>"; };
 		3023DEC117BD8E7300123DFD /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57.png"; path = "../Icon-57.png"; sourceTree = "<group>"; };
 		3023DEC317BD8E7A00123DFD /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-114.png"; path = "../Icon-114.png"; sourceTree = "<group>"; };
 		3023DEC517BD8E9000123DFD /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../Icon-144.png"; sourceTree = "<group>"; };
@@ -530,7 +538,6 @@
 		307620F717B7734D00239F51 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		307620F817B7734D00239F51 /* HTTPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPHelper.h; sourceTree = "<group>"; };
 		307620F917B7734D00239F51 /* HTTPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPHelper.m; sourceTree = "<group>"; };
-		307620FA17B7734D00239F51 /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
 		307620FB17B7734D00239F51 /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
 		3076212D17B77B5000239F51 /* ThemeImage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ThemeImage; sourceTree = "<group>"; };
 		3076212F17B77BF500239F51 /* appConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = appConstants.h; sourceTree = "<group>"; };
@@ -1355,7 +1362,6 @@
 				307620F717B7734D00239F51 /* Constants.h */,
 				307620F817B7734D00239F51 /* HTTPHelper.h */,
 				307620F917B7734D00239F51 /* HTTPHelper.m */,
-				307620FA17B7734D00239F51 /* StringUtil.h */,
 				307620FB17B7734D00239F51 /* StringUtil.m */,
 			);
 			path = Utils;
@@ -1364,7 +1370,11 @@
 		3076210217B776DA00239F51 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				300E14AB17BE6EFB005D8975 /* data.sql */,
+				301A9AB017C0C636001638BA /* 中医育儿.sql */,
+				301A9AB117C0C636001638BA /* 养生排行.sql */,
+				301A9AB217C0C636001638BA /* 女性保健.sql */,
+				301A9AB317C0C636001638BA /* 男性保健.sql */,
+				301A9AB417C0C636001638BA /* 老人保健.sql */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -1657,7 +1667,11 @@
 				3023DF1017BDB9C100123DFD /* Default-568h@2x.png in Resources */,
 				303FB9E917BE249F00747A8B /* DMAPConfig.plist in Resources */,
 				303FB9ED17BE249F00747A8B /* MobiSageRecommendBundle.bundle in Resources */,
-				300E14AC17BE6EFB005D8975 /* data.sql in Resources */,
+				301A9AB517C0C636001638BA /* 中医育儿.sql in Resources */,
+				301A9AB617C0C636001638BA /* 养生排行.sql in Resources */,
+				301A9AB717C0C636001638BA /* 女性保健.sql in Resources */,
+				301A9AB817C0C636001638BA /* 男性保健.sql in Resources */,
+				301A9AB917C0C636001638BA /* 老人保健.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1901,8 +1915,8 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "59A014DF-379A-4B46-9BEA-F8F52F762A3B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "59A014DF-379A-4B46-9BEA-F8F52F762A3B";
+				PROVISIONING_PROFILE = "234DEDEB-C299-4682-961E-82C48E489BEB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "234DEDEB-C299-4682-961E-82C48E489BEB";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1940,8 +1954,8 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D1A8F856-55BE-4171-9409-593D7C42D92E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D1A8F856-55BE-4171-9409-593D7C42D92E";
+				PROVISIONING_PROFILE = "B7F0BDCE-B568-45D8-8FF2-788EB02981A1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B7F0BDCE-B568-45D8-8FF2-788EB02981A1";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
