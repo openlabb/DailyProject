@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ArticlesMultiPageViewController.h"
+#import "RMHistoryController.h"
 
+
+#ifndef TodayinHistory
 @interface RMHistoryViewController : ArticlesMultiPageViewController
+#else
+@interface RMHistoryViewController : RMHistoryController
+#endif
 
 @end

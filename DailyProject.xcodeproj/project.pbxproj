@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		301A9AB517C0C636001638BA /* 中医育儿.sql in Resources */ = {isa = PBXBuildFile; fileRef = 301A9AB017C0C636001638BA /* 中医育儿.sql */; };
-		301A9AB617C0C636001638BA /* 养生排行.sql in Resources */ = {isa = PBXBuildFile; fileRef = 301A9AB117C0C636001638BA /* 养生排行.sql */; };
-		301A9AB717C0C636001638BA /* 女性保健.sql in Resources */ = {isa = PBXBuildFile; fileRef = 301A9AB217C0C636001638BA /* 女性保健.sql */; };
-		301A9AB817C0C636001638BA /* 男性保健.sql in Resources */ = {isa = PBXBuildFile; fileRef = 301A9AB317C0C636001638BA /* 男性保健.sql */; };
-		301A9AB917C0C636001638BA /* 老人保健.sql in Resources */ = {isa = PBXBuildFile; fileRef = 301A9AB417C0C636001638BA /* 老人保健.sql */; };
 		3023DEC217BD8E7400123DFD /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEC117BD8E7300123DFD /* Icon-57.png */; };
 		3023DEC417BD8E7A00123DFD /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEC317BD8E7A00123DFD /* Icon-114.png */; };
 		3023DEC617BD8E9000123DFD /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEC517BD8E9000123DFD /* Icon-144.png */; };
@@ -50,6 +45,9 @@
 		303FBA0C17BE249F00747A8B /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 303FB9D917BE249F00747A8B /* NetworkManager.m */; };
 		303FBA0D17BE249F00747A8B /* RMIndexedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 303FB9DB17BE249F00747A8B /* RMIndexedArray.m */; };
 		303FBA0E17BE249F00747A8B /* libYouMi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 303FB9E617BE249F00747A8B /* libYouMi.a */; };
+		306F34CD17C4280D00C7EE2E /* 中外史记.sql in Resources */ = {isa = PBXBuildFile; fileRef = 306F34CB17C4280D00C7EE2E /* 中外史记.sql */; };
+		306F34CE17C4280D00C7EE2E /* 史上今日.sql in Resources */ = {isa = PBXBuildFile; fileRef = 306F34CC17C4280D00C7EE2E /* 史上今日.sql */; };
+		306F34D117C42A7800C7EE2E /* RMHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 306F34D017C42A7800C7EE2E /* RMHistoryController.m */; };
 		3072B9C217BC6ACD00EBAE90 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3072B9C117BC6ACD00EBAE90 /* calendar.png */; };
 		30761B0A17B7673600239F51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30761B0917B7673600239F51 /* Localizable.strings */; };
 		30761B0F17B76ABE00239F51 /* ArticleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B0E17B76ABE00239F51 /* ArticleListViewController.m */; };
@@ -233,11 +231,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		301A9AB017C0C636001638BA /* 中医育儿.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "中医育儿.sql"; sourceTree = "<group>"; };
-		301A9AB117C0C636001638BA /* 养生排行.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "养生排行.sql"; sourceTree = "<group>"; };
-		301A9AB217C0C636001638BA /* 女性保健.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "女性保健.sql"; sourceTree = "<group>"; };
-		301A9AB317C0C636001638BA /* 男性保健.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "男性保健.sql"; sourceTree = "<group>"; };
-		301A9AB417C0C636001638BA /* 老人保健.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "老人保健.sql"; sourceTree = "<group>"; };
 		3023DEC117BD8E7300123DFD /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57.png"; path = "../Icon-57.png"; sourceTree = "<group>"; };
 		3023DEC317BD8E7A00123DFD /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-114.png"; path = "../Icon-114.png"; sourceTree = "<group>"; };
 		3023DEC517BD8E9000123DFD /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../Icon-144.png"; sourceTree = "<group>"; };
@@ -307,6 +300,10 @@
 		303FB9E417BE249F00747A8B /* YouMiWallBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallBanner.h; sourceTree = "<group>"; };
 		303FB9E517BE249F00747A8B /* YouMiWallDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallDelegateProtocol.h; sourceTree = "<group>"; };
 		303FB9E617BE249F00747A8B /* libYouMi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYouMi.a; sourceTree = "<group>"; };
+		306F34CB17C4280D00C7EE2E /* 中外史记.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "中外史记.sql"; sourceTree = "<group>"; };
+		306F34CC17C4280D00C7EE2E /* 史上今日.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "史上今日.sql"; sourceTree = "<group>"; };
+		306F34CF17C42A7800C7EE2E /* RMHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHistoryController.h; sourceTree = "<group>"; };
+		306F34D017C42A7800C7EE2E /* RMHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHistoryController.m; sourceTree = "<group>"; };
 		3072B9C117BC6ACD00EBAE90 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		30761B0917B7673600239F51 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		30761B0E17B76ABE00239F51 /* ArticleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleListViewController.m; sourceTree = "<group>"; };
@@ -913,6 +910,8 @@
 				3034918517B7663600BFA351 /* RMFavoriteViewController.m */,
 				3034918B17B7663600BFA351 /* RMHistoryViewController.h */,
 				3034918C17B7663600BFA351 /* RMHistoryViewController.m */,
+				306F34CF17C42A7800C7EE2E /* RMHistoryController.h */,
+				306F34D017C42A7800C7EE2E /* RMHistoryController.m */,
 				3076214417B7825000239F51 /* SettingsViewController.h */,
 				3076214517B7825100239F51 /* SettingsViewController.m */,
 				3076214717B7942100239F51 /* TabEllite */,
@@ -1350,11 +1349,8 @@
 		3076210217B776DA00239F51 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				301A9AB017C0C636001638BA /* 中医育儿.sql */,
-				301A9AB117C0C636001638BA /* 养生排行.sql */,
-				301A9AB217C0C636001638BA /* 女性保健.sql */,
-				301A9AB317C0C636001638BA /* 男性保健.sql */,
-				301A9AB417C0C636001638BA /* 老人保健.sql */,
+				306F34CB17C4280D00C7EE2E /* 中外史记.sql */,
+				306F34CC17C4280D00C7EE2E /* 史上今日.sql */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -1647,11 +1643,8 @@
 				3023DF1017BDB9C100123DFD /* Default-568h@2x.png in Resources */,
 				303FB9E917BE249F00747A8B /* DMAPConfig.plist in Resources */,
 				303FB9ED17BE249F00747A8B /* MobiSageRecommendBundle.bundle in Resources */,
-				301A9AB517C0C636001638BA /* 中医育儿.sql in Resources */,
-				301A9AB617C0C636001638BA /* 养生排行.sql in Resources */,
-				301A9AB717C0C636001638BA /* 女性保健.sql in Resources */,
-				301A9AB817C0C636001638BA /* 男性保健.sql in Resources */,
-				301A9AB917C0C636001638BA /* 老人保健.sql in Resources */,
+				306F34CD17C4280D00C7EE2E /* 中外史记.sql in Resources */,
+				306F34CE17C4280D00C7EE2E /* 史上今日.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1779,6 +1772,7 @@
 				303FB9E817BE249F00747A8B /* AdsViewManager.m in Sources */,
 				303FBA0C17BE249F00747A8B /* NetworkManager.m in Sources */,
 				303FBA0D17BE249F00747A8B /* RMIndexedArray.m in Sources */,
+				306F34D117C42A7800C7EE2E /* RMHistoryController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

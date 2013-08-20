@@ -30,6 +30,7 @@
 #define FAVORITE_DB_NAME    @"favorite.sqlite"
 #define kDBTableName    @"Content"
 #define kDBTitle         @"Title"
+#define kDBLowercaseTitle         @"title"
 #define kDBSummary       @"Summary"
 #define kDBContent       @"Content"
 #define kDBPageUrl       @"PageUrl"
@@ -95,7 +96,7 @@
 //#define LosingWeight
 //#define careerGuide//职场秘笈
 //#define RaisingKids //育儿指南
-//#define TodayinHistory//史上今日
+#define TodayinHistory//史上今日
 //#define Makeup//美容秘笈
 //#define MakeToast//场面话之祝酒词
 //#define TraditionalChineseMedicine //中医小窍门
@@ -110,6 +111,7 @@
 //#define kDefaultResouceUrl @"http://www.idreems.com/openapi/yulu.php?type=yulu"//maketoast
 
 #define kAdsDelay 2
+#define kTodayinHistory @"史上今日"
 
 //in-app purchase
 #ifndef kInAppPurchaseProductName

@@ -24,6 +24,7 @@
 #import "YouMiWall.h"
 #import "YouMiConfig.h"
 #import "YouMiSpot.h"
+#import "RMHistoryController.h"
 
 
 #ifdef DPRAPR_PUSH
@@ -53,8 +54,32 @@
     CGRect rc = [[UIScreen mainScreen]applicationFrame];
     
     rc.size.height -= (kTopTabHeight+kTabbarHeight);
-    UIViewController* dailyArticlesController = [[[ArticlesMultiPageViewController alloc]initWithFrame:rc]autorelease];
-    UIViewController *favoriteViewController = [[[RMFavoriteViewController alloc] initWithFrame:rc] autorelease];
+    
+    NSArray* names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
+    
+    //#define TraditionalChineseMedicine
+#ifdef  TraditionalChineseMedicine
+    names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
+#elif defined kMakeup
+    names = @[@"美白小窍门",@"保湿技巧",@"饮食美容",@"笑话也美容"];
+#elif defined kMakeToast
+    names = @[@"祝酒词",@"提酒词",@"敬酒词",@"拒酒词",@"劝酒词",@"挡酒词"];
+#elif defined kSpouseTalks
+    names = @[@"情感攻略",@"生活健康",@"吐槽实录",@"情感美文",@"两性心理",@"两性保健"];
+#elif defined TodayinHistory
+    names = @[kTodayinHistory,@"中外史记",@"历史故事"];
+#endif
+    
+#ifndef TodayinHistory
+    ArticlesMultiPageViewController* dailyArticlesController = [[[ArticlesMultiPageViewController alloc]initWithFrame:rc]autorelease];
+#else
+    //定义了kTodayinHistory
+    ArticlesMultiPageViewController* dailyArticlesController = [[[RMHistoryController alloc]initWithFrame:rc]autorelease];
+#endif
+    dailyArticlesController.dbNameList = names;
+    
+    RMFavoriteViewController *favoriteViewController = [[[RMFavoriteViewController alloc] initWithFrame:rc] autorelease];
+    
     UIViewController* recommendController = [[[MobisageRecommendTableViewController alloc] init] autorelease];
     UIViewController* tmp = [[[SettingsViewController alloc]init]autorelease];
     UINavigationController* setting = [[[UINavigationController alloc]initWithRootViewController:tmp]autorelease];
@@ -66,7 +91,8 @@
     }
     else
     {
-        UIViewController* historyViewController = [[[RMHistoryViewController alloc] initWithFrame:rc] autorelease];
+        RMHistoryViewController* historyViewController = [[[RMHistoryViewController alloc] initWithFrame:rc] autorelease];
+        historyViewController.dbNameList = names;
         self.tabBarController.viewControllers = @[dailyArticlesController,historyViewController, favoriteViewController,recommendController,setting];
     }
     self.window.rootViewController = self.tabBarController;
@@ -152,18 +178,18 @@
     [super dealloc];
 }
 /*
-// Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
-}
-*/
+ // Optional UITabBarControllerDelegate method.
+ - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+ {
+ }
+ */
 
 /*
-// Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
-{
-}
-*/
+ // Optional UITabBarControllerDelegate method.
+ - (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
+ {
+ }
+ */
 #pragma  mark init launch methods
 -(void)initLaunch:(NSDictionary *)launchOptions
 {
@@ -303,7 +329,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getResult:) name:kPostNotification object:nil];
     //new method to get ads
     [self beginPostRequest:kAdsJsonUrl withDictionary:[CommonHelper getAdPostReqParams]];
-
+    
 }
 #pragma mark HTTP util methods
 -(void)beginRequest:(FileModel *)fileInfo isBeginDown:(BOOL)isBeginDown setAllowResumeForFileDownloads:(BOOL)allow
