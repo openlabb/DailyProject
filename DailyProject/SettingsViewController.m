@@ -13,7 +13,6 @@
 #import "iRate.h"
 #import "AdsConfiguration.h"
 #import "RMIndexedArray.h"
-#import "CoinsManager.h"
 #import "EarnGoldMultiPageViewController.h"
 #import "resConstants.h"
 #import "DAAppsViewController.h"
@@ -227,6 +226,7 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 	}];
     
 }
+
 -(void)addUpdateToPremiumSection
 {
     [self addSection:^(JMStaticContentTableViewSection *section, NSUInteger sectionIndex) {
@@ -275,10 +275,10 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
     {
         [self addQuitTipSettingSection];
     }
-    if([[CoinsManager sharedInstance]getLeftCoins]<=0 && [[[AdsConfiguration sharedInstance]getScenedItems:kAdDisplay withType:@""]count]>0)
-    {
-        [self addUpdateToPremiumSection];
-    }
+//    if([[CoinsManager sharedInstance]getLeftCoins]<=0 && [[[AdsConfiguration sharedInstance]getScenedItems:kAdDisplay withType:@""]count]>0)
+//    {
+//        [self addUpdateToPremiumSection];
+//    }
     [self.tableView reloadData];
 }
 

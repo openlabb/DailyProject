@@ -10,7 +10,7 @@
 #define DailyProject_appConstants_h
 
 
-#define __RELEASE__//发布时打开
+//#define __RELEASE__//发布时打开
 //#define __PUSH_ON__TEST_MODE__//testmode
 
 #ifdef __RELEASE__
@@ -19,7 +19,7 @@
 
 #endif//__RELEASE__
 
-#define NSLog(...) {}
+//#define NSLog(...) {}
 
 #define kDefaultEmailRecipients @"feedback4iosapp@gmail.com"
 //single file
@@ -80,9 +80,110 @@
 #define kHideFavoriteFlag -1
 #define kDaysOfYear 365
 
-
+#define kFlurryAppSavingKey @"kFlurryAppSavingKey"
+#define kDefaultFlurryAppKey @"D5WYXYC4R9C6273W7M9Q"
 #define kDefaultMobisageId @"e270159b22cc4c98a64e4402db48e96d"
 #define kMobisageRecommendTableViewCount 14
+#define kDefaultYoumiAppId @"6b875a1db75ff9e5"
+#define kDefaultYouSecret @"e6983e250159ac64"
 
 #define kAdDisplayCount 10//没启动软件多少次，显示闪屏广告
+
+//#define HealthSecretsForGirls//美女保健小贴士
+//#define MHealth
+//#define Foods
+//#define LosingWeight
+//#define careerGuide//职场秘笈
+//#define RaisingKids //育儿指南
+//#define TodayinHistory//史上今日
+//#define Makeup//美容秘笈
+//#define MakeToast//场面话之祝酒词
+//#define TraditionalChineseMedicine //中医小窍门
+//#define SpouseTalks//夫妻密语
+//#define Humer//搞笑集锦
+//#define EnglishPrefix//英语前缀
+//#define EnglishSuffix//英语词根
+
+
+//#define kDefaultResouceUrl @"http://www.idreems.com/openapi/collect_api.php?type=image"//makeup
+
+//#define kDefaultResouceUrl @"http://www.idreems.com/openapi/yulu.php?type=yulu"//maketoast
+
+#define kAdsDelay 2
+
+//in-app purchase
+#ifndef kInAppPurchaseProductName
+#define kInAppPurchaseProductName @"com.idreems.maketoast.inapp"
 #endif
+
+#define kAdsConfigUpdated @"kAdsConfigUpdated"
+
+#define kNewContentScale 5
+#define kMinNewContentCount 3
+
+#define kWeiboMaxLength 140
+#define kAdsSwitch @"AdsSwitch"
+#define kPermanent @"Permanent"
+#define kDateFormatter @"yyyy-MM-dd"
+
+//for notification
+#define kAdsUpdateDidFinishLoading @"AdsUpdateDidFinishLoading"
+#define  kUpdateTableView @"UpdateTableView"
+
+#define kOneDay (24*60*60)
+#define kTrialDays  1
+
+//flurry event
+#define kFlurryRemoveTempConfirm @"kRemoveTempConfirm"
+#define kFlurryRemoveTempCancel  @"kRemoveTempCancel"
+#define kEnterMainViewList       @"kEnterMainViewList"
+#define kFlurryOpenRemoveAdsList @"kOpenRemoveAdsList"
+
+#define kFlurryDidSelectApp2RemoveAds @"kDidSelectApp2RemoveAds"
+#define kFlurryRemoveAdsSuccessfully  @"kRemoveAdsSuccessfully"
+#define kDidShowFeaturedAppNoCredit   @"kDidShowFeaturedAppNoCredit"
+#define kFlurryNewChannel @"kNewChannel"
+
+#define kShareByWeibo @"kShareByWeibo"
+#define kShareByEmail @"kShareByEmail"
+
+#define kEnterBylocalNotification @"kEnterBylocalNotification"
+#define kDidShowFeaturedAppCredit @"kDidShowFeaturedAppCredit"
+
+#define kFlurryDidSelectAppFromRecommend @"kFlurryDidSelectAppFromRecommend"
+#define kFlurryDidSelectAppFromMainList  @"kFlurryDidSelectAppFromMainList"
+#define kFlurryDidReviewContentFromMainList  @"kFlurryDidReviewContentFromMainList"
+#define kLoadRecommendAdsWall @"kLoadRecommendAdsWall"
+//favorite
+#define kEnterNewFavorite @"kEnterNewFavorite"
+#define kOpenExistFavorite @"kOpenExistFavorite"
+#define kQiushiReviewed @"kQiushiReviewed"
+#define kQiushiRefreshed @"kQiushiRefreshed"
+#define kReviewCloseAdPlan @"kReviewCloseAdPlan"
+#define kOpenYoumiWall @"openYoumiWall"
+#define TrialPoints @"TrialPoints"
+#define GetCoins @"GetCoins"
+
+#define kGoldEvent @"kGoldEvent"
+#define kClickRecommendViewEvent @"kClickingRecommendViewEvent"
+#define kClickBannerEvent @"kClickingBannerEvent"
+#define kClickArticle @"kClickArticle"
+#define kPopGoldEarningUI @"kPopGoldEarningUI"
+
+#define kDeviceToken @"kDeviceToken"
+#define kDidReceiveRemoteNotification @"kDidReceiveRemoteNotification"
+
+
+//weixin
+#define kFlurryConfirmOpenWeixinInAppstore @"kConfirmOpenWeixinInAppstore"
+#define kFlurryCancelOpenWeixinInAppstore @"kCancelOpenWeixinInAppstore"
+#define kShareByWeixin @"kShareByWeixin"
+#define kShareByShareKit @"kShareByShareKit"
+
+#define kCountPerSection 3
+#ifndef kMobiSageIDOther_iPhone
+#define kMobiSageIDOther_iPhone kMobiSageID_iPhone
+#endif
+
+#endif
+

@@ -85,8 +85,6 @@
 		30761E6817B76B6900239F51 /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B7017B76B6800239F51 /* ASIS3ObjectRequest.m */; };
 		30761E6917B76B6900239F51 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B7217B76B6800239F51 /* ASIS3Request.m */; };
 		30761E6A17B76B6900239F51 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B7417B76B6800239F51 /* ASIS3ServiceRequest.m */; };
-		30761E9D17B76B6900239F51 /* CoinsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761BAD17B76B6800239F51 /* CoinsManager.m */; };
-		30761E9E17B76B6900239F51 /* YoumiOfferWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761BAF17B76B6800239F51 /* YoumiOfferWall.m */; };
 		30761EB017B76B6900239F51 /* DAPageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761BD317B76B6800239F51 /* DAPageIndicatorView.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
 		30761EB117B76B6900239F51 /* DAPagesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761BD517B76B6800239F51 /* DAPagesContainer.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
 		30761EB217B76B6900239F51 /* DAPagesContainerTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761BD717B76B6800239F51 /* DAPagesContainerTopBar.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
@@ -284,7 +282,6 @@
 		3034918517B7663600BFA351 /* RMFavoriteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMFavoriteViewController.m; sourceTree = "<group>"; };
 		3034918B17B7663600BFA351 /* RMHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMHistoryViewController.h; sourceTree = "<group>"; };
 		3034918C17B7663600BFA351 /* RMHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMHistoryViewController.m; sourceTree = "<group>"; };
-		303FB97417BE249F00747A8B /* AdsConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsConfig.h; sourceTree = "<group>"; };
 		303FB97517BE249F00747A8B /* AdsConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsConfiguration.h; sourceTree = "<group>"; };
 		303FB97617BE249F00747A8B /* AdsConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsConfiguration.m; sourceTree = "<group>"; };
 		303FB97717BE249F00747A8B /* AdsViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewManager.h; sourceTree = "<group>"; };
@@ -383,10 +380,6 @@
 		30761B7217B76B6800239F51 /* ASIS3Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Request.m; sourceTree = "<group>"; };
 		30761B7317B76B6800239F51 /* ASIS3ServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ServiceRequest.h; sourceTree = "<group>"; };
 		30761B7417B76B6800239F51 /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
-		30761BAC17B76B6800239F51 /* CoinsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinsManager.h; sourceTree = "<group>"; };
-		30761BAD17B76B6800239F51 /* CoinsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinsManager.m; sourceTree = "<group>"; };
-		30761BAE17B76B6800239F51 /* YoumiOfferWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoumiOfferWall.h; sourceTree = "<group>"; };
-		30761BAF17B76B6800239F51 /* YoumiOfferWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoumiOfferWall.m; sourceTree = "<group>"; };
 		30761BD217B76B6800239F51 /* DAPageIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAPageIndicatorView.h; sourceTree = "<group>"; };
 		30761BD317B76B6800239F51 /* DAPageIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAPageIndicatorView.m; sourceTree = "<group>"; };
 		30761BD417B76B6800239F51 /* DAPagesContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAPagesContainer.h; sourceTree = "<group>"; };
@@ -830,7 +823,6 @@
 		303FB97317BE249F00747A8B /* AdPlatform */ = {
 			isa = PBXGroup;
 			children = (
-				303FB97417BE249F00747A8B /* AdsConfig.h */,
 				303FB97517BE249F00747A8B /* AdsConfiguration.h */,
 				303FB97617BE249F00747A8B /* AdsConfiguration.m */,
 				303FB97717BE249F00747A8B /* AdsViewManager.h */,
@@ -949,7 +941,6 @@
 				30761B3717B76B6800239F51 /* Additions */,
 				307621B417B99BAF00239F51 /* AH3DPullRefresh */,
 				30761B3E17B76B6800239F51 /* ASIHTTPRequest */,
-				30761BAB17B76B6800239F51 /* ChargePlugin */,
 				307621E017BA284E00239F51 /* CKCalendarView */,
 				307621A217B8CAAA00239F51 /* DAAppsViewController */,
 				30761BD117B76B6800239F51 /* DAPagesContainer */,
@@ -1076,17 +1067,6 @@
 				30761B7417B76B6800239F51 /* ASIS3ServiceRequest.m */,
 			);
 			path = S3;
-			sourceTree = "<group>";
-		};
-		30761BAB17B76B6800239F51 /* ChargePlugin */ = {
-			isa = PBXGroup;
-			children = (
-				30761BAC17B76B6800239F51 /* CoinsManager.h */,
-				30761BAD17B76B6800239F51 /* CoinsManager.m */,
-				30761BAE17B76B6800239F51 /* YoumiOfferWall.h */,
-				30761BAF17B76B6800239F51 /* YoumiOfferWall.m */,
-			);
-			path = ChargePlugin;
 			sourceTree = "<group>";
 		};
 		30761BD117B76B6800239F51 /* DAPagesContainer */ = {
@@ -1719,8 +1699,6 @@
 				30761E6817B76B6900239F51 /* ASIS3ObjectRequest.m in Sources */,
 				30761E6917B76B6900239F51 /* ASIS3Request.m in Sources */,
 				30761E6A17B76B6900239F51 /* ASIS3ServiceRequest.m in Sources */,
-				30761E9D17B76B6900239F51 /* CoinsManager.m in Sources */,
-				30761E9E17B76B6900239F51 /* YoumiOfferWall.m in Sources */,
 				30761EB017B76B6900239F51 /* DAPageIndicatorView.m in Sources */,
 				30761EB117B76B6900239F51 /* DAPagesContainer.m in Sources */,
 				30761EB217B76B6900239F51 /* DAPagesContainerTopBar.m in Sources */,

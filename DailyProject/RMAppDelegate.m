@@ -18,7 +18,7 @@
 #import "iRate.h"
 #import "iVersion.h"
 #import "MobisageRecommendTableViewController.h"
-#import "AdsConfig.h"
+#import "YouMiConfig.h"
 #import "AdsConfiguration.h"
 #import "HTTPHelper.h"
 
@@ -75,6 +75,15 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMobisageRecommendSingleTap:) name:kClickRecommendViewEvent object:nil];
     //push ad
     [self registerPushAds:launchOptions];
+    
+    NSString* flurryAppkey = [CommonHelper defaultsForString:kFlurryAppSavingKey];
+    if (flurryAppkey && flurryAppkey.length>0) {
+        //flurry
+        [Flurry startSession:flurryAppkey];
+#ifndef __RELEASE__
+        [Flurry setDebugLogEnabled:YES];
+#endif
+    }
     
     return YES;
 }
@@ -259,12 +268,23 @@
         AdsConfiguration* adsConfig = [AdsConfiguration sharedInstance];
         [adsConfig initWithJson:[notification.userInfo objectForKey:kPostResponseData]];
         
+        NSString* flurryAppkey = [[AdsConfiguration sharedInstance]FlurryId];
+        [CommonHelper saveDefaultsForString:kFlurryAppSavingKey withValue:flurryAppkey];
+        
         //flurry
-        [Flurry startSession:[[AdsConfiguration sharedInstance]FlurryId]];
+        [Flurry startSession:flurryAppkey];
+#ifndef __RELEASE__
+        [Flurry setDebugLogEnabled:YES];
+#endif
+        
         //向微信注册
         [WXApi registerApp:[[AdsConfiguration sharedInstance]wechatId]];
 //        [self checkUpdate];
 //        [iVersion sharedInstance].appStoreID = [[AdsConfiguration sharedInstance]appleId];
+        
+        //youmi config
+        [YouMiConfig setShouldGetLocation:NO];
+        [YouMiConfig launchWithAppID:[[AdsConfiguration sharedInstance]youmiAppId] appSecret:[[AdsConfiguration sharedInstance]youmiSecret]];
         
         //notify
         [[NSNotificationCenter defaultCenter]postNotificationName:kAdsConfigUpdated object:nil];

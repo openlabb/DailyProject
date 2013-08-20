@@ -9,7 +9,7 @@
 #import "BannerViewController.h"
 #import "MobiSageSDK.h"
 #import "CommonHelper.h"
-#import "AdsConfig.h"
+
 
 @interface BannerViewController ()<MobiSageAdBannerDelegate>
 @property(nonatomic,assign)BOOL validClick;

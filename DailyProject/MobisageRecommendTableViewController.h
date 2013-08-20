@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-
+#import "BaseViewController.h"
 #import "MobiSageSDK.h"
 
 
-
-
-@interface MobisageRecommendTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MobiSageRecommendDelegate>
+@interface MobisageRecommendTableViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate, MobiSageRecommendDelegate>
 
 
 @property (nonatomic, retain) UITableView *tableView;

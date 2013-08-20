@@ -16,7 +16,6 @@
 #import "AdsConfiguration.h"
 #import "MobiSageSDK.h"
 #import "MSRecommendContentView+MSRecommendContentViewEx.h"
-#import "AdsConfig.h"
 #import "Flurry.h"
 
 @interface EarnGoldMultiPageViewController ()

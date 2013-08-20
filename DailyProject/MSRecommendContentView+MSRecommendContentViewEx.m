@@ -8,7 +8,6 @@
 
 #import "MSRecommendContentView+MSRecommendContentViewEx.h"
 #import <UIKit/UIKit.h>
-#import "AdsConfig.h"
 
 @implementation MSRecommendContentView (MSRecommendContentViewEx)
 -(void)hookTableView

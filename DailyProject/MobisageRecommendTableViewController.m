@@ -54,7 +54,11 @@
     }
     
     //表格控件
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    CGSize adSize = [self showBanners];
+    CGRect rect = self.view.bounds;
+    rect.origin.y += adSize.height;
+    
+    self.tableView = [[UITableView alloc] initWithFrame:rect style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
