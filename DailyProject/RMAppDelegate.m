@@ -43,7 +43,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self initLaunch];
+    [self initLaunch:launchOptions];
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     CGRect rc = [[UIScreen mainScreen]applicationFrame];
@@ -75,15 +75,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMobisageRecommendSingleTap:) name:kClickRecommendViewEvent object:nil];
     //push ad
     [self registerPushAds:launchOptions];
-    
-    NSString* flurryAppkey = [CommonHelper defaultsForString:kFlurryAppSavingKey];
-    if (flurryAppkey && flurryAppkey.length>0) {
-        //flurry
-        [Flurry startSession:flurryAppkey];
-#ifndef __RELEASE__
-        [Flurry setDebugLogEnabled:YES];
-#endif
-    }
     
     return YES;
 }
@@ -170,9 +161,21 @@
 }
 */
 #pragma  mark init launch methods
--(void)initLaunch
+-(void)initLaunch:(NSDictionary *)launchOptions
 {
+    //start flurry session
+    NSString* flurryAppkey = [CommonHelper defaultsForString:kFlurryAppSavingKey];
+    if (flurryAppkey && flurryAppkey.length>0) {
+        //flurry
+        [Flurry startSession:flurryAppkey withOptions:launchOptions];
+#ifndef __RELEASE__
+        [Flurry setDebugLogEnabled:YES];
+#endif
+    }
+    
+    //set umeng key
     [UMSocialData setAppKey:UMENG_APPKEY];
+    
     //init launch task
     if([CommonHelper initLaunch])
     {
@@ -182,6 +185,7 @@
         //enable quit notification
         [self setQuitNotification:YES];
     }
+    
     if(singleDataFile)
     {
         [self setQuitNotification:NO];
