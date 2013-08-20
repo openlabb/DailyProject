@@ -9,7 +9,8 @@
 #ifndef DailyProject_appConstants_h
 #define DailyProject_appConstants_h
 
-//#define __RELEASE__//发布时打开
+#warning 发布时打开
+//#define __RELEASE__
 //#define __PUSH_ON__TEST_MODE__//testmode
 
 #ifdef __RELEASE__
@@ -165,6 +166,7 @@
 
 #define kGoldEvent @"kGoldEvent"
 #define kClickRecommendViewEvent @"kClickingRecommendViewEvent"
+#define kClickYoumiWallEvent @"kClickYoumiWallEvent"
 #define kClickBannerEvent @"kClickingBannerEvent"
 #define kClickArticle @"kClickArticle"
 #define kPopGoldEarningUI @"kPopGoldEarningUI"

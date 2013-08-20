@@ -10,5 +10,5 @@
 
 
 @interface EarnGoldMultiPageViewController: MultiPageViewController
-
++ (void)showSpot:(id)sender;
 @end

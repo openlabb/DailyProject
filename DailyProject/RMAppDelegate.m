@@ -21,6 +21,10 @@
 #import "YouMiConfig.h"
 #import "AdsConfiguration.h"
 #import "HTTPHelper.h"
+#import "YouMiWall.h"
+#import "YouMiConfig.h"
+#import "YouMiSpot.h"
+
 
 #ifdef DPRAPR_PUSH
 #import "DMAPService.h"
@@ -176,6 +180,12 @@
     //set umeng key
     [UMSocialData setAppKey:UMENG_APPKEY];
     
+    [YouMiPointsManager enableManually];
+    // 启动积分墙
+    [YouMiWall enable];
+    // 注册消息，得知积分的变化， 详情看头文件 YouMiPointsManager.h
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pointsGotted:) name:kYouMiPointsManagerRecivedPointsNotification object:nil];
+    
     //init launch task
     if([CommonHelper initLaunch])
     {
@@ -251,6 +261,7 @@
     NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingBanner] forKey:kClickBannerEvent];
     [Flurry logEvent:kGoldEvent withParameters:dict];
     
+    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingBanner]  cancelButtonTitle:@"好的"];
     
     NSLog(@"notify:%@,gold:%d",notification.name,[CommonHelper gold]);
 }
@@ -258,7 +269,7 @@
 {
     if (notification && [notification.name isEqualToString:kClickRecommendViewEvent]) {
         [CommonHelper setGold:[CommonHelper gold]+kGoldByClickingRecommendView];
-        
+        [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingRecommendView]  cancelButtonTitle:@"好的"];
         NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingRecommendView] forKey:kClickRecommendViewEvent];
         [Flurry logEvent:kGoldEvent withParameters:dict];
     }
@@ -278,6 +289,8 @@
         //youmi config
         [YouMiConfig setShouldGetLocation:NO];
         [YouMiConfig launchWithAppID:[[AdsConfiguration sharedInstance]youmiAppId] appSecret:[[AdsConfiguration sharedInstance]youmiSecret]];
+        BOOL rewarded = YES;
+        [YouMiSpot requestSpotADs:rewarded];
         
         //notify
         [[NSNotificationCenter defaultCenter]postNotificationName:kAdsConfigUpdated object:nil];
@@ -321,6 +334,35 @@
     // Required
     [DMAPService setupWithOption:launchOptions];
 #endif
+}
++(void)showAlertView:(NSString*)title message:(NSString*)message cancelButtonTitle:(NSString*)cancelTitle
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelTitle otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+- (void)pointsGotted:(NSNotification *)notification {
+    NSDictionary *dict = [notification userInfo];
+    NSNumber *freshPoints = [dict objectForKey:kYouMiPointsManagerFreshPointsKey];
+    
+    // 这里的积分不应该拿来使用, 只是用于告诉一下用户, 可以通过 [YouMiPointsManager spendPoints:]来使用积分
+    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%@积分", freshPoints]  cancelButtonTitle:@"好的"];
+    
+    [CommonHelper setGold:[CommonHelper gold]+freshPoints.integerValue];
+    
+    dict = [NSDictionary dictionaryWithObject:freshPoints forKey:kClickYoumiWallEvent];
+    [Flurry logEvent:kGoldEvent withParameters:dict];
+    
+    // 如果使用手动积分管理可以通过下面这种方法获得每份积分的信息。
+    NSArray *pointInfos = dict[kYouMiPointsManagerPointInfosKey];
+    for (NSDictionary *aPointInfo in pointInfos) {
+        // aPointInfo 是每份积分的信息，包括积分数，userID，下载的APP的名字
+        NSLog(@"积分数：%@", aPointInfo[kYouMiPointsManagerPointAmountKey]);
+        NSLog(@"userID：%@", aPointInfo[kYouMiPointsManagerPointUserIDKey]);
+        NSLog(@"产品名字：%@", aPointInfo[kYouMiPointsManagerPointProductNameKey]);
+        
+        // TODO 按需要处理
+    }
 }
 
 

@@ -10,6 +10,7 @@
 #import "CommonHelper.h"
 #import "MobiSageSDK.h"
 #import "MobiSageRecommendView+MobiSageRecommendViewEx.h"
+#import "EarnGoldMultiPageViewController.h"
 
 #define kCellHeight 157
 #define kMobisageRecommendCount 4

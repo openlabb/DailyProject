@@ -28,6 +28,7 @@
 "kMoreFeedBackKey"="反馈";
 "kMoreRateKey"="评价一下";
 "Premium"="赚积分(当前积分:%d)";
+"kNoEnoughPoints"="积分不足，免费积分";
 "RecommmendApps"="自家应用";
 
 "kEmailFeedbackBody"= "我喜欢的功能是：\n\n不喜欢的功能是:\n\n希望增加的功能是:\n\n其他建议：\n";

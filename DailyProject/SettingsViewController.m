@@ -279,6 +279,7 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 //    {
 //        [self addUpdateToPremiumSection];
 //    }
+    [self addUpdateToPremiumSection];
     [self.tableView reloadData];
 }
 

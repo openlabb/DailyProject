@@ -37,4 +37,6 @@
 #define kFavoriteNumberMinus @"kFavoriteNumberMinus"
 
 #define kLoadingDataTipMessage @"kLoadingDataTipMessage"
+
+#define kNoEnoughPoints @"kNoEnoughPoints"
 #endif

@@ -17,6 +17,7 @@
 #import "MobiSageSDK.h"
 #import "MSRecommendContentView+MSRecommendContentViewEx.h"
 #import "Flurry.h"
+#import "YouMiSpot.h"
 
 @interface EarnGoldMultiPageViewController ()
 @property(nonatomic,assign)NSInteger mInitGold;
@@ -46,9 +47,12 @@
 {
     [super viewDidLoad];
     
+    [EarnGoldMultiPageViewController showSpot:nil];
+    
     [[MobiSageManager getInstance]setPublisherID:[[AdsConfiguration sharedInstance]mobisageId]];
     self.mInitGold = [CommonHelper gold];
-    self.title = [NSString stringWithFormat:NSLocalizedString(@"Premium", @""),self.mInitGold];
+    
+    self.title = self.mInitGold>0?[NSString stringWithFormat:NSLocalizedString(@"Premium", @""),self.mInitGold]:[NSString stringWithFormat:NSLocalizedString(kNoEnoughPoints, nil)];
     
 	// Do any additional setup after loading the view.
     UIViewController *mb = [[[BannerViewController alloc] init]autorelease];
@@ -105,5 +109,9 @@
         [self appWillEnterForegroundNotification];
     }
 }
-
++ (void)showSpot:(id)sender {
+    [YouMiSpot showSpotDismiss:^{
+        //[self.navigationController pushViewController:[[UIViewController new] autorelease] animated:YES];
+    }];
+}
 @end
