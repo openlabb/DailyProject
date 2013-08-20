@@ -9,7 +9,6 @@
 #ifndef DailyProject_appConstants_h
 #define DailyProject_appConstants_h
 
-
 //#define __RELEASE__//发布时打开
 //#define __PUSH_ON__TEST_MODE__//testmode
 

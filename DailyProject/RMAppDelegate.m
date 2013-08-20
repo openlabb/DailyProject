@@ -271,17 +271,6 @@
         NSString* flurryAppkey = [[AdsConfiguration sharedInstance]FlurryId];
         [CommonHelper saveDefaultsForString:kFlurryAppSavingKey withValue:flurryAppkey];
         
-        //flurry
-        [Flurry startSession:flurryAppkey];
-#ifndef __RELEASE__
-        [Flurry setDebugLogEnabled:YES];
-#endif
-        
-        //向微信注册
-        [WXApi registerApp:[[AdsConfiguration sharedInstance]wechatId]];
-//        [self checkUpdate];
-//        [iVersion sharedInstance].appStoreID = [[AdsConfiguration sharedInstance]appleId];
-        
         //youmi config
         [YouMiConfig setShouldGetLocation:NO];
         [YouMiConfig launchWithAppID:[[AdsConfiguration sharedInstance]youmiAppId] appSecret:[[AdsConfiguration sharedInstance]youmiSecret]];
