@@ -48,6 +48,7 @@
 		306F34CD17C4280D00C7EE2E /* 中外史记.sql in Resources */ = {isa = PBXBuildFile; fileRef = 306F34CB17C4280D00C7EE2E /* 中外史记.sql */; };
 		306F34CE17C4280D00C7EE2E /* 史上今日.sql in Resources */ = {isa = PBXBuildFile; fileRef = 306F34CC17C4280D00C7EE2E /* 史上今日.sql */; };
 		306F34D117C42A7800C7EE2E /* RMHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 306F34D017C42A7800C7EE2E /* RMHistoryController.m */; };
+		306F34D317C44E7800C7EE2E /* 历史故事.sql in Resources */ = {isa = PBXBuildFile; fileRef = 306F34D217C44E7800C7EE2E /* 历史故事.sql */; };
 		3072B9C217BC6ACD00EBAE90 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3072B9C117BC6ACD00EBAE90 /* calendar.png */; };
 		30761B0A17B7673600239F51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30761B0917B7673600239F51 /* Localizable.strings */; };
 		30761B0F17B76ABE00239F51 /* ArticleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B0E17B76ABE00239F51 /* ArticleListViewController.m */; };
@@ -304,6 +305,7 @@
 		306F34CC17C4280D00C7EE2E /* 史上今日.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "史上今日.sql"; sourceTree = "<group>"; };
 		306F34CF17C42A7800C7EE2E /* RMHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHistoryController.h; sourceTree = "<group>"; };
 		306F34D017C42A7800C7EE2E /* RMHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHistoryController.m; sourceTree = "<group>"; };
+		306F34D217C44E7800C7EE2E /* 历史故事.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "历史故事.sql"; sourceTree = "<group>"; };
 		3072B9C117BC6ACD00EBAE90 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		30761B0917B7673600239F51 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		30761B0E17B76ABE00239F51 /* ArticleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleListViewController.m; sourceTree = "<group>"; };
@@ -1349,6 +1351,7 @@
 		3076210217B776DA00239F51 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				306F34D217C44E7800C7EE2E /* 历史故事.sql */,
 				306F34CB17C4280D00C7EE2E /* 中外史记.sql */,
 				306F34CC17C4280D00C7EE2E /* 史上今日.sql */,
 			);
@@ -1645,6 +1648,7 @@
 				303FB9ED17BE249F00747A8B /* MobiSageRecommendBundle.bundle in Resources */,
 				306F34CD17C4280D00C7EE2E /* 中外史记.sql in Resources */,
 				306F34CE17C4280D00C7EE2E /* 史上今日.sql in Resources */,
+				306F34D317C44E7800C7EE2E /* 历史故事.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
