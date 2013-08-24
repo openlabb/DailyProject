@@ -25,6 +25,8 @@
 #import "YouMiConfig.h"
 #import "YouMiSpot.h"
 #import "RMHistoryController.h"
+#import "AdSageManager.h"
+#import "YouMiPointsManager.h"
 
 
 #ifdef DPRAPR_PUSH
@@ -57,17 +59,16 @@
     
     NSArray* names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
     
-    //#define TraditionalChineseMedicine
 #ifdef  TraditionalChineseMedicine
     names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
-#elif defined kMakeup
+#elif defined Makeup
     names = @[@"美白小窍门",@"保湿技巧",@"饮食美容",@"笑话也美容"];
-#elif defined kMakeToast
+#elif defined MakeToast
     names = @[@"祝酒词",@"提酒词",@"敬酒词",@"拒酒词",@"劝酒词",@"挡酒词"];
 #elif defined kSpouseTalks
     names = @[@"情感攻略",@"生活健康",@"吐槽实录",@"情感美文",@"两性心理",@"两性保健"];
 #elif defined TodayinHistory
-    names = @[kTodayinHistory,@"中外史记",@"历史故事"];
+    names = @[kTodayinHistory,@"中外史记",@"历史故事"];    
 #endif
     
 #ifndef TodayinHistory
@@ -198,10 +199,14 @@
     if (flurryAppkey && flurryAppkey.length>0) {
         //flurry
         [Flurry startSession:flurryAppkey withOptions:launchOptions];
-#ifndef __RELEASE__
-        [Flurry setDebugLogEnabled:YES];
-#endif
     }
+    else
+    {
+        [Flurry startSession:kFlurryID];
+    }
+#ifndef __RELEASE__
+    [Flurry setDebugLogEnabled:YES];
+#endif
     
     //set umeng key
     [UMSocialData setAppKey:UMENG_APPKEY];
@@ -285,7 +290,7 @@
 {
     [CommonHelper setGold:[CommonHelper gold]+kGoldByClickingBanner];
     NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingBanner] forKey:kClickBannerEvent];
-    [Flurry logEvent:kGoldEvent withParameters:dict];
+    [Flurry logEvent:kClickBannerEvent withParameters:dict];
     
     [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingBanner]  cancelButtonTitle:@"好的"];
     
@@ -297,7 +302,7 @@
         [CommonHelper setGold:[CommonHelper gold]+kGoldByClickingRecommendView];
         [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingRecommendView]  cancelButtonTitle:@"好的"];
         NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingRecommendView] forKey:kClickRecommendViewEvent];
-        [Flurry logEvent:kGoldEvent withParameters:dict];
+        [Flurry logEvent:kClickRecommendViewEvent withParameters:dict];
     }
 }
 #pragma mark ads utils
@@ -317,6 +322,9 @@
         [YouMiConfig launchWithAppID:[[AdsConfiguration sharedInstance]youmiAppId] appSecret:[[AdsConfiguration sharedInstance]youmiSecret]];
         BOOL rewarded = YES;
         [YouMiSpot requestSpotADs:rewarded];
+        
+        //adsage
+        [[AdSageManager getInstance]setAdSageKey:[[AdsConfiguration sharedInstance]mobisageId]];
         
         //notify
         [[NSNotificationCenter defaultCenter]postNotificationName:kAdsConfigUpdated object:nil];
@@ -377,18 +385,18 @@
     [CommonHelper setGold:[CommonHelper gold]+freshPoints.integerValue];
     
     dict = [NSDictionary dictionaryWithObject:freshPoints forKey:kClickYoumiWallEvent];
-    [Flurry logEvent:kGoldEvent withParameters:dict];
+    [Flurry logEvent:kClickYoumiWallEvent withParameters:dict];
     
     // 如果使用手动积分管理可以通过下面这种方法获得每份积分的信息。
-    NSArray *pointInfos = dict[kYouMiPointsManagerPointInfosKey];
-    for (NSDictionary *aPointInfo in pointInfos) {
-        // aPointInfo 是每份积分的信息，包括积分数，userID，下载的APP的名字
-        NSLog(@"积分数：%@", aPointInfo[kYouMiPointsManagerPointAmountKey]);
-        NSLog(@"userID：%@", aPointInfo[kYouMiPointsManagerPointUserIDKey]);
-        NSLog(@"产品名字：%@", aPointInfo[kYouMiPointsManagerPointProductNameKey]);
-        
-        // TODO 按需要处理
-    }
+//    NSArray *pointInfos = dict[kYouMiPointsManagerPointInfosKey];
+//    for (NSDictionary *aPointInfo in pointInfos) {
+//        // aPointInfo 是每份积分的信息，包括积分数，userID，下载的APP的名字
+//        NSLog(@"积分数：%@", aPointInfo[kYouMiPointsManagerPointAmountKey]);
+//        NSLog(@"userID：%@", aPointInfo[kYouMiPointsManagerPointUserIDKey]);
+//        NSLog(@"产品名字：%@", aPointInfo[kYouMiPointsManagerPointProductNameKey]);
+//        
+//        // TODO 按需要处理
+//    }
 }
 
 

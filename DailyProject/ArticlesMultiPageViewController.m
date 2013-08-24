@@ -23,20 +23,14 @@
 @end
 
 @implementation ArticlesMultiPageViewController
-@synthesize viewDate=_viewDate;
 @synthesize dbNameList;
 
 -(void)dealloc
 {
-    self.viewDate= nil;
     self.dbNameList = nil;
     [super dealloc];
 }
 
--(void)setViewDate:(NSDate *)date
-{
-    _viewDate = [[NSDate alloc]initWithTimeInterval:0 sinceDate:date];
-}
 -(id)initWithFrame:(CGRect)rc
 {
     self = [super init];
@@ -47,7 +41,6 @@
     self.tabBarItem.image = [UIImage imageNamed:kIconHomePage];
     self.navigationItem.title = NSLocalizedString(Title, "");
     
-    _viewDate = [NSDate date];//today
     return self;
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,7 +48,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        _viewDate = [NSDate date];//today
     }
     return self;
 }
@@ -79,23 +71,23 @@
 }
 
 #pragma mark ArticleListViewDelegate
-- (NSArray*)loadData:(NSString*)dbName withKeyWord:(NSString*)keywords
+- (NSArray*)loadData:(NSString*)dbName withKeyWord:(NSString*)keywords withDate:(NSDate*)date
 {
-    return [self getSqlData:dbName withKeyWord:keywords];
+    return [self getSqlData:dbName withKeyWord:keywords withDate:date];
 }
 #pragma mark util methods
--(void)refreshData
+-(void)refreshData:(NSDate*)date
 {
     for(ArticleListViewController* controller in self.pagesContainer.viewControllers)
     {
         if(controller)
         {
-            [controller refreshData];
+            [controller refreshData:date];
         }
     }
 }
 
--(NSArray*)getSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords
+-(NSArray*)getSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords withDate:(NSDate*)date
 {
     NSString* resourceDbFile = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle]resourcePath],kDataFile];
     if ([[NSFileManager defaultManager]fileExistsAtPath:resourceDbFile]) {
@@ -104,17 +96,12 @@
     
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:[NSString stringWithFormat:@"%@.sql",dbName]]autorelease];
     
-   
-    
-    //TODO::get today's data
-    if (!_viewDate || ![_viewDate isKindOfClass:[NSDate class]]) {
-        _viewDate = [NSDate date];
-    }
+    NSDate* time = date?date:[NSDate date];
     //day of year
     //no data,then from beginning
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"DDD"];
-    NSInteger dayInYear = [[dateFormat stringFromDate:self.viewDate] integerValue];
+    NSInteger dayInYear = [[dateFormat stringFromDate:time] integerValue];
     NSInteger rowCount = [dbManager countOfRecords:kDBTableName];
     NSInteger kMaxCountForOneDay = (rowCount-rowCount%kDaysOfYear)/kDaysOfYear;
     NSInteger startIndex = dayInYear*kMaxCountForOneDay;

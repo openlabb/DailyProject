@@ -52,7 +52,6 @@
     label.text = [NSString stringWithFormat:@"点击推荐应用，立赚 %d 积分\n\n应用列表加载中，请稍等",kGoldByClickingRecommendView];
     [self.view addSubview:label];
 
-    
     rect.origin.y += rect.size.height;
     rect.size.height = kCellHeight * kMobisageRecommendCount *(300.0/640.0);
     

@@ -45,7 +45,6 @@
 
 - (void)viewDidLoad
 {
-    self.viewDate = [NSDate date];
     [super viewDidLoad];
     
     [self addDateSelectionButton];
@@ -91,8 +90,7 @@
 #pragma mark util methods
 -(void)setDate:(NSDate*)date
 {
-    self.viewDate = date;
-    [self refreshData];
+    [self refreshData:date];
 }
 #pragma mark - DCPathButton delegate
 

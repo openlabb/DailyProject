@@ -30,6 +30,7 @@
 @synthesize tableViewRefreshLoadMoreDelegate;
 @synthesize tableViewClickDelegate;
 @synthesize HUD;
+@synthesize date;
 
 -(id)initWithRect:(CGRect)rc
 {
@@ -66,6 +67,7 @@
 //    rc.size.height -= kTopTabHeight;
 
     rc.origin.y = 0;
+    self.date = [NSDate date];
     
     BOOL existView = YES;
     if(!self.articleController)
@@ -87,9 +89,10 @@
     
     if (!self.dataList && !self.loadingData) {
         //load data on background view
-        [self performSelectorInBackground:@selector(updateData) withObject:nil];
+        [self performSelectorInBackground:@selector(updateData:) withObject:self.date];
         [self addActivityIndicatorView];
     }
+    
 }
 -(void)addActivityIndicatorView
 {
@@ -168,22 +171,25 @@
     return NO;
 }
 #pragma mark update data methods
--(void)refreshData
+-(void)refreshData:(NSDate*)time
 {
     if (!self.loadingData) {
+        self.date = time;
         //load data on background view
-        [self performSelectorInBackground:@selector(updateData) withObject:nil];
+        [self performSelectorInBackground:@selector(updateData:) withObject:time];
         [self addActivityIndicatorView];
     }
 }
--(void)updateData
+-(void)updateData:(NSDate*)objTime
 {
     if(self.loadingData)
     {
         return;
     }
     self.loadingData = YES;
-    self.dataList = [dataDelegate loadData:self.title withKeyWord:self.title];
+    NSDate* time = objTime?objTime:[NSDate date];
+    
+    self.dataList = [dataDelegate loadData:self.title withKeyWord:self.title withDate:time];
     self.loadingData = NO;
     [self performSelectorOnMainThread:@selector(loadDataOnMainThread) withObject:nil waitUntilDone:YES];
 }

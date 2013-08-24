@@ -5,8 +5,8 @@
   Created by Ramonqlee on 8/11/13.
   Copyright (c) 2013 iDreems. All rights reserved.
 */
-"Title"="史上今日";
-"About"="版本V4.1.0  iDreems.com荣誉出品";
+"Title"="美容秘笈";
+"About"="版本V4.1.1  iDreems.com荣誉出品";
 
 "Tab_Title_DailyArticles"="每日精华";
 "Tab_Title_Favorites"="收藏";
@@ -29,7 +29,7 @@
 "kMoreRateKey"="评价一下";
 "Premium"="赚积分(当前积分:%d)";
 "kNoEnoughPoints"="积分不足，免费积分";
-"RecommmendApps"="自家应用";
+"RecommmendApps"="私房应用";
 
 "kEmailFeedbackBody"= "我喜欢的功能是：\n\n不喜欢的功能是:\n\n希望增加的功能是:\n\n其他建议：\n";
 "appFriendlyTip"="内容天天变，明天再来奥！(可在设置中关闭)";

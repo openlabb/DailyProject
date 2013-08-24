@@ -80,7 +80,7 @@
     for(UIViewController* controller in self.pagesContainer.viewControllers)
     {
         if ([controller isKindOfClass:[ArticleListViewController class]]) {
-            [((ArticleListViewController*)controller) refreshData];
+            [((ArticleListViewController*)controller) refreshData:self.currentTime];
         }
     }
 }
@@ -160,7 +160,7 @@
 
 #pragma mark ArticleListViewDelegate
 //load data in reverse order
-- (NSArray*)loadData:(NSString*)dbName withKeyWord:(NSString*)keywords
+- (NSArray*)loadData:(NSString*)dbName withKeyWord:(NSString*)keywords withDate:(NSDate*)date
 {
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:FAVORITE_DB_NAME]autorelease];
     self.loadMoreStartIndex = [dbManager countOfRecords:kDBContent]-kLoadMoreUnit;

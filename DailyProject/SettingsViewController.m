@@ -16,6 +16,8 @@
 #import "EarnGoldMultiPageViewController.h"
 #import "resConstants.h"
 #import "DAAppsViewController.h"
+#import "UMFeedback.h"
+#import "Flurry.h"
 
 NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 
@@ -122,6 +124,11 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 }
 -(IBAction)feedback:(id)sender
 {
+#if 1
+    [Flurry logEvent:kOpenFeedbackEvent];
+    
+    [UMFeedback showFeedback:self withAppkey:UMENG_APPKEY];
+#else
     Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
     if (mailClass != nil)
     {
@@ -139,6 +146,7 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
     {
         [self launchMailAppOnDevice:YES];
     }
+#endif
 }
 #pragma mark about
 -(void)rate
@@ -150,6 +158,8 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
         
         //enable preview mode
         [rate openRatingsPageInAppStore];
+        
+        [Flurry logEvent:kOpenRateInSettingEvent];
     }
 }
 - (IBAction)modalViewAction:(id)sender
@@ -222,6 +232,8 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
             DAAppsViewController *appsViewController = [[[DAAppsViewController alloc] init]autorelease];
             [appsViewController loadAppsWithSearchTerm:kItunesSearchTerm completionBlock:nil];
             [self.navigationController pushViewController:appsViewController animated:YES];
+            
+            [Flurry logEvent:kOpenMyAppListEvent];
 		}];
 	}];
     
@@ -245,6 +257,8 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
             EarnGoldMultiPageViewController* c = [[[EarnGoldMultiPageViewController alloc]initWithFrame:rect]autorelease];
             UINavigationController* navi = [[[UINavigationController alloc]initWithRootViewController:c]autorelease];
             [self presentViewController:navi animated:YES completion:nil];
+            
+            [Flurry logEvent:kOpenEarnGoldListInSettingEvent];
 		}];
 	}];
 }
@@ -275,11 +289,11 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
     {
         [self addQuitTipSettingSection];
     }
-//    if([[CoinsManager sharedInstance]getLeftCoins]<=0 && [[[AdsConfiguration sharedInstance]getScenedItems:kAdDisplay withType:@""]count]>0)
-//    {
-//        [self addUpdateToPremiumSection];
-//    }
-    [self addUpdateToPremiumSection];
+    if([[[AdsConfiguration sharedInstance]getScenedItems:kAdDisplay withType:@""]count]>0)
+    {
+        [self addUpdateToPremiumSection];
+    }
+    
     [self.tableView reloadData];
 }
 
@@ -288,6 +302,8 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 {
     if([sender isKindOfClass:[UISwitch class]])
     {
+        [Flurry logEvent:kSetQuitNotificationEvent];
+        
         RMAppDelegate* delegate = (RMAppDelegate*)SharedDelegate;
         [delegate setQuitNotification:((UISwitch*)sender).on];
     }

@@ -64,7 +64,7 @@
     //UIViewController *ys = [[[ArticleListViewController alloc] init]autorelease];
     //ys.title = @"IAP积分";
     
-    self.pagesContainer.viewControllers = @[bs,mb];
+    self.pagesContainer.viewControllers = @[mb,bs];
     
     UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back",@"") style: UIBarButtonItemStyleBordered target: self action: @selector(back)];
     newBackButton.tintColor = TintColor;

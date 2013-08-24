@@ -9,17 +9,78 @@
 #ifndef DailyProject_appConstants_h
 #define DailyProject_appConstants_h
 
-#warning 发布时打开
-//#define __RELEASE__
-//#define __PUSH_ON__TEST_MODE__//testmode
-
+#warning 发布时打开，并且确认drappr为非测试模式
+#define __RELEASE__
 #ifdef __RELEASE__
-
 #define DPRAPR_PUSH//push广告开关
-
+//#define __PUSH_ON__TEST_MODE__//testmode
+#define NSLog(...) {}
 #endif//__RELEASE__
 
-//#define NSLog(...) {}
+#warning 发布记得修改为相应的id
+#define Makeup//美容秘笈
+//#define HealthSecretsForGirls//美女保健小贴士
+//#define MHealth
+//#define Foods
+//#define LosingWeight
+//#define careerGuide//职场秘笈
+//#define RaisingKids //育儿指南
+//#define TodayinHistory//史上今日
+//#define MakeToast//场面话之祝酒词
+//#define TraditionalChineseMedicine //中医小窍门
+//#define SpouseTalks//夫妻密语
+//#define Humer//搞笑集锦
+//#define EnglishPrefix//英语前缀
+//#define EnglishSuffix//英语词根
+
+#ifdef LosingWeight //ads to be replaced
+#define kFlurryID @"255WD5F3T3WD385YSH5C"
+#elif defined careerGuide
+#define kFlurryID @"SPP44Z2HJXGR4ZXWNRYF"
+
+#elif defined RaisingKids
+#define kFlurryID @"KN8WBCH24R3V3PFVSSY2"
+
+#elif defined TodayinHistory
+//flurry
+#define kFlurryID @"VD57WGD28683BPMSQ9X9"
+
+#elif defined Makeup
+//flurry
+#define kFlurryID @"ZVSNS9NXX922ZMYBV436"
+#define UMENG_APPKEY @"4fa7d6b85270157298000020"
+
+#elif defined MakeToast
+#define kFlurryID @"D5WYXYC4R9C6273W7M9Q"
+#define UMENG_APPKEY @"5217eb1356240b5ad302a785"
+
+#elif defined TraditionalChineseMedicine
+
+#define kFlurryID @"C82CN6MQ328XV3BHX5TN"
+
+#elif defined SpouseTalks
+
+#define kFlurryID @"S32DNZTRR5WVPV8F2KM6"
+#define UMENG_APPKEY @"5207827b56240b84d106f5ee"
+#elif defined Humer
+//flurry
+#define kFlurryID @"TDGR5K49JJPSX4G7HZJ8"
+
+#elif defined EnglishSuffix
+//flurry
+#define kFlurryID @"ZYPQPYTD683PDWZH47SS"
+
+#elif defined EnglishPrefix
+//flurry
+#define kFlurryID @"RSJY3SX8QV95QQM5GJ5Y"
+
+//#else//other cases,from today in history
+////flurry
+//#define kFlurryID @"VD57WGD28683BPMSQ9X9"
+
+#endif
+
+
 
 #define kDefaultEmailRecipients @"feedback4iosapp@gmail.com"
 //single file
@@ -74,7 +135,7 @@
 #define kGoldByClickingRecommendView 40
 
 
-#define UMENG_APPKEY @"5207827b56240b84d106f5ee"
+
 #define kArtistId 463201091// @"iDreems",
 #define kItunesSearchTerm @"idreems.com"
 #define kFavoriteDBChangedEvent @"kFavoriteDBChangedEvent"
@@ -89,21 +150,6 @@
 #define kDefaultYouSecret @"e6983e250159ac64"
 
 #define kAdDisplayCount 10//没启动软件多少次，显示闪屏广告
-
-//#define HealthSecretsForGirls//美女保健小贴士
-//#define MHealth
-//#define Foods
-//#define LosingWeight
-//#define careerGuide//职场秘笈
-//#define RaisingKids //育儿指南
-#define TodayinHistory//史上今日
-//#define Makeup//美容秘笈
-//#define MakeToast//场面话之祝酒词
-//#define TraditionalChineseMedicine //中医小窍门
-//#define SpouseTalks//夫妻密语
-//#define Humer//搞笑集锦
-//#define EnglishPrefix//英语前缀
-//#define EnglishSuffix//英语词根
 
 
 //#define kDefaultResouceUrl @"http://www.idreems.com/openapi/collect_api.php?type=image"//makeup
@@ -167,11 +213,24 @@
 #define GetCoins @"GetCoins"
 
 #define kGoldEvent @"kGoldEvent"
+#define kDecrementGoldEvent @"kDecrementGoldEvent"
 #define kClickRecommendViewEvent @"kClickingRecommendViewEvent"
 #define kClickYoumiWallEvent @"kClickYoumiWallEvent"
 #define kClickBannerEvent @"kClickingBannerEvent"
 #define kClickArticle @"kClickArticle"
 #define kPopGoldEarningUI @"kPopGoldEarningUI"
+
+#define kSocialEvent @"kSocialEvent"
+#define kOpenCommentEvent @"kOpenCommentEvent"
+#define kOpenLikeEvent @"kOpenLikeEvent"
+#define kOpenFavoriteEvent @"kOpenFavoriteEvent"
+
+#define kOpenFeedbackEvent @"kOpenFeedbackEvent"
+#define kSetQuitNotificationEvent @"kSetQuitNotificationEvent"
+#define kOpenMyAppListEvent @"kOpenMyAppListEvent"
+#define kOpenEarnGoldListInSettingEvent @"kOpenEarnGoldListInSettingEvent"
+#define kOpenRateInSettingEvent @"kOpenRateInSettingEvent"
+
 
 #define kDeviceToken @"kDeviceToken"
 #define kDidReceiveRemoteNotification @"kDidReceiveRemoteNotification"

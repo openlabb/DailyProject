@@ -13,10 +13,9 @@
 {
     NSDate *_viewDate;
 }
-@property(nonatomic,assign)NSDate *viewDate;
 @property(nonatomic,retain)NSArray* dbNameList;
 
 -(id)initWithFrame:(CGRect)rc;
--(void)refreshData;
+-(void)refreshData:(NSDate*)date;
 -(NSArray*)dictItems:(NSArray*)dict;
 @end

@@ -41,27 +41,28 @@
 }
 
 #pragma mark ArticleListViewDelegate
-- (NSArray*)loadData:(NSString*)dbName withKeyWord:(NSString*)keywords
+- (NSArray*)loadData:(NSString*)dbName withKeyWord:(NSString*)keywords  withDate:(NSDate*)date
 {
     //定义了kTodayinHistory
     if ([dbName isEqualToString:kTodayinHistory])
     {
-        return [self getSqlDataInner:dbName withKeyWord:keywords];
+        return [self getSqlDataInner:dbName withKeyWord:keywords withDate:date];
     }
     
-    return  [super loadData:dbName withKeyWord:keywords];
+    return  [super loadData:dbName withKeyWord:keywords  withDate:date];
 }
 
--(NSArray*)getSqlDataInner:(NSString*)dbName withKeyWord:(NSString*)keywords
+-(NSArray*)getSqlDataInner:(NSString*)dbName withKeyWord:(NSString*)keywords withDate:(NSDate*)date
 {
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:[NSString stringWithFormat:@"%@.sql",dbName]]autorelease];
     //get today's data
-    if (!_viewDate || ![_viewDate isKindOfClass:[NSDate class]]) {
-        _viewDate = [NSDate date];
-    }
+//    if (!_viewDate || ![_viewDate isKindOfClass:[NSDate class]]) {
+//        _viewDate = [NSDate date];
+//    }
+    NSDate* time = date?date:[NSDate date];
     
     NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDateComponents* components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.viewDate]; // Get necessary date components
+    NSDateComponents* components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:time]; // Get necessary date components
     NSString* query = [NSString stringWithFormat:@"SELECT * FROM %@ where %@ LIKE '%%年%d月%d日%%'",kDBTableName,kDBTitle,[components month],[components day]];
 //    NSString* query = [NSString stringWithFormat:@"SELECT * FROM %@ LIMIT 10 OFFSET 0",kDBTableName];
     

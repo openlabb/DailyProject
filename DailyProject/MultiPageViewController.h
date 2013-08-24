@@ -12,6 +12,7 @@
 @class DAPagesContainer;
 @interface MultiPageViewController : BaseViewController
 
+@property(nonatomic,retain)NSDate* currentTime;
 @property (assign, nonatomic) DAPagesContainer *pagesContainer;
 @property(nonatomic,assign)CGRect rect;
 

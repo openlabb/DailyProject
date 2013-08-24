@@ -51,7 +51,7 @@
     label.textColor = [UIColor redColor];
     [label setBackgroundColor:[UIColor clearColor]];
     label.numberOfLines = 0;
-    label.text = [NSString stringWithFormat:@"点击广告条，立赚 %d 积分\n\n小窍门：可以在其他广告条出现的地方点击，储备积分。",kGoldByClickingBanner];
+    label.text = [NSString stringWithFormat:@"点击广告条，立赚 %d 积分\n\n广告条正在奋力加载中...\n\n小窍门：可以在其他广告条出现的地方点击，储备积分。",kGoldByClickingBanner];
     [self.view addSubview:label];
 }
 
