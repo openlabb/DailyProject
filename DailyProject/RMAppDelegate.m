@@ -69,7 +69,7 @@
 #elif defined kSpouseTalks
     self.names = @[@"情感攻略",@"生活健康",@"吐槽实录",@"情感美文",@"两性心理",@"两性保健"];
 #elif defined TodayinHistory
-    self.names = @[kTodayinHistory,@"中外史记",@"历史故事"];    
+    self.names = @[kTodayinHistory,@"中外史记",@"历史故事"];
 #endif
     
 #ifndef TodayinHistory
@@ -149,11 +149,11 @@
     _EnterBylocalNotification = NO;
     NSLog(@"applicationDidEnterBackground");
     
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     const NSTimeInterval kDelay = 0;//1;
     if ([self scheduleNotificationWhenQuit]) {
         
         NSString* popContent = NSLocalizedString(appFriendlyTip,"");
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
         [self scheduleLocalNotification:popContent delayTimeInterval:kDelay];
     }
     
@@ -309,8 +309,8 @@
     NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingBanner] forKey:kClickBannerEvent];
     [Flurry logEvent:kClickBannerEvent withParameters:dict];
     
-//    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingBanner]  cancelButtonTitle:@"好的"];
-//    [self showCoinsEffect];
+    //    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingBanner]  cancelButtonTitle:@"好的"];
+    //    [self showCoinsEffect];
     
     NSLog(@"notify:%@,gold:%d",notification.name,[CommonHelper gold]);
 }
@@ -318,7 +318,7 @@
 {
     if (notification && [notification.name isEqualToString:kClickRecommendViewEvent]) {
         [CommonHelper setGold:[CommonHelper gold]+kGoldByClickingRecommendView];
-//        [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingRecommendView]  cancelButtonTitle:@"好的"];
+        //        [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingRecommendView]  cancelButtonTitle:@"好的"];
         [self showCoinsEffect];
         NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingRecommendView] forKey:kClickRecommendViewEvent];
         [Flurry logEvent:kClickRecommendViewEvent withParameters:dict];
@@ -396,20 +396,23 @@
 }
 -(void)showCoinsEffect
 {
-    NSInteger earnedGold =[CommonHelper latestGoldEarned];
-    if (earnedGold>0) {
-        coinview = [[coinView alloc]initWithFrame:[self.window bounds] withNum:earnedGold];
-        coinview.coindelegate = self;
-        [self.window addSubview:coinview];
+    if([[AdsConfiguration sharedInstance]getCount]>0)
+    {
+        NSInteger earnedGold =[CommonHelper latestGoldEarned];
+        if (earnedGold>0) {
+            coinview = [[coinView alloc]initWithFrame:[self.window bounds] withNum:earnedGold];
+            coinview.coindelegate = self;
+            [self.window addSubview:coinview];
+        }
+        [CommonHelper earnGold:0];//reset
     }
-    [CommonHelper earnGold:0];//reset
 }
 - (void)pointsGotted:(NSNotification *)notification {
     NSDictionary *dict = [notification userInfo];
     NSNumber *freshPoints = [dict objectForKey:kYouMiPointsManagerFreshPointsKey];
     
     // 这里的积分不应该拿来使用, 只是用于告诉一下用户, 可以通过 [YouMiPointsManager spendPoints:]来使用积分
-//    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%@积分", freshPoints]  cancelButtonTitle:@"好的"];
+    //    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%@积分", freshPoints]  cancelButtonTitle:@"好的"];
     [self showCoinsEffect];
     
     [CommonHelper setGold:[CommonHelper gold]+freshPoints.integerValue];
@@ -418,15 +421,15 @@
     [Flurry logEvent:kClickYoumiWallEvent withParameters:dict];
     
     // 如果使用手动积分管理可以通过下面这种方法获得每份积分的信息。
-//    NSArray *pointInfos = dict[kYouMiPointsManagerPointInfosKey];
-//    for (NSDictionary *aPointInfo in pointInfos) {
-//        // aPointInfo 是每份积分的信息，包括积分数，userID，下载的APP的名字
-//        NSLog(@"积分数：%@", aPointInfo[kYouMiPointsManagerPointAmountKey]);
-//        NSLog(@"userID：%@", aPointInfo[kYouMiPointsManagerPointUserIDKey]);
-//        NSLog(@"产品名字：%@", aPointInfo[kYouMiPointsManagerPointProductNameKey]);
-//        
-//        // TODO 按需要处理
-//    }
+    //    NSArray *pointInfos = dict[kYouMiPointsManagerPointInfosKey];
+    //    for (NSDictionary *aPointInfo in pointInfos) {
+    //        // aPointInfo 是每份积分的信息，包括积分数，userID，下载的APP的名字
+    //        NSLog(@"积分数：%@", aPointInfo[kYouMiPointsManagerPointAmountKey]);
+    //        NSLog(@"userID：%@", aPointInfo[kYouMiPointsManagerPointUserIDKey]);
+    //        NSLog(@"产品名字：%@", aPointInfo[kYouMiPointsManagerPointProductNameKey]);
+    //
+    //        // TODO 按需要处理
+    //    }
 }
 
 -(void)coinAnimationFinished
