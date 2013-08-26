@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "coinView.h"
 
 #define SharedDelegate (RMAppDelegate*)[[UIApplication sharedApplication]delegate]
 
-@interface RMAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
+@interface RMAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate,coinViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
+@property (strong, nonatomic) coinView *coinview;
 
 -(BOOL)scheduleNotificationWhenQuit;
 -(void)setQuitNotification:(BOOL)enable;

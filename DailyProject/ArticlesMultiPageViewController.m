@@ -73,7 +73,7 @@
 #pragma mark ArticleListViewDelegate
 - (NSArray*)loadData:(NSString*)dbName withKeyWord:(NSString*)keywords withDate:(NSDate*)date
 {
-    return [self getSqlData:dbName withKeyWord:keywords withDate:date];
+    return [ArticlesMultiPageViewController getSqlData:dbName withKeyWord:keywords withDate:date];
 }
 #pragma mark util methods
 -(void)refreshData:(NSDate*)date
@@ -86,12 +86,26 @@
         }
     }
 }
-
--(NSArray*)getSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords withDate:(NSDate*)date
+//获取明天的内容简介
++(NSString*)getTomorrowSummary:(NSString*)dbName withKeyWord:(NSString*)keywords
+{
+    NSDate* tomorrow = [[NSDate  date] dateByAddingTimeInterval: +86400.0];
+    NSArray* items = [ArticlesMultiPageViewController getSqlData:dbName withKeyWord:keywords withDate:tomorrow];
+    
+    //get title
+    if (items.count>2) {
+        RMArticle* first = [items objectAtIndex:0];
+        RMArticle* second = [items objectAtIndex:1];
+        return [NSString stringWithFormat:@"%@-%@",first.title,second.title];
+    }
+    
+    return @"";
+}
++(NSArray*)getSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords withDate:(NSDate*)date
 {
     NSString* resourceDbFile = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle]resourcePath],kDataFile];
     if ([[NSFileManager defaultManager]fileExistsAtPath:resourceDbFile]) {
-        return [self getCommonSqlData:kDataFile withKeyWord:keywords];
+        return [ArticlesMultiPageViewController getCommonSqlData:kDataFile withKeyWord:keywords];
     }
     
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:[NSString stringWithFormat:@"%@.sql",dbName]]autorelease];
@@ -116,9 +130,9 @@
     
     
     NSLog(@"query:%@",query);
-    return [self dictItems:[dbManager getRowsForQuery:query]];
+    return [ArticlesMultiPageViewController dictItems:[dbManager getRowsForQuery:query]];
 }
--(NSArray*)dictItems:(NSArray*)dict
++(NSArray*)dictItems:(NSArray*)dict
 {
      NSMutableArray* data = [[[NSMutableArray alloc]init]autorelease];
     for (NSDictionary* row in dict) {
@@ -152,7 +166,7 @@
     }
     return data;
 }
--(NSArray*)getCommonSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords
++(NSArray*)getCommonSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords
 {
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:[NSString stringWithFormat:@"%@",dbName]]autorelease];
     

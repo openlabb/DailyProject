@@ -28,7 +28,6 @@
 #import "AdSageManager.h"
 #import "YouMiPointsManager.h"
 
-
 #ifdef DPRAPR_PUSH
 #import "DMAPService.h"
 #import "DMAPTools.h"
@@ -38,9 +37,11 @@
 {
     BOOL      _EnterBylocalNotification;
 }
+@property(nonatomic,retain)NSArray* names;
 @end
 
 @implementation RMAppDelegate
+@synthesize coinview;
 + (void)initialize
 {
     //configure iRate
@@ -57,18 +58,18 @@
     
     rc.size.height -= (kTopTabHeight+kTabbarHeight);
     
-    NSArray* names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
+    self.names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
     
 #ifdef  TraditionalChineseMedicine
-    names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
+    self.names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
 #elif defined Makeup
-    names = @[@"美白小窍门",@"保湿技巧",@"饮食美容",@"笑话也美容"];
+    self.names = @[@"美白小窍门",@"保湿技巧",@"饮食美容",@"笑话也美容"];
 #elif defined MakeToast
     names = @[@"祝酒词",@"提酒词",@"敬酒词",@"拒酒词",@"劝酒词",@"挡酒词"];
 #elif defined kSpouseTalks
-    names = @[@"情感攻略",@"生活健康",@"吐槽实录",@"情感美文",@"两性心理",@"两性保健"];
+    self.names = @[@"情感攻略",@"生活健康",@"吐槽实录",@"情感美文",@"两性心理",@"两性保健"];
 #elif defined TodayinHistory
-    names = @[kTodayinHistory,@"中外史记",@"历史故事"];    
+    self.names = @[kTodayinHistory,@"中外史记",@"历史故事"];    
 #endif
     
 #ifndef TodayinHistory
@@ -77,7 +78,7 @@
     //定义了kTodayinHistory
     ArticlesMultiPageViewController* dailyArticlesController = [[[RMHistoryController alloc]initWithFrame:rc]autorelease];
 #endif
-    dailyArticlesController.dbNameList = names;
+    dailyArticlesController.dbNameList = self.names;
     
     RMFavoriteViewController *favoriteViewController = [[[RMFavoriteViewController alloc] initWithFrame:rc] autorelease];
     
@@ -93,12 +94,11 @@
     else
     {
         RMHistoryViewController* historyViewController = [[[RMHistoryViewController alloc] initWithFrame:rc] autorelease];
-        historyViewController.dbNameList = names;
+        historyViewController.dbNameList = self.names;
         self.tabBarController.viewControllers = @[dailyArticlesController,historyViewController, favoriteViewController,recommendController,setting];
     }
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
-    
     
     //start ad
     [self startAdsConfigReceive];
@@ -149,12 +149,28 @@
     _EnterBylocalNotification = NO;
     NSLog(@"applicationDidEnterBackground");
     
+    const NSTimeInterval kDelay = 0;//1;
     if ([self scheduleNotificationWhenQuit]) {
         
-        const NSTimeInterval kDelay = 0;//1;
         NSString* popContent = NSLocalizedString(appFriendlyTip,"");
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         [self scheduleLocalNotification:popContent delayTimeInterval:kDelay];
+    }
+    
+    if(singleDataFile)
+    {
+        return;
+    }
+    //tommorow's tip
+    NSString* dbName = [self.names objectAtIndex:0];
+#ifdef TodayinHistory
+    NSString* tipMessage = [RMHistoryController getTomorrowSummary:dbName withKeyWord:dbName];
+#else
+    NSString* tipMessage = [ArticlesMultiPageViewController getTomorrowSummary:dbName withKeyWord:dbName];
+#endif
+    if(tipMessage && tipMessage.length>0)
+    {
+        [self scheduleLocalNotification:tipMessage];
     }
 }
 
@@ -166,6 +182,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self showCoinsEffect];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -292,7 +309,8 @@
     NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingBanner] forKey:kClickBannerEvent];
     [Flurry logEvent:kClickBannerEvent withParameters:dict];
     
-    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingBanner]  cancelButtonTitle:@"好的"];
+//    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingBanner]  cancelButtonTitle:@"好的"];
+//    [self showCoinsEffect];
     
     NSLog(@"notify:%@,gold:%d",notification.name,[CommonHelper gold]);
 }
@@ -300,7 +318,8 @@
 {
     if (notification && [notification.name isEqualToString:kClickRecommendViewEvent]) {
         [CommonHelper setGold:[CommonHelper gold]+kGoldByClickingRecommendView];
-        [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingRecommendView]  cancelButtonTitle:@"好的"];
+//        [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingRecommendView]  cancelButtonTitle:@"好的"];
+        [self showCoinsEffect];
         NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingRecommendView] forKey:kClickRecommendViewEvent];
         [Flurry logEvent:kClickRecommendViewEvent withParameters:dict];
     }
@@ -375,12 +394,23 @@
     [alert show];
     [alert release];
 }
+-(void)showCoinsEffect
+{
+    NSInteger earnedGold =[CommonHelper latestGoldEarned];
+    if (earnedGold>0) {
+        coinview = [[coinView alloc]initWithFrame:[self.window bounds] withNum:earnedGold];
+        coinview.coindelegate = self;
+        [self.window addSubview:coinview];
+    }
+    [CommonHelper earnGold:0];//reset
+}
 - (void)pointsGotted:(NSNotification *)notification {
     NSDictionary *dict = [notification userInfo];
     NSNumber *freshPoints = [dict objectForKey:kYouMiPointsManagerFreshPointsKey];
     
     // 这里的积分不应该拿来使用, 只是用于告诉一下用户, 可以通过 [YouMiPointsManager spendPoints:]来使用积分
-    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%@积分", freshPoints]  cancelButtonTitle:@"好的"];
+//    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%@积分", freshPoints]  cancelButtonTitle:@"好的"];
+    [self showCoinsEffect];
     
     [CommonHelper setGold:[CommonHelper gold]+freshPoints.integerValue];
     
@@ -399,5 +429,9 @@
 //    }
 }
 
-
+-(void)coinAnimationFinished
+{
+    [coinview removeFromSuperview];
+    coinview = nil;
+}
 @end

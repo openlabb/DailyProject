@@ -9,6 +9,7 @@
 #import "RMHistoryController.h"
 #import "ArticleListViewController.h"
 #import "SQLiteManager.h"
+#import "RMArticle.h"
 
 @interface RMHistoryController ()<ArticleListViewDelegate>
 
@@ -46,13 +47,27 @@
     //定义了kTodayinHistory
     if ([dbName isEqualToString:kTodayinHistory])
     {
-        return [self getSqlDataInner:dbName withKeyWord:keywords withDate:date];
+        return [RMHistoryController getSqlData:dbName withKeyWord:keywords withDate:date];
     }
     
     return  [super loadData:dbName withKeyWord:keywords  withDate:date];
 }
-
--(NSArray*)getSqlDataInner:(NSString*)dbName withKeyWord:(NSString*)keywords withDate:(NSDate*)date
+//获取明天的内容简介
++(NSString*)getTomorrowSummary:(NSString*)dbName withKeyWord:(NSString*)keywords
+{
+    NSDate* tomorrow = [[NSDate  date] dateByAddingTimeInterval: +86400.0];
+    NSArray* items = [RMHistoryController getSqlData:dbName withKeyWord:keywords withDate:tomorrow];
+    
+    //get title
+    if (items.count>2) {
+        RMArticle* first = [items objectAtIndex:0];
+        RMArticle* second = [items objectAtIndex:1];
+        return [NSString stringWithFormat:@"%@-%@",first.title,second.title];
+    }
+    
+    return @"";
+}
++(NSArray*)getSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords withDate:(NSDate*)date
 {
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:[NSString stringWithFormat:@"%@.sql",dbName]]autorelease];
     //get today's data
@@ -69,7 +84,7 @@
     
     NSLog(@"query:%@",query);
     
-    return [super dictItems:[dbManager getRowsForQuery:query]];
+    return [ArticlesMultiPageViewController dictItems:[dbManager getRowsForQuery:query]];
 }
 
 @end

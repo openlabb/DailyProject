@@ -18,14 +18,14 @@
 #endif//__RELEASE__
 
 #warning 发布记得修改为相应的id
-#define Makeup//美容秘笈
+//#define Makeup//美容秘笈
 //#define HealthSecretsForGirls//美女保健小贴士
 //#define MHealth
 //#define Foods
 //#define LosingWeight
 //#define careerGuide//职场秘笈
 //#define RaisingKids //育儿指南
-//#define TodayinHistory//史上今日
+#define TodayinHistory//史上今日
 //#define MakeToast//场面话之祝酒词
 //#define TraditionalChineseMedicine //中医小窍门
 //#define SpouseTalks//夫妻密语
@@ -44,6 +44,7 @@
 #elif defined TodayinHistory
 //flurry
 #define kFlurryID @"VD57WGD28683BPMSQ9X9"
+#define UMENG_APPKEY @"52192ce856240b74bb051e0d"
 
 #elif defined Makeup
 //flurry
@@ -57,6 +58,7 @@
 #elif defined TraditionalChineseMedicine
 
 #define kFlurryID @"C82CN6MQ328XV3BHX5TN"
+#define UMENG_APPKEY @"52192c6256240b81bf00bf51"
 
 #elif defined SpouseTalks
 
@@ -73,7 +75,6 @@
 #elif defined EnglishPrefix
 //flurry
 #define kFlurryID @"RSJY3SX8QV95QQM5GJ5Y"
-
 //#else//other cases,from today in history
 ////flurry
 //#define kFlurryID @"VD57WGD28683BPMSQ9X9"
