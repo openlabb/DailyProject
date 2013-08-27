@@ -52,7 +52,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self initLaunch:launchOptions];
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     CGRect rc = [[UIScreen mainScreen]applicationFrame];
@@ -72,6 +71,7 @@
 #elif defined TodayinHistory
     self.names = @[kTodayinHistory,@"中外史记",@"历史故事"];
 #endif
+    [self initLaunch:launchOptions];
     
 #ifndef TodayinHistory
     ArticlesMultiPageViewController* dailyArticlesController = [[[ArticlesMultiPageViewController alloc]initWithFrame:rc]autorelease];
@@ -229,15 +229,7 @@
 -(void)initLaunch:(NSDictionary *)launchOptions
 {
     //start flurry session
-    NSString* flurryAppkey = [CommonHelper defaultsForString:kFlurryAppSavingKey];
-    if (flurryAppkey && flurryAppkey.length>0) {
-        //flurry
-        [Flurry startSession:flurryAppkey withOptions:launchOptions];
-    }
-    else
-    {
-        [Flurry startSession:kFlurryID];
-    }
+    [Flurry startSession:kFlurryID withOptions:launchOptions];
 #ifndef __RELEASE__
     [Flurry setDebugLogEnabled:YES];
 #endif

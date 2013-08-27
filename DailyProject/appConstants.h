@@ -27,8 +27,8 @@
 //#define RaisingKids //育儿指南
 //#define TodayinHistory//史上今日
 //#define MakeToast//场面话之祝酒词
-//#define TraditionalChineseMedicine //中医小窍门
-#define SpouseTalks//夫妻密语
+#define TraditionalChineseMedicine //中医小窍门
+//#define SpouseTalks//夫妻密语
 //#define Humer//搞笑集锦
 //#define EnglishPrefix//英语前缀
 //#define EnglishSuffix//英语词根

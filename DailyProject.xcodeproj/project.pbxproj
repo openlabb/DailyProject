@@ -17,7 +17,6 @@
 		3023DEEA17BD989D00123DFD /* block_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEE917BD989D00123DFD /* block_background~ipad.png */; };
 		3023DEEC17BD9A8100123DFD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEEB17BD9A8100123DFD /* Default.png */; };
 		3023DEEE17BD9A9200123DFD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3023DEED17BD9A9200123DFD /* Default@2x.png */; };
-		3023DEF317BDA15700123DFD /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3023DEF217BDA15700123DFD /* libFlurry.a */; };
 		3023DF0717BDA1E300123DFD /* RARExtractException.m in Sources */ = {isa = PBXBuildFile; fileRef = 3023DEF617BDA1E300123DFD /* RARExtractException.m */; };
 		3023DF0817BDA1E300123DFD /* Unrar4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3023DEF717BDA1E300123DFD /* Unrar4iOS.framework */; };
 		3023DF0917BDA1E300123DFD /* Unrar4iOSEx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3023DEF917BDA1E300123DFD /* Unrar4iOSEx.mm */; };
@@ -42,6 +41,12 @@
 		303FBA0C17BE249F00747A8B /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 303FB9D917BE249F00747A8B /* NetworkManager.m */; };
 		303FBA0D17BE249F00747A8B /* RMIndexedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 303FB9DB17BE249F00747A8B /* RMIndexedArray.m */; };
 		306F34D117C42A7800C7EE2E /* RMHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 306F34D017C42A7800C7EE2E /* RMHistoryController.m */; };
+		306F691517CD5FA4005DB827 /* libFlurry_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 306F691417CD5FA4005DB827 /* libFlurry_4.2.3.a */; };
+		306F691B17CD65DE005DB827 /* 中医育儿.sql in Resources */ = {isa = PBXBuildFile; fileRef = 306F691617CD65DE005DB827 /* 中医育儿.sql */; };
+		306F691C17CD65DE005DB827 /* 养生排行.sql in Resources */ = {isa = PBXBuildFile; fileRef = 306F691717CD65DE005DB827 /* 养生排行.sql */; };
+		306F691D17CD65DE005DB827 /* 女性保健.sql in Resources */ = {isa = PBXBuildFile; fileRef = 306F691817CD65DE005DB827 /* 女性保健.sql */; };
+		306F691E17CD65DE005DB827 /* 男性保健.sql in Resources */ = {isa = PBXBuildFile; fileRef = 306F691917CD65DE005DB827 /* 男性保健.sql */; };
+		306F691F17CD65DE005DB827 /* 老人保健.sql in Resources */ = {isa = PBXBuildFile; fileRef = 306F691A17CD65DE005DB827 /* 老人保健.sql */; };
 		3072B9C217BC6ACD00EBAE90 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3072B9C117BC6ACD00EBAE90 /* calendar.png */; };
 		30761B0A17B7673600239F51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30761B0917B7673600239F51 /* Localizable.strings */; };
 		30761B0F17B76ABE00239F51 /* ArticleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30761B0E17B76ABE00239F51 /* ArticleListViewController.m */; };
@@ -275,11 +280,6 @@
 		30A6FFFD17C828AC008BB821 /* adchina_forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5717C828AC008BB821 /* adchina_forward@2x.png */; };
 		30A6FFFE17C828AC008BB821 /* adchina_hide.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5817C828AC008BB821 /* adchina_hide.png */; };
 		30A6FFFF17C828AC008BB821 /* adchina_hide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5917C828AC008BB821 /* adchina_hide@2x.png */; };
-		30B0049617CC425D0057A793 /* 夫妻笑话.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30B0049117CC425D0057A793 /* 夫妻笑话.sql */; };
-		30B0049717CC425D0057A793 /* 情感攻略.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30B0049217CC425D0057A793 /* 情感攻略.sql */; };
-		30B0049817CC425D0057A793 /* 情感美文.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30B0049317CC425D0057A793 /* 情感美文.sql */; };
-		30B0049917CC425D0057A793 /* 生活健康.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30B0049417CC425D0057A793 /* 生活健康.sql */; };
-		30B0049A17CC425D0057A793 /* 隐私实录.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30B0049517CC425D0057A793 /* 隐私实录.sql */; };
 		30D0625D17CC145600224214 /* coinImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0624C17CC145600224214 /* coinImageView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		30D0625E17CC145600224214 /* coinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0624E17CC145600224214 /* coinView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		30D0626017CC145600224214 /* OpenGLTexture3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0625417CC145600224214 /* OpenGLTexture3D.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -308,7 +308,6 @@
 		3023DEEB17BD9A8100123DFD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		3023DEED17BD9A9200123DFD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		3023DEF117BDA15700123DFD /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		3023DEF217BDA15700123DFD /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		3023DEF517BDA1E300123DFD /* RARExtractException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARExtractException.h; sourceTree = "<group>"; };
 		3023DEF617BDA1E300123DFD /* RARExtractException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARExtractException.m; sourceTree = "<group>"; };
 		3023DEF717BDA1E300123DFD /* Unrar4iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Unrar4iOS.framework; sourceTree = "<group>"; };
@@ -354,6 +353,12 @@
 		303FB9DB17BE249F00747A8B /* RMIndexedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMIndexedArray.m; sourceTree = "<group>"; };
 		306F34CF17C42A7800C7EE2E /* RMHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHistoryController.h; sourceTree = "<group>"; };
 		306F34D017C42A7800C7EE2E /* RMHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHistoryController.m; sourceTree = "<group>"; };
+		306F691417CD5FA4005DB827 /* libFlurry_4.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.2.3.a; sourceTree = "<group>"; };
+		306F691617CD65DE005DB827 /* 中医育儿.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "中医育儿.sql"; sourceTree = "<group>"; };
+		306F691717CD65DE005DB827 /* 养生排行.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "养生排行.sql"; sourceTree = "<group>"; };
+		306F691817CD65DE005DB827 /* 女性保健.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "女性保健.sql"; sourceTree = "<group>"; };
+		306F691917CD65DE005DB827 /* 男性保健.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "男性保健.sql"; sourceTree = "<group>"; };
+		306F691A17CD65DE005DB827 /* 老人保健.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "老人保健.sql"; sourceTree = "<group>"; };
 		3072B9C117BC6ACD00EBAE90 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		30761B0917B7673600239F51 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		30761B0E17B76ABE00239F51 /* ArticleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleListViewController.m; sourceTree = "<group>"; };
@@ -743,11 +748,6 @@
 		30A6FFCD17C828AC008BB821 /* CloseBannerBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CloseBannerBtn@2x.png"; sourceTree = "<group>"; };
 		30A6FFCE17C828AC008BB821 /* timeuptoclosefs_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeuptoclosefs_ipad.png; sourceTree = "<group>"; };
 		30A6FFCF17C828AC008BB821 /* timeuptoclosefs_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeuptoclosefs_iphone.png; sourceTree = "<group>"; };
-		30B0049117CC425D0057A793 /* 夫妻笑话.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "夫妻笑话.sql"; sourceTree = "<group>"; };
-		30B0049217CC425D0057A793 /* 情感攻略.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "情感攻略.sql"; sourceTree = "<group>"; };
-		30B0049317CC425D0057A793 /* 情感美文.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "情感美文.sql"; sourceTree = "<group>"; };
-		30B0049417CC425D0057A793 /* 生活健康.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "生活健康.sql"; sourceTree = "<group>"; };
-		30B0049517CC425D0057A793 /* 隐私实录.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "隐私实录.sql"; sourceTree = "<group>"; };
 		30D0624B17CC145600224214 /* coinImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coinImageView.h; sourceTree = "<group>"; };
 		30D0624C17CC145600224214 /* coinImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coinImageView.m; sourceTree = "<group>"; };
 		30D0624D17CC145600224214 /* coinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coinView.h; sourceTree = "<group>"; };
@@ -811,7 +811,6 @@
 				3076219617B7D76F00239F51 /* libWeChatSDK_armv7_armv7s.a in Frameworks */,
 				3076219717B7D76F00239F51 /* libUMSocial_Sdk_2.2.1.1.a in Frameworks */,
 				3076219817B7D76F00239F51 /* libUMSocial_Sdk_Comment_2.2.1.1.a in Frameworks */,
-				3023DEF317BDA15700123DFD /* libFlurry.a in Frameworks */,
 				3023DF0817BDA1E300123DFD /* Unrar4iOS.framework in Frameworks */,
 				303FB9EA17BE249F00747A8B /* DMAPLib.a in Frameworks */,
 				30A6FDF617C81F5E008BB821 /* libUMFeedback.a in Frameworks */,
@@ -819,6 +818,7 @@
 				30A6FFD717C828AC008BB821 /* libMobiSageRecommend.a in Frameworks */,
 				30A6005617C82962008BB821 /* Escore.framework in Frameworks */,
 				30A6005917C82962008BB821 /* libYouMi.a in Frameworks */,
+				306F691517CD5FA4005DB827 /* libFlurry_4.2.3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,8 +847,8 @@
 		3023DEF017BDA15700123DFD /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
+				306F691417CD5FA4005DB827 /* libFlurry_4.2.3.a */,
 				3023DEF117BDA15700123DFD /* Flurry.h */,
-				3023DEF217BDA15700123DFD /* libFlurry.a */,
 			);
 			path = Flurry;
 			sourceTree = "<group>";
@@ -1468,11 +1468,11 @@
 		3076210217B776DA00239F51 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				30B0049117CC425D0057A793 /* 夫妻笑话.sql */,
-				30B0049217CC425D0057A793 /* 情感攻略.sql */,
-				30B0049317CC425D0057A793 /* 情感美文.sql */,
-				30B0049417CC425D0057A793 /* 生活健康.sql */,
-				30B0049517CC425D0057A793 /* 隐私实录.sql */,
+				306F691617CD65DE005DB827 /* 中医育儿.sql */,
+				306F691717CD65DE005DB827 /* 养生排行.sql */,
+				306F691817CD65DE005DB827 /* 女性保健.sql */,
+				306F691917CD65DE005DB827 /* 男性保健.sql */,
+				306F691A17CD65DE005DB827 /* 老人保健.sql */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -2105,11 +2105,11 @@
 				30D0626217CC145600224214 /* bgm_coin_01.mp3 in Resources */,
 				30D0626317CC145600224214 /* coin.png in Resources */,
 				30D0626417CC145600224214 /* stars2.png in Resources */,
-				30B0049617CC425D0057A793 /* 夫妻笑话.sql in Resources */,
-				30B0049717CC425D0057A793 /* 情感攻略.sql in Resources */,
-				30B0049817CC425D0057A793 /* 情感美文.sql in Resources */,
-				30B0049917CC425D0057A793 /* 生活健康.sql in Resources */,
-				30B0049A17CC425D0057A793 /* 隐私实录.sql in Resources */,
+				306F691B17CD65DE005DB827 /* 中医育儿.sql in Resources */,
+				306F691C17CD65DE005DB827 /* 养生排行.sql in Resources */,
+				306F691D17CD65DE005DB827 /* 女性保健.sql in Resources */,
+				306F691E17CD65DE005DB827 /* 男性保健.sql in Resources */,
+				306F691F17CD65DE005DB827 /* 老人保健.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2380,8 +2380,8 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "234DEDEB-C299-4682-961E-82C48E489BEB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "234DEDEB-C299-4682-961E-82C48E489BEB";
+				PROVISIONING_PROFILE = "40E9C41F-AD36-45F9-A580-EA527A66D051";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "40E9C41F-AD36-45F9-A580-EA527A66D051";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
