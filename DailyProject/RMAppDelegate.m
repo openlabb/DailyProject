@@ -67,8 +67,8 @@
     self.names = @[@"美白小窍门",@"保湿技巧",@"饮食美容",@"笑话也美容"];
 #elif defined MakeToast
     names = @[@"祝酒词",@"提酒词",@"敬酒词",@"拒酒词",@"劝酒词",@"挡酒词"];
-#elif defined kSpouseTalks
-    self.names = @[@"情感攻略",@"生活健康",@"吐槽实录",@"情感美文",@"两性心理",@"两性保健"];
+#elif defined SpouseTalks
+    self.names = @[@"情感攻略",@"生活健康",@"情感美文",@"隐私实录",@"夫妻笑话"];
 #elif defined TodayinHistory
     self.names = @[kTodayinHistory,@"中外史记",@"历史故事"];
 #endif
@@ -83,7 +83,6 @@
     
     RMFavoriteViewController *favoriteViewController = [[[RMFavoriteViewController alloc] initWithFrame:rc] autorelease];
     
-//    UIViewController* recommendController = [[[MobisageRecommendTableViewController alloc] init] autorelease];
     DAAppsViewController *recommendController = [[[DAAppsViewController alloc] init]autorelease];
     recommendController.title = NSLocalizedString(Tab_Title_RecommmendApps, @"");
     recommendController.tabBarItem.image = [UIImage imageNamed:kICN_recommend_tab];

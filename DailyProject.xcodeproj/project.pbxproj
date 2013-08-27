@@ -275,6 +275,11 @@
 		30A6FFFD17C828AC008BB821 /* adchina_forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5717C828AC008BB821 /* adchina_forward@2x.png */; };
 		30A6FFFE17C828AC008BB821 /* adchina_hide.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5817C828AC008BB821 /* adchina_hide.png */; };
 		30A6FFFF17C828AC008BB821 /* adchina_hide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5917C828AC008BB821 /* adchina_hide@2x.png */; };
+		30B0049617CC425D0057A793 /* 夫妻笑话.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30B0049117CC425D0057A793 /* 夫妻笑话.sql */; };
+		30B0049717CC425D0057A793 /* 情感攻略.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30B0049217CC425D0057A793 /* 情感攻略.sql */; };
+		30B0049817CC425D0057A793 /* 情感美文.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30B0049317CC425D0057A793 /* 情感美文.sql */; };
+		30B0049917CC425D0057A793 /* 生活健康.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30B0049417CC425D0057A793 /* 生活健康.sql */; };
+		30B0049A17CC425D0057A793 /* 隐私实录.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30B0049517CC425D0057A793 /* 隐私实录.sql */; };
 		30D0625D17CC145600224214 /* coinImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0624C17CC145600224214 /* coinImageView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		30D0625E17CC145600224214 /* coinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0624E17CC145600224214 /* coinView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		30D0626017CC145600224214 /* OpenGLTexture3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0625417CC145600224214 /* OpenGLTexture3D.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -283,9 +288,6 @@
 		30D0626317CC145600224214 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D0625917CC145600224214 /* coin.png */; };
 		30D0626417CC145600224214 /* stars2.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D0625A17CC145600224214 /* stars2.png */; };
 		30D0626617CC15BB00224214 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D0626517CC15BB00224214 /* OpenGLES.framework */; };
-		30E5777117C967D30028AB11 /* 中外史记.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30E5776E17C967D30028AB11 /* 中外史记.sql */; };
-		30E5777217C967D30028AB11 /* 历史故事.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30E5776F17C967D30028AB11 /* 历史故事.sql */; };
-		30E5777317C967D30028AB11 /* 史上今日.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30E5777017C967D30028AB11 /* 史上今日.sql */; };
 		30E8830517BC366E002F92E0 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30E8830217BC366E002F92E0 /* iVersion.bundle */; };
 		30E8830617BC366E002F92E0 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E8830417BC366E002F92E0 /* iVersion.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
 		30E8830917BC390A002F92E0 /* MobisageRecommendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E8830817BC390A002F92E0 /* MobisageRecommendTableViewController.m */; };
@@ -741,6 +743,11 @@
 		30A6FFCD17C828AC008BB821 /* CloseBannerBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CloseBannerBtn@2x.png"; sourceTree = "<group>"; };
 		30A6FFCE17C828AC008BB821 /* timeuptoclosefs_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeuptoclosefs_ipad.png; sourceTree = "<group>"; };
 		30A6FFCF17C828AC008BB821 /* timeuptoclosefs_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeuptoclosefs_iphone.png; sourceTree = "<group>"; };
+		30B0049117CC425D0057A793 /* 夫妻笑话.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "夫妻笑话.sql"; sourceTree = "<group>"; };
+		30B0049217CC425D0057A793 /* 情感攻略.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "情感攻略.sql"; sourceTree = "<group>"; };
+		30B0049317CC425D0057A793 /* 情感美文.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "情感美文.sql"; sourceTree = "<group>"; };
+		30B0049417CC425D0057A793 /* 生活健康.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "生活健康.sql"; sourceTree = "<group>"; };
+		30B0049517CC425D0057A793 /* 隐私实录.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "隐私实录.sql"; sourceTree = "<group>"; };
 		30D0624B17CC145600224214 /* coinImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coinImageView.h; sourceTree = "<group>"; };
 		30D0624C17CC145600224214 /* coinImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coinImageView.m; sourceTree = "<group>"; };
 		30D0624D17CC145600224214 /* coinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coinView.h; sourceTree = "<group>"; };
@@ -755,9 +762,6 @@
 		30D0625917CC145600224214 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin.png; sourceTree = "<group>"; };
 		30D0625A17CC145600224214 /* stars2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars2.png; sourceTree = "<group>"; };
 		30D0626517CC15BB00224214 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		30E5776E17C967D30028AB11 /* 中外史记.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "中外史记.sql"; sourceTree = "<group>"; };
-		30E5776F17C967D30028AB11 /* 历史故事.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "历史故事.sql"; sourceTree = "<group>"; };
-		30E5777017C967D30028AB11 /* 史上今日.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "史上今日.sql"; sourceTree = "<group>"; };
 		30E8830217BC366E002F92E0 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
 		30E8830317BC366E002F92E0 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
 		30E8830417BC366E002F92E0 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
@@ -1464,9 +1468,11 @@
 		3076210217B776DA00239F51 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				30E5776E17C967D30028AB11 /* 中外史记.sql */,
-				30E5776F17C967D30028AB11 /* 历史故事.sql */,
-				30E5777017C967D30028AB11 /* 史上今日.sql */,
+				30B0049117CC425D0057A793 /* 夫妻笑话.sql */,
+				30B0049217CC425D0057A793 /* 情感攻略.sql */,
+				30B0049317CC425D0057A793 /* 情感美文.sql */,
+				30B0049417CC425D0057A793 /* 生活健康.sql */,
+				30B0049517CC425D0057A793 /* 隐私实录.sql */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -2096,12 +2102,14 @@
 				30A6003A17C828AC008BB821 /* timeuptoclosefs_ipad.png in Resources */,
 				30A6003B17C828AC008BB821 /* timeuptoclosefs_iphone.png in Resources */,
 				30A6005517C82962008BB821 /* Escore.bundle in Resources */,
-				30E5777117C967D30028AB11 /* 中外史记.sql in Resources */,
-				30E5777217C967D30028AB11 /* 历史故事.sql in Resources */,
-				30E5777317C967D30028AB11 /* 史上今日.sql in Resources */,
 				30D0626217CC145600224214 /* bgm_coin_01.mp3 in Resources */,
 				30D0626317CC145600224214 /* coin.png in Resources */,
 				30D0626417CC145600224214 /* stars2.png in Resources */,
+				30B0049617CC425D0057A793 /* 夫妻笑话.sql in Resources */,
+				30B0049717CC425D0057A793 /* 情感攻略.sql in Resources */,
+				30B0049817CC425D0057A793 /* 情感美文.sql in Resources */,
+				30B0049917CC425D0057A793 /* 生活健康.sql in Resources */,
+				30B0049A17CC425D0057A793 /* 隐私实录.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
