@@ -18,6 +18,7 @@
 #import "DAAppsViewController.h"
 #import "UMFeedback.h"
 #import "Flurry.h"
+#import "MobisageRecommendTableViewController.h"
 
 NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 
@@ -218,7 +219,7 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
         }
 	}];
 }
--(void)addMyAppList
+-(void)addRecommendAppList
 {
     [self addSection:^(JMStaticContentTableViewSection *section, NSUInteger sectionIndex) {
 		[section addCell:^(JMStaticContentTableViewCell *staticContentCell, UITableViewCell *cell, NSIndexPath *indexPath) {
@@ -229,11 +230,12 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 			//cell.imageView.image = [UIImage imageNamed:kIconFavorite];
             
 		} whenSelected:^(NSIndexPath *indexPath) {
-            DAAppsViewController *appsViewController = [[[DAAppsViewController alloc] init]autorelease];
-            [appsViewController loadAppsWithSearchTerm:kItunesSearchTerm completionBlock:nil];
+//            DAAppsViewController *appsViewController = [[[DAAppsViewController alloc] init]autorelease];
+//            [appsViewController loadAppsWithSearchTerm:kItunesSearchTerm completionBlock:nil];
+            UIViewController* appsViewController = [[[MobisageRecommendTableViewController alloc] init] autorelease];
             [self.navigationController pushViewController:appsViewController animated:YES];
             
-            [Flurry logEvent:kOpenMyAppListEvent];
+            [Flurry logEvent:kOpenRecommendAppListEvent];
 		}];
 	}];
     
@@ -249,10 +251,7 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 			cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Premium", @""),[CommonHelper gold]];
             
 			cell.imageView.image = [UIImage imageNamed:@"Coins"];
-		} whenSelected:^(NSIndexPath *indexPath) {
-//            UIViewController* c = [[[UpdateToPremiumController alloc]init]autorelease];
-            //            [self.navigationController pushViewController:c animated:YES];
-            
+		} whenSelected:^(NSIndexPath *indexPath) {            
             CGRect rect = self.view.frame;
             EarnGoldMultiPageViewController* c = [[[EarnGoldMultiPageViewController alloc]initWithFrame:rect]autorelease];
             UINavigationController* navi = [[[UINavigationController alloc]initWithRootViewController:c]autorelease];
@@ -284,13 +283,9 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 -(void)addSections
 {
     [self addGeneralSection];
-    [self addMyAppList];
-    if(!singleDataFile)
+    if([[AdsConfiguration sharedInstance]getCount]>0)
     {
-        [self addQuitTipSettingSection];
-    }
-    if([[[AdsConfiguration sharedInstance]getScenedItems:kAdDisplay withType:@""]count]>0)
-    {
+        [self addRecommendAppList];
         [self addUpdateToPremiumSection];
     }
     

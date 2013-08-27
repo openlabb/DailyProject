@@ -27,6 +27,7 @@
 #import "RMHistoryController.h"
 #import "AdSageManager.h"
 #import "YouMiPointsManager.h"
+#import "DAAppsViewController.h"
 
 #ifdef DPRAPR_PUSH
 #import "DMAPService.h"
@@ -82,7 +83,12 @@
     
     RMFavoriteViewController *favoriteViewController = [[[RMFavoriteViewController alloc] initWithFrame:rc] autorelease];
     
-    UIViewController* recommendController = [[[MobisageRecommendTableViewController alloc] init] autorelease];
+//    UIViewController* recommendController = [[[MobisageRecommendTableViewController alloc] init] autorelease];
+    DAAppsViewController *recommendController = [[[DAAppsViewController alloc] init]autorelease];
+    recommendController.title = NSLocalizedString(Tab_Title_RecommmendApps, @"");
+    recommendController.tabBarItem.image = [UIImage imageNamed:kICN_recommend_tab];
+    [recommendController loadAppsWithSearchTerm:kItunesSearchTerm completionBlock:nil];
+
     UIViewController* tmp = [[[SettingsViewController alloc]init]autorelease];
     UINavigationController* setting = [[[UINavigationController alloc]initWithRootViewController:tmp]autorelease];
     
@@ -150,12 +156,12 @@
     NSLog(@"applicationDidEnterBackground");
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    const NSTimeInterval kDelay = 0;//1;
-    if ([self scheduleNotificationWhenQuit]) {
-        
-        NSString* popContent = NSLocalizedString(appFriendlyTip,"");
-        [self scheduleLocalNotification:popContent delayTimeInterval:kDelay];
-    }
+//    const NSTimeInterval kDelay = 0;//1;
+//    if ([self scheduleNotificationWhenQuit]) {
+//        
+//        NSString* popContent = NSLocalizedString(appFriendlyTip,"");
+//        [self scheduleLocalNotification:popContent delayTimeInterval:kDelay];
+//    }
     
     if(singleDataFile)
     {
@@ -182,7 +188,19 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self showCoinsEffect];
+    //init launch task
+    if([CommonHelper initLaunch])
+    {
+        [CommonHelper setGold:kDefaultGold];
+        [CommonHelper setNotInitLaunch];
+        
+        //enable quit notification
+        [self setQuitNotification:YES];
+    }
+    else
+    {
+        [self showCoinsEffect];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -233,21 +251,7 @@
     [YouMiWall enable];
     // 注册消息，得知积分的变化， 详情看头文件 YouMiPointsManager.h
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pointsGotted:) name:kYouMiPointsManagerRecivedPointsNotification object:nil];
-    
-    //init launch task
-    if([CommonHelper initLaunch])
-    {
-        [CommonHelper setGold:kDefaultGold];
-        [CommonHelper setNotInitLaunch];
-        
-        //enable quit notification
-        [self setQuitNotification:YES];
-    }
-    
-    if(singleDataFile)
-    {
-        [self setQuitNotification:NO];
-    }
+
 }
 
 #pragma mark  quit switch
@@ -394,17 +398,28 @@
     [alert show];
     [alert release];
 }
+
+-(void)showCoinsEffectInner:(NSNumber*)number
+{
+    if (!number) {
+        return;
+    }
+    coinview = [[coinView alloc]initWithFrame:[self.window bounds] withNum:number.integerValue];
+    coinview.coindelegate = self;
+    [self.window addSubview:coinview];
+    
+    [CommonHelper earnGold:0];//reset
+}
 -(void)showCoinsEffect
 {
     if([[AdsConfiguration sharedInstance]getCount]>0)
     {
         NSInteger earnedGold =[CommonHelper latestGoldEarned];
         if (earnedGold>0) {
-            coinview = [[coinView alloc]initWithFrame:[self.window bounds] withNum:earnedGold];
-            coinview.coindelegate = self;
-            [self.window addSubview:coinview];
+            
+            //delay
+            [self performSelector:@selector(showCoinsEffectInner:) withObject:[NSNumber numberWithInt:earnedGold] afterDelay:kCoinsEffectDelay];
         }
-        [CommonHelper earnGold:0];//reset
     }
 }
 - (void)pointsGotted:(NSNotification *)notification {

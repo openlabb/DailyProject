@@ -30,7 +30,7 @@
 {
     self = [super init];
     
-    //    //for tab item
+    //for tab item
     self.title = NSLocalizedString(Tab_Title_RecommmendApps, @"");
     self.tabBarItem.image = [UIImage imageNamed:kICN_recommend_tab];
     

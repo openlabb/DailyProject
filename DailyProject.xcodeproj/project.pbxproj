@@ -950,8 +950,8 @@
 				30761B3617B76B6800239F51 /* iOS_Lib */,
 				3076208E17B76E1800239F51 /* Model */,
 				30761B0C17B7689700239F51 /* TabControllers */,
-				3034917C17B7663600BFA351 /* RMAppDelegate.m */,
 				3034917B17B7663600BFA351 /* RMAppDelegate.h */,
+				3034917C17B7663600BFA351 /* RMAppDelegate.m */,
 				3034917317B7663600BFA351 /* Supporting Files */,
 			);
 			path = DailyProject;
