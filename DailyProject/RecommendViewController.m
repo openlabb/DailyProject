@@ -49,13 +49,13 @@
     label.textColor = [UIColor redColor];
     [label setBackgroundColor:[UIColor clearColor]];
     label.numberOfLines = 0;
-    label.text = [NSString stringWithFormat:@"点击推荐应用，立赚 %d 积分\n\n应用列表加载中，请稍等",kGoldByClickingRecommendView];
+    label.text = [NSString stringWithFormat:@"点推荐应用，立赚 %d 积分\n\n看不到列表?请稍等...",kGoldByClickingRecommendView];
     [self.view addSubview:label];
 
     rect.origin.y += rect.size.height;
     rect.size.height = kCellHeight * kMobisageRecommendCount *(300.0/640.0);
     
-    self.recommendView = [[MSRecommendContentView alloc] initWithdelegate:self width:300.0f adCount:kMobisageRecommendCount];
+    self.recommendView = [[MSRecommendContentView alloc] initWithdelegate:self width:kDeviceWidth adCount:kMobisageRecommendCount];
     [self.recommendView release];
     
     self.recommendView.frame = rect;

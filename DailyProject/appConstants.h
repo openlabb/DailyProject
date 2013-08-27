@@ -250,5 +250,7 @@
 
 #define kCoinsEffectDelay 3.0//3s
 
+#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
 #endif
 
