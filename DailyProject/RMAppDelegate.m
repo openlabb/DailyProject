@@ -140,6 +140,9 @@
     
     [Flurry logEvent:kDidReceiveRemoteNotification withParameters:userInfo];
 #endif
+    NSInteger badgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = (badgeNumber-1);
 }
 
 
