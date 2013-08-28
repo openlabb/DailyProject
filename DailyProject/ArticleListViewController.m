@@ -84,8 +84,9 @@
     
     if(!existView)
     {
-        [self.view addSubview:self.articleController];
+        [self.view addSubview:self.articleController.view];
     }
+    //add search bar
     
     if (!self.dataList && !self.loadingData) {
         //load data on background view

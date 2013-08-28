@@ -10,7 +10,7 @@
 #define DailyProject_appConstants_h
 
 #warning 发布时打开，并且确认drappr为非测试模式
-#define __RELEASE__
+//#define __RELEASE__
 #ifdef __RELEASE__
 #define DPRAPR_PUSH//push广告开关
 //#define __PUSH_ON__TEST_MODE__//testmode

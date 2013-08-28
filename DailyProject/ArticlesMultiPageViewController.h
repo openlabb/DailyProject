@@ -21,4 +21,7 @@
 
 //获取明天的内容简介
 +(NSString*)getTomorrowSummary:(NSString*)dbName withKeyWord:(NSString*)keywords;
+
+/*按照关键字，进行标题的搜索*/
++(NSArray*)getCommonSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords;
 @end

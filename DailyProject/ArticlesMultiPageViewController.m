@@ -166,6 +166,8 @@
     }
     return data;
 }
+
+/*按照关键字，进行标题的搜索*/
 +(NSArray*)getCommonSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords
 {
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:[NSString stringWithFormat:@"%@",dbName]]autorelease];

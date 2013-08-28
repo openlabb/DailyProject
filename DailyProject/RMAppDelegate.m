@@ -154,14 +154,7 @@
     _EnterBylocalNotification = NO;
     NSLog(@"applicationDidEnterBackground");
     
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-//    const NSTimeInterval kDelay = 0;//1;
-//    if ([self scheduleNotificationWhenQuit]) {
-//        
-//        NSString* popContent = NSLocalizedString(appFriendlyTip,"");
-//        [self scheduleLocalNotification:popContent delayTimeInterval:kDelay];
-//    }
-    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];    
     if(singleDataFile)
     {
         return;
