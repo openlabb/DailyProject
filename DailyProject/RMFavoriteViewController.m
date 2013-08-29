@@ -164,10 +164,7 @@
 {
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:FAVORITE_DB_NAME]autorelease];
     self.loadMoreStartIndex = [dbManager countOfRecords:kDBContent]-kLoadMoreUnit;
-    if (self.loadMoreStartIndex<0) {
-        self.loadMoreStartIndex = 0;
-    }
-    NSRange range = NSMakeRange(self.loadMoreStartIndex, kLoadMoreUnit);
+    NSRange range = NSMakeRange(self.loadMoreStartIndex<0?0:self.loadMoreStartIndex, kLoadMoreUnit);
     
     return [self getTableValue:FAVORITE_DB_NAME withTableName:kDBTableName withRange:range];
 }
@@ -175,6 +172,7 @@
 #pragma mark TableViewRefreshLoadMoreDelegate
 - (BOOL)PullToLoadMoreHandler
 {
+    //no more content
     if (self.loadMoreStartIndex<0) {
         return NO;
     }

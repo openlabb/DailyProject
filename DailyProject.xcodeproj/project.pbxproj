@@ -275,10 +275,9 @@
 		30A6FFFD17C828AC008BB821 /* adchina_forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5717C828AC008BB821 /* adchina_forward@2x.png */; };
 		30A6FFFE17C828AC008BB821 /* adchina_hide.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5817C828AC008BB821 /* adchina_hide.png */; };
 		30A6FFFF17C828AC008BB821 /* adchina_hide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5917C828AC008BB821 /* adchina_hide@2x.png */; };
-		30BE0E1E17CEAF1500A6AD6B /* 保湿技巧.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30BE0E1A17CEAF1400A6AD6B /* 保湿技巧.sql */; };
-		30BE0E1F17CEAF1500A6AD6B /* 笑话也美容.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30BE0E1B17CEAF1500A6AD6B /* 笑话也美容.sql */; };
-		30BE0E2017CEAF1500A6AD6B /* 美白小窍门.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30BE0E1C17CEAF1500A6AD6B /* 美白小窍门.sql */; };
-		30BE0E2117CEAF1500A6AD6B /* 饮食美容.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30BE0E1D17CEAF1500A6AD6B /* 饮食美容.sql */; };
+		30BE0E2517CEDDFD00A6AD6B /* 中外史记.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30BE0E2217CEDDFD00A6AD6B /* 中外史记.sql */; };
+		30BE0E2617CEDDFD00A6AD6B /* 历史故事.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30BE0E2317CEDDFD00A6AD6B /* 历史故事.sql */; };
+		30BE0E2717CEDDFD00A6AD6B /* 史上今日.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30BE0E2417CEDDFD00A6AD6B /* 史上今日.sql */; };
 		30D0625D17CC145600224214 /* coinImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0624C17CC145600224214 /* coinImageView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		30D0625E17CC145600224214 /* coinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0624E17CC145600224214 /* coinView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		30D0626017CC145600224214 /* OpenGLTexture3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0625417CC145600224214 /* OpenGLTexture3D.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -742,10 +741,9 @@
 		30A6FFCD17C828AC008BB821 /* CloseBannerBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CloseBannerBtn@2x.png"; sourceTree = "<group>"; };
 		30A6FFCE17C828AC008BB821 /* timeuptoclosefs_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeuptoclosefs_ipad.png; sourceTree = "<group>"; };
 		30A6FFCF17C828AC008BB821 /* timeuptoclosefs_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeuptoclosefs_iphone.png; sourceTree = "<group>"; };
-		30BE0E1A17CEAF1400A6AD6B /* 保湿技巧.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "保湿技巧.sql"; sourceTree = "<group>"; };
-		30BE0E1B17CEAF1500A6AD6B /* 笑话也美容.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "笑话也美容.sql"; sourceTree = "<group>"; };
-		30BE0E1C17CEAF1500A6AD6B /* 美白小窍门.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "美白小窍门.sql"; sourceTree = "<group>"; };
-		30BE0E1D17CEAF1500A6AD6B /* 饮食美容.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "饮食美容.sql"; sourceTree = "<group>"; };
+		30BE0E2217CEDDFD00A6AD6B /* 中外史记.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "中外史记.sql"; sourceTree = "<group>"; };
+		30BE0E2317CEDDFD00A6AD6B /* 历史故事.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "历史故事.sql"; sourceTree = "<group>"; };
+		30BE0E2417CEDDFD00A6AD6B /* 史上今日.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "史上今日.sql"; sourceTree = "<group>"; };
 		30D0624B17CC145600224214 /* coinImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coinImageView.h; sourceTree = "<group>"; };
 		30D0624C17CC145600224214 /* coinImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coinImageView.m; sourceTree = "<group>"; };
 		30D0624D17CC145600224214 /* coinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coinView.h; sourceTree = "<group>"; };
@@ -1466,10 +1464,9 @@
 		3076210217B776DA00239F51 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				30BE0E1A17CEAF1400A6AD6B /* 保湿技巧.sql */,
-				30BE0E1B17CEAF1500A6AD6B /* 笑话也美容.sql */,
-				30BE0E1C17CEAF1500A6AD6B /* 美白小窍门.sql */,
-				30BE0E1D17CEAF1500A6AD6B /* 饮食美容.sql */,
+				30BE0E2217CEDDFD00A6AD6B /* 中外史记.sql */,
+				30BE0E2317CEDDFD00A6AD6B /* 历史故事.sql */,
+				30BE0E2417CEDDFD00A6AD6B /* 史上今日.sql */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -2102,10 +2099,9 @@
 				30D0626217CC145600224214 /* bgm_coin_01.mp3 in Resources */,
 				30D0626317CC145600224214 /* coin.png in Resources */,
 				30D0626417CC145600224214 /* stars2.png in Resources */,
-				30BE0E1E17CEAF1500A6AD6B /* 保湿技巧.sql in Resources */,
-				30BE0E1F17CEAF1500A6AD6B /* 笑话也美容.sql in Resources */,
-				30BE0E2017CEAF1500A6AD6B /* 美白小窍门.sql in Resources */,
-				30BE0E2117CEAF1500A6AD6B /* 饮食美容.sql in Resources */,
+				30BE0E2517CEDDFD00A6AD6B /* 中外史记.sql in Resources */,
+				30BE0E2617CEDDFD00A6AD6B /* 历史故事.sql in Resources */,
+				30BE0E2717CEDDFD00A6AD6B /* 史上今日.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2375,7 +2371,7 @@
 					"-all_load",
 					"-lxml2",
 				);
-				PRODUCT_NAME = HappyLife;
+				PRODUCT_NAME = DailyProject;
 				PROVISIONING_PROFILE = "40E9C41F-AD36-45F9-A580-EA527A66D051";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "40E9C41F-AD36-45F9-A580-EA527A66D051";
 				VALID_ARCHS = armv7;
@@ -2421,7 +2417,7 @@
 					"-all_load",
 					"-lxml2",
 				);
-				PRODUCT_NAME = HappyLife;
+				PRODUCT_NAME = DailyProject;
 				PROVISIONING_PROFILE = "234DEDEB-C299-4682-961E-82C48E489BEB";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "234DEDEB-C299-4682-961E-82C48E489BEB";
 				VALID_ARCHS = armv7;

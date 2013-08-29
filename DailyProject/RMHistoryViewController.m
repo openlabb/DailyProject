@@ -54,12 +54,26 @@
 {
     CGRect rect = self.view.frame;
     const CGFloat BOUNDING_SIZE = 80;
+    const CGFloat OFFSET_Y = 80;
     rect.origin.x = kDeviceWidth-BOUNDING_SIZE;
     rect.size.height = BOUNDING_SIZE;
     rect.size.width = BOUNDING_SIZE;
+    rect.origin.y = OFFSET_Y;
     
     UIView* selectView = [[[UIView alloc]initWithFrame:rect]autorelease];
     [self.view addSubview:selectView];
+    
+    //TODO::添加标示
+    UILabel* label = [[[UILabel alloc]initWithFrame:CGRectMake(0, BOUNDING_SIZE/2, BOUNDING_SIZE, BOUNDING_SIZE)]autorelease];
+    label.font = [UIFont boldSystemFontOfSize:kTitleFontSize];
+    label.baselineAdjustment = UIBaselineAdjustmentNone;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.lineBreakMode = NSLineBreakByWordWrapping;
+    label.textColor = [UIColor blueColor];
+    [label setBackgroundColor:[UIColor whiteColor]];
+    label.numberOfLines = 2;
+    label.text = @"点击此处穿越";
+    [selectView addSubview:label];
     
     DCPathButton *dcPathButton = [[DCPathButton alloc]
                                   initDCPathButtonWithSubButtons:3
@@ -72,9 +86,6 @@
                                       [dc subButtonImage:@"custom_5" withTag:0];
                                       [dc subButtonImage:@"custom_3" withTag:1];
                                       [dc subButtonImage:@"custom_2" withTag:2];
-                                      //[dc subButtonImage:@"custom_4" withTag:3];
-                                      //[dc subButtonImage:@"custom_5" withTag:4];
-                                      //[dc subButtonImage:@"custom_1" withTag:5];
                                   }
                                   subImageBackground:nil
                                   inLocationX:0 locationY:0 toParentView:selectView];
