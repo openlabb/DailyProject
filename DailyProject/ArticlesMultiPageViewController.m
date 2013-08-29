@@ -103,9 +103,14 @@
 }
 +(NSArray*)getSqlData:(NSString*)dbName withKeyWord:(NSString*)keywords withDate:(NSDate*)date
 {
-    NSString* resourceDbFile = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle]resourcePath],kDataFile];
-    if ([[NSFileManager defaultManager]fileExistsAtPath:resourceDbFile]) {
-        return [ArticlesMultiPageViewController getCommonSqlData:kDataFile withKeyWord:keywords];
+    //
+    NSString* resourceDbFile = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle]resourcePath],[NSString stringWithFormat:@"%@.sql",dbName]];
+    if (![[NSFileManager defaultManager]fileExistsAtPath:resourceDbFile]) {
+        //replacement file
+        resourceDbFile = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle]resourcePath],kDataFile];
+        if ([[NSFileManager defaultManager]fileExistsAtPath:resourceDbFile]) {
+            return [ArticlesMultiPageViewController getCommonSqlData:kDataFile withKeyWord:keywords];
+        }
     }
     
     SQLiteManager* dbManager = [[[SQLiteManager alloc] initWithDatabaseNamed:[NSString stringWithFormat:@"%@.sql",dbName]]autorelease];

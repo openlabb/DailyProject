@@ -1,11 +1,3 @@
-//
-//  appConstants.h
-//  DailyProject
-//
-//  Created by Ramonqlee on 8/11/13.
-//  Copyright (c) 2013 iDreems. All rights reserved.
-//
-
 #ifndef DailyProject_appConstants_h
 #define DailyProject_appConstants_h
 
@@ -18,7 +10,7 @@
 #endif//__RELEASE__
 
 #warning 发布记得修改为相应的id
-//#define Makeup//美容秘笈
+#define Makeup//美容秘笈
 //#define HealthSecretsForGirls//美女保健小贴士
 //#define MHealth
 //#define Foods
@@ -27,7 +19,7 @@
 //#define RaisingKids //育儿指南
 //#define TodayinHistory//史上今日
 //#define MakeToast//场面话之祝酒词
-#define TraditionalChineseMedicine //中医小窍门
+//#define TraditionalChineseMedicine //中医小窍门
 //#define SpouseTalks//夫妻密语
 //#define Humer//搞笑集锦
 //#define EnglishPrefix//英语前缀

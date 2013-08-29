@@ -28,6 +28,9 @@
 #import "AdSageManager.h"
 #import "YouMiPointsManager.h"
 #import "DAAppsViewController.h"
+#import "RMArticle.h"
+#import "RMFavoriteViewController.h"
+
 
 #ifdef DPRAPR_PUSH
 #import "DMAPService.h"
@@ -65,7 +68,7 @@
 #elif defined Makeup
     self.names = @[@"美白小窍门",@"保湿技巧",@"饮食美容",@"笑话也美容"];
 #elif defined MakeToast
-    names = @[@"祝酒词",@"提酒词",@"敬酒词",@"拒酒词",@"劝酒词",@"挡酒词"];
+    self.names = @[@"祝酒词",@"提酒词",@"敬酒词",@"拒酒词",@"劝酒词",@"挡酒词"];
 #elif defined SpouseTalks
     self.names = @[@"情感攻略",@"生活健康",@"情感美文",@"隐私实录",@"夫妻笑话"];
 #elif defined TodayinHistory
@@ -229,7 +232,6 @@
 #ifndef __RELEASE__
     [Flurry setDebugLogEnabled:YES];
 #endif
-    
     //set umeng key
     [UMSocialData setAppKey:UMENG_APPKEY];
     
@@ -239,6 +241,42 @@
     // 注册消息，得知积分的变化， 详情看头文件 YouMiPointsManager.h
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pointsGotted:) name:kYouMiPointsManagerRecivedPointsNotification object:nil];
 
+}
+-(void)importFormerData
+{
+    if (![RMAppDelegate dataImported])
+    {
+        [RMAppDelegate setDataImport:YES];
+        
+        NSMutableArray *dataMutableArray = [[NSUserDefaults standardUserDefaults]mutableArrayValueForKey:kAppIdOnAppstore];
+        
+        RMArticle* article = [[RMArticle alloc]init];
+        article.favoriteNumber = kHideFavoriteFlag;
+        if (dataMutableArray && dataMutableArray.count>0) {
+            for (NSDictionary* item in dataMutableArray) {
+                article.title = [item valueForKey:@"date"];
+                article.content = [item valueForKey:@"text"];
+                article.summary = article.content;
+                article.url = article.summary;
+                
+                [RMFavoriteViewController addToFavorite:article];
+            }
+            [article release];
+        }
+    }
+}
+#pragma mark import flag
+#define kDataImported @"kDataImported"
++(BOOL)dataImported
+{
+    NSUserDefaults* defaultSetting = [NSUserDefaults standardUserDefaults];
+    return [defaultSetting boolForKey:kDataImported];
+}
++(void)setDataImport:(BOOL)imported
+{
+    NSUserDefaults* defaultSetting = [NSUserDefaults standardUserDefaults];
+    [defaultSetting setBool:imported forKey:kDataImported];
+    [defaultSetting synchronize];
 }
 
 #pragma mark  quit switch
@@ -336,6 +374,7 @@
         //adsage
         [[AdSageManager getInstance]setAdSageKey:[[AdsConfiguration sharedInstance]mobisageId]];
         
+        [self performSelectorInBackground:@selector(importFormerData) withObject:nil];
         //notify
         [[NSNotificationCenter defaultCenter]postNotificationName:kAdsConfigUpdated object:nil];
     }
