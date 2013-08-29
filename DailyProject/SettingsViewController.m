@@ -221,18 +221,18 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 }
 -(void)addRecommendAppList
 {
+    NSString* title = NSLocalizedString(RecommmendApps, @"");
     [self addSection:^(JMStaticContentTableViewSection *section, NSUInteger sectionIndex) {
 		[section addCell:^(JMStaticContentTableViewCell *staticContentCell, UITableViewCell *cell, NSIndexPath *indexPath) {
 			staticContentCell.reuseIdentifier = reuseIdentifier;
 			cell.selectionStyle = UITableViewCellStyleDefault;
             
-			cell.textLabel.text =NSLocalizedString(RecommmendApps, @"");
-			//cell.imageView.image = [UIImage imageNamed:kIconFavorite];
+			cell.textLabel.text = title;
             
 		} whenSelected:^(NSIndexPath *indexPath) {
-//            DAAppsViewController *appsViewController = [[[DAAppsViewController alloc] init]autorelease];
-//            [appsViewController loadAppsWithSearchTerm:kItunesSearchTerm completionBlock:nil];
             UIViewController* appsViewController = [[[MobisageRecommendTableViewController alloc] init] autorelease];
+            //for tab item
+            appsViewController.title = title;
             [self.navigationController pushViewController:appsViewController animated:YES];
             
             [Flurry logEvent:kOpenRecommendAppListEvent];

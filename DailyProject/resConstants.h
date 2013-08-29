@@ -39,4 +39,12 @@
 #define kLoadingDataTipMessage @"kLoadingDataTipMessage"
 
 #define kNoEnoughPoints @"kNoEnoughPoints"
+#define kEarnGoldTipForBanner @"EarnGoldTipForBanner"
+#define kEarnGoldTipForRecommend @"EarnGoldTipForRecommend"
+#define kEarnGoldTipForBannerWhenBannerFailed @"EarnGoldTipForBannerWhenBannerFailed"
+#define kEarnGoldMethodGPC @"EarnGoldMethodGPC"
+#define kEarnGoldMethodGPR @"EarnGoldMethodGPR"
+#define kConsumeGoldHelp @"ConsumeGoldHelp"
+#define kConsumeGoldDetail @"ConsumeGoldDetail"
+
 #endif

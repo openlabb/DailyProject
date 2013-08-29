@@ -278,6 +278,8 @@
 		30BE0E2517CEDDFD00A6AD6B /* 中外史记.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30BE0E2217CEDDFD00A6AD6B /* 中外史记.sql */; };
 		30BE0E2617CEDDFD00A6AD6B /* 历史故事.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30BE0E2317CEDDFD00A6AD6B /* 历史故事.sql */; };
 		30BE0E2717CEDDFD00A6AD6B /* 史上今日.sql in Resources */ = {isa = PBXBuildFile; fileRef = 30BE0E2417CEDDFD00A6AD6B /* 史上今日.sql */; };
+		30BE0E3B17CF8C6300A6AD6B /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BE0E3A17CF8C6300A6AD6B /* CMPopTipView.m */; };
+		30BE0E3E17D00B3400A6AD6B /* RMGoldHelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BE0E3D17D00B3300A6AD6B /* RMGoldHelpController.m */; };
 		30D0625D17CC145600224214 /* coinImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0624C17CC145600224214 /* coinImageView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		30D0625E17CC145600224214 /* coinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0624E17CC145600224214 /* coinView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		30D0626017CC145600224214 /* OpenGLTexture3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0625417CC145600224214 /* OpenGLTexture3D.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -744,6 +746,10 @@
 		30BE0E2217CEDDFD00A6AD6B /* 中外史记.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "中外史记.sql"; sourceTree = "<group>"; };
 		30BE0E2317CEDDFD00A6AD6B /* 历史故事.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "历史故事.sql"; sourceTree = "<group>"; };
 		30BE0E2417CEDDFD00A6AD6B /* 史上今日.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "史上今日.sql"; sourceTree = "<group>"; };
+		30BE0E3917CF8C6300A6AD6B /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
+		30BE0E3A17CF8C6300A6AD6B /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
+		30BE0E3C17D00B3300A6AD6B /* RMGoldHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGoldHelpController.h; sourceTree = "<group>"; };
+		30BE0E3D17D00B3300A6AD6B /* RMGoldHelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGoldHelpController.m; sourceTree = "<group>"; };
 		30D0624B17CC145600224214 /* coinImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coinImageView.h; sourceTree = "<group>"; };
 		30D0624C17CC145600224214 /* coinImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coinImageView.m; sourceTree = "<group>"; };
 		30D0624D17CC145600224214 /* coinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coinView.h; sourceTree = "<group>"; };
@@ -1059,6 +1065,7 @@
 		30761B3617B76B6800239F51 /* iOS_Lib */ = {
 			isa = PBXGroup;
 			children = (
+				30BE0E3817CF8C6200A6AD6B /* CMPopTipView */,
 				30D0624717CC145600224214 /* CoinsEffect */,
 				30761B3717B76B6800239F51 /* Additions */,
 				303FB97317BE249F00747A8B /* AdPlatform */,
@@ -1486,6 +1493,8 @@
 				30761B1617B76ACD00239F51 /* EarnGoldMultiPageViewController.m */,
 				30761B2417B76ACD00239F51 /* MSRecommendContentView+MSRecommendContentViewEx.h */,
 				30761B2517B76ACD00239F51 /* MSRecommendContentView+MSRecommendContentViewEx.m */,
+				30BE0E3C17D00B3300A6AD6B /* RMGoldHelpController.h */,
+				30BE0E3D17D00B3300A6AD6B /* RMGoldHelpController.m */,
 			);
 			name = TabEllite;
 			sourceTree = "<group>";
@@ -1893,6 +1902,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		30BE0E3817CF8C6200A6AD6B /* CMPopTipView */ = {
+			isa = PBXGroup;
+			children = (
+				30BE0E3917CF8C6300A6AD6B /* CMPopTipView.h */,
+				30BE0E3A17CF8C6300A6AD6B /* CMPopTipView.m */,
+			);
+			path = CMPopTipView;
+			sourceTree = "<group>";
+		};
 		30D0624717CC145600224214 /* CoinsEffect */ = {
 			isa = PBXGroup;
 			children = (
@@ -2251,6 +2269,8 @@
 				30D0625E17CC145600224214 /* coinView.m in Sources */,
 				30D0626017CC145600224214 /* OpenGLTexture3D.m in Sources */,
 				30D0626117CC145600224214 /* ParticleEmitter3D.m in Sources */,
+				30BE0E3B17CF8C6300A6AD6B /* CMPopTipView.m in Sources */,
+				30BE0E3E17D00B3400A6AD6B /* RMGoldHelpController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

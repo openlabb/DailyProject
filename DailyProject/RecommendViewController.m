@@ -36,35 +36,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
-
-    
-    CGRect rect = self.view.frame;
-    rect.size.height = 4*kTitleFontSize;
-    
-    UILabel* label = [[[UILabel alloc]initWithFrame:rect]autorelease];
-    label.font = [UIFont boldSystemFontOfSize:kTitleFontSize];
-    label.baselineAdjustment = UIBaselineAdjustmentNone;
-    label.textAlignment = NSTextAlignmentCenter;
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-    label.textColor = [UIColor redColor];
-    [label setBackgroundColor:[UIColor clearColor]];
-    label.numberOfLines = 0;
-    label.text = [NSString stringWithFormat:@"点推荐应用，立赚 %d 积分\n\n看不到列表?请稍等...",kGoldByClickingRecommendView];
-    [self.view addSubview:label];
-
-    rect.origin.y += rect.size.height;
-    rect.size.height = kCellHeight * kMobisageRecommendCount *(300.0/640.0);
     
     self.recommendView = [[MSRecommendContentView alloc] initWithdelegate:self width:kDeviceWidth adCount:kMobisageRecommendCount];
     [self.recommendView release];
-    
-    self.recommendView.frame = rect;
     [self.view addSubview:self.recommendView];
     
     //hook tableview in this view
     if ([self.recommendView respondsToSelector:@selector(hookTableView)]) {
         [self.recommendView performSelector:@selector(hookTableView)];
     }
+    NSString* tipMessage = [NSString stringWithFormat:NSLocalizedString(kEarnGoldTipForRecommend, nil),kGoldByClickingRecommendView];
+    
+    [BaseViewController showPopTipView:self.recommendView inView:self.view withMessage:tipMessage];
 }
 - (void)viewDidUnload {
     self.recommendView = nil;

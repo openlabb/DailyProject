@@ -10,6 +10,7 @@
 #import "AdsConfiguration.h"
 #import "resConstants.h"
 #import "appConstants.h"
+#import "AdsConfiguration.h"
 
 #define MobiSage_Table_Recommend_Tag 1001  //表格式荐计划视图的tag值
 
@@ -24,18 +25,6 @@
 
 @synthesize tableView=_tableView;
 @synthesize recommendView;
-
-
--(id)init
-{
-    self = [super init];
-    
-    //for tab item
-    self.title = NSLocalizedString(Tab_Title_RecommmendApps, @"");
-    self.tabBarItem.image = [UIImage imageNamed:kICN_recommend_tab];
-    
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -54,7 +43,7 @@
     }
     
     //表格控件
-    CGSize adSize = [self showBanners];
+    CGSize adSize = [self showBanner:nil];
     CGRect rect = self.view.bounds;
     rect.origin.y += adSize.height;
     
@@ -64,6 +53,10 @@
     [self.view addSubview:self.tableView];
     [self.tableView release];
     
+    if([[AdsConfiguration sharedInstance]getCount]>0)
+    {
+        [BaseViewController showSpot:nil];
+    }
 }
 
 

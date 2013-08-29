@@ -10,6 +10,8 @@
 #import "resConstants.h"
 #import "DCPathButton.h"
 #import "CKCalendarView.h"
+#import "CommonHelper.h"
+#import "CMPopTipView.h"
 
 @interface RMHistoryViewController ()<DCPathButtonDelegate,CKCalendarDelegate>
 @property(nonatomic, retain) CKCalendarView *calendar;
@@ -17,6 +19,8 @@
 @end
 
 @implementation RMHistoryViewController
+@synthesize calendar;
+@synthesize minimumDate;
 -(void)dealloc
 {
     self.calendar = nil;
@@ -63,17 +67,34 @@
     UIView* selectView = [[[UIView alloc]initWithFrame:rect]autorelease];
     [self.view addSubview:selectView];
     
-    //TODO::添加标示
-    UILabel* label = [[[UILabel alloc]initWithFrame:CGRectMake(0, BOUNDING_SIZE/2, BOUNDING_SIZE, BOUNDING_SIZE)]autorelease];
-    label.font = [UIFont boldSystemFontOfSize:kTitleFontSize];
-    label.baselineAdjustment = UIBaselineAdjustmentNone;
-    label.textAlignment = NSTextAlignmentCenter;
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-    label.textColor = [UIColor blueColor];
-    [label setBackgroundColor:[UIColor whiteColor]];
-    label.numberOfLines = 2;
-    label.text = @"点击此处穿越";
-    [selectView addSubview:label];
+    //添加标示
+    NSString* tipped = [CommonHelper defaultsForString:kHistoryTipKey];
+    if (!tipped || tipped.length==0)
+    {
+        NSString *contentMessage = @"点此穿越";;
+		UIColor *backgroundColor = [UIColor whiteColor];
+		UIColor *textColor = [UIColor blueColor];
+		
+		CMPopTipView *popTipView = [[CMPopTipView alloc] initWithMessage:contentMessage];
+		popTipView.disableTapToDismiss = YES;
+		if (backgroundColor && ![backgroundColor isEqual:[NSNull null]]) {
+			popTipView.backgroundColor = backgroundColor;
+		}
+		if (textColor && ![textColor isEqual:[NSNull null]]) {
+			popTipView.textColor = textColor;
+		}
+        
+        popTipView.animation = arc4random() % 2;
+		[popTipView presentPointingAtView:selectView inView:self.view animated:YES];
+        
+        // Delay execution of my block for 10 seconds.
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [popTipView removeFromSuperview];
+            [popTipView release];
+            
+            [CommonHelper saveDefaultsForString:kHistoryTipKey withValue:kHistoryTipKey];
+        });
+    }
     
     DCPathButton *dcPathButton = [[DCPathButton alloc]
                                   initDCPathButtonWithSubButtons:3
@@ -90,8 +111,10 @@
                                   subImageBackground:nil
                                   inLocationX:0 locationY:0 toParentView:selectView];
     dcPathButton.delegate = self;
+    [dcPathButton setExpanded:NO];
     
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -160,7 +183,7 @@
 }
 
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
-//    self.dateLabel.text = [self.dateFormatter stringFromDate:date];
+    //    self.dateLabel.text = [self.dateFormatter stringFromDate:date];
     [self.calendar removeFromSuperview];
     [self setDate:date];
 }

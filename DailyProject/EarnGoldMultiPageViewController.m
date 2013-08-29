@@ -17,7 +17,7 @@
 #import "MobiSageSDK.h"
 #import "MSRecommendContentView+MSRecommendContentViewEx.h"
 #import "Flurry.h"
-#import "YouMiSpot.h"
+#import "RMGoldHelpController.h"
 
 @interface EarnGoldMultiPageViewController ()
 @property(nonatomic,assign)NSInteger mInitGold;
@@ -47,7 +47,7 @@
 {
     [super viewDidLoad];
     
-    [EarnGoldMultiPageViewController showSpot:nil];
+    [BaseViewController showSpot:nil];
     
     [[MobiSageManager getInstance]setPublisherID:[[AdsConfiguration sharedInstance]mobisageId]];
     self.mInitGold = [CommonHelper gold];
@@ -56,15 +56,18 @@
     
 	// Do any additional setup after loading the view.
     UIViewController *mb = [[[BannerViewController alloc] init]autorelease];
-    mb.title = @"GPC积分";
+    mb.title = NSLocalizedString(kEarnGoldMethodGPC, nil);//@"GPC积分";
     
     UIViewController *bs = [[[RecommendViewController alloc] init]autorelease];
-    bs.title = @"GPR积分";
+    bs.title = NSLocalizedString(kEarnGoldMethodGPR, nil);//@"GPR积分";
+    
+    UIViewController *helpController = [[[RMGoldHelpController alloc] init]autorelease];
+    helpController.title = NSLocalizedString(kConsumeGoldHelp, nil);
     
     //UIViewController *ys = [[[ArticleListViewController alloc] init]autorelease];
     //ys.title = @"IAP积分";
     
-    self.pagesContainer.viewControllers = @[bs,mb];
+    self.pagesContainer.viewControllers = @[bs,mb,helpController];
     
     UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back",@"") style: UIBarButtonItemStyleBordered target: self action: @selector(back)];
     newBackButton.tintColor = TintColor;
@@ -109,9 +112,5 @@
         [self appWillEnterForegroundNotification];
     }
 }
-+ (void)showSpot:(id)sender {
-    [YouMiSpot showSpotDismiss:^{
-        //[self.navigationController pushViewController:[[UIViewController new] autorelease] animated:YES];
-    }];
-}
+
 @end

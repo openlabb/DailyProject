@@ -8,6 +8,9 @@
 "Title"="史上今日";
 "About"="版本V4.3.0  iDreems.com荣誉出品";
 
+"Back"="返回";
+
+//tab resources
 "Tab_Title_DailyArticles"="每日精华";
 "Tab_Title_Favorites"="收藏";
 "Tab_Title_History"="穿越";
@@ -23,13 +26,20 @@
 "kFavoriteNumberMinus"="收藏 -1";
 
 //setting
-"AboutTitle"="关于";
-"CloseBackgroundTip"="退出时弹出状态栏提示";
-"kMoreFeedBackKey"="反馈";
-"kMoreRateKey"="评价一下";
-"Premium"="赚积分(当前积分:%d)";
+"AboutTitle"="版本信息";
+"kMoreFeedBackKey"="用户反馈";
+"kMoreRateKey"="评个分";
+"Premium"="免费赚积分( 当前积分:%d )";
 "kNoEnoughPoints"="积分不足，免费积分";
-"RecommmendApps"="推荐";
+"RecommmendApps"="精品推荐";
+"EarnGoldTipForBanner"="点广告，返回就赚 %d 积分\n\n一片空白?请稍等，广告加载中...\n\n小窍门：可以在其他广告条出现的地方点击，储备积分。";
+"EarnGoldTipForBannerWhenBannerFailed"="暂时接收不到广告，请尝试其他方式";
+"EarnGoldTipForRecommend"="点推荐应用，立赚 %d 积分\n看不到列表?请稍等...";
+"ConsumeGoldHelp"="积分消耗指南";
+"ConsumeGoldDetail"="每查看一次文章，消耗 1 积分.\n\n随时点广告，随时送积分。\n\n简单，现在就试试吧";
+
+"EarnGoldMethodGPC"="广告条积分";
+"EarnGoldMethodGPR"="荐计划积分";
 
 "kEmailFeedbackBody"= "我喜欢的功能是：\n\n不喜欢的功能是:\n\n希望增加的功能是:\n\n其他建议：\n";
 "appFriendlyTip"="内容天天变，明天再来奥！(可在设置中关闭)";
