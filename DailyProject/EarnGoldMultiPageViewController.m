@@ -55,11 +55,11 @@
     self.title = self.mInitGold>0?[NSString stringWithFormat:NSLocalizedString(@"Premium", @""),self.mInitGold]:[NSString stringWithFormat:NSLocalizedString(kNoEnoughPoints, nil)];
     
 	// Do any additional setup after loading the view.
-    UIViewController *mb = [[[BannerViewController alloc] init]autorelease];
-    mb.title = NSLocalizedString(kEarnGoldMethodGPC, nil);//@"GPC积分";
+    UIViewController *bannerController = [[[BannerViewController alloc] init]autorelease];
+    bannerController.title = NSLocalizedString(kEarnGoldMethodGPC, nil);//@"GPC积分";
     
-    UIViewController *bs = [[[RecommendViewController alloc] init]autorelease];
-    bs.title = NSLocalizedString(kEarnGoldMethodGPR, nil);//@"GPR积分";
+    UIViewController *recommmendController = [[[RecommendViewController alloc] init]autorelease];
+    recommmendController.title = NSLocalizedString(kEarnGoldMethodGPR, nil);//@"GPR积分";
     
     UIViewController *helpController = [[[RMGoldHelpController alloc] init]autorelease];
     helpController.title = NSLocalizedString(kConsumeGoldHelp, nil);
@@ -67,7 +67,7 @@
     //UIViewController *ys = [[[ArticleListViewController alloc] init]autorelease];
     //ys.title = @"IAP积分";
     
-    self.pagesContainer.viewControllers = @[bs,mb,helpController];
+    self.pagesContainer.viewControllers = @[recommmendController,bannerController,helpController];
     
     UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back",@"") style: UIBarButtonItemStyleBordered target: self action: @selector(back)];
     newBackButton.tintColor = TintColor;
@@ -91,10 +91,10 @@
     self.title = [NSString stringWithFormat:@"赚积分(当前积分:%d)",currentGold];
     
     if (currentGold>self.mInitGold) {
-        if([self.view respondsToSelector:@selector(makeToast:)])
-        {
-            [self.view performSelectorOnMainThread:@selector(makeToast:) withObject:[NSString stringWithFormat:@"恭喜，赚取了 %d 积分",currentGold-self.mInitGold] waitUntilDone:YES];
-        }
+//        if([self.view respondsToSelector:@selector(makeToast:)])
+//        {
+//            [self.view performSelectorOnMainThread:@selector(makeToast:) withObject:[NSString stringWithFormat:@"恭喜，赚取了 %d 积分",currentGold-self.mInitGold] waitUntilDone:YES];
+//        }
         self.mInitGold = currentGold;
     }
 }

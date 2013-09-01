@@ -1,8 +1,8 @@
 #ifndef DailyProject_appConstants_h
 #define DailyProject_appConstants_h
 
-#warning 发布时打开，并且确认drappr为非测试模式
-//#define __RELEASE__
+#warning 发布时打开，并且确认drappr为非测试模式,并更新info中的weixin appid
+#define __RELEASE__
 #ifdef __RELEASE__
 #define DPRAPR_PUSH//push广告开关
 //#define __PUSH_ON__TEST_MODE__//testmode
@@ -10,14 +10,14 @@
 #endif//__RELEASE__
 
 #warning 发布记得修改为相应的id
-//#define Makeup//美容秘笈
+#define Makeup//美容秘笈
 //#define HealthSecretsForGirls//美女保健小贴士
 //#define MHealth
 //#define Foods
 //#define LosingWeight
 //#define careerGuide//职场秘笈
 //#define RaisingKids //育儿指南
-#define TodayinHistory//史上今日
+//#define TodayinHistory//史上今日
 //#define MakeToast//场面话之祝酒词
 //#define TraditionalChineseMedicine //中医小窍门
 //#define SpouseTalks//夫妻密语
@@ -42,6 +42,7 @@
 //flurry
 #define kFlurryID @"ZVSNS9NXX922ZMYBV436"
 #define UMENG_APPKEY @"4fa7d6b85270157298000020"
+#define kWeixinAppId @"wx1732ccc0f4c8954d"
 
 #elif defined MakeToast
 #define kFlurryID @"D5WYXYC4R9C6273W7M9Q"
@@ -51,6 +52,7 @@
 
 #define kFlurryID @"C82CN6MQ328XV3BHX5TN"
 #define UMENG_APPKEY @"52192c6256240b81bf00bf51"
+#define kWeixinAppId @"wx4dd2eafc51284cd5"
 
 #elif defined SpouseTalks
 
@@ -126,7 +128,7 @@
 #define kDefaultGold 10//default gold
 #define kGoldByClickingBanner 15
 #define kGoldByClickingRecommendView 40
-
+#define kEarnGoldTipBySNSShare 5
 
 
 #define kArtistId 463201091// @"iDreems",
@@ -135,8 +137,6 @@
 #define kHideFavoriteFlag -1
 #define kDaysOfYear 365
 
-#define kFlurryAppSavingKey @"kFlurryAppSavingKey"
-#define kDefaultFlurryAppKey @"D5WYXYC4R9C6273W7M9Q"
 #define kDefaultMobisageId @"e270159b22cc4c98a64e4402db48e96d"
 #define kMobisageRecommendTableViewCount 14
 #define kDefaultYoumiAppId @"6b875a1db75ff9e5"
@@ -191,6 +191,7 @@
 #define kEnterBylocalNotification @"kEnterBylocalNotification"
 #define kDidShowFeaturedAppCredit @"kDidShowFeaturedAppCredit"
 
+#define kFlurrySharedChannel @"kFlurrySharedChannel"
 #define kFlurryDidSelectAppFromRecommend @"kFlurryDidSelectAppFromRecommend"
 #define kFlurryDidSelectAppFromMainList  @"kFlurryDidSelectAppFromMainList"
 #define kFlurryDidReviewContentFromMainList  @"kFlurryDidReviewContentFromMainList"
@@ -240,7 +241,7 @@
 #define kMobiSageIDOther_iPhone kMobiSageID_iPhone
 #endif
 
-#define kCoinsEffectDelay 3.0//3s
+#define kCoinsEffectDelay 11.0//6s
 
 #define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 

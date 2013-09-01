@@ -141,8 +141,8 @@
 
 - (void)button_2_action{
     NSLog(@"Button Press Tag 1!!");
-    CKCalendarView *calendar = [[CKCalendarView alloc] initWithStartDay:startMonday];
-    self.calendar = calendar;
+    CKCalendarView *cal = [[CKCalendarView alloc] initWithStartDay:startMonday];
+    self.calendar = cal;
     calendar.delegate = self;
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];

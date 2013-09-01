@@ -46,5 +46,7 @@
 #define kEarnGoldMethodGPR @"EarnGoldMethodGPR"
 #define kConsumeGoldHelp @"ConsumeGoldHelp"
 #define kConsumeGoldDetail @"ConsumeGoldDetail"
+#define kSNSTipText @"kSNSTipText"
+#define kSNSTipTitle @"kSNSTipTitle"
 
 #endif

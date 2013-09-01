@@ -30,7 +30,7 @@
 #import "DAAppsViewController.h"
 #import "RMArticle.h"
 #import "RMFavoriteViewController.h"
-
+#import "WXApi.h"
 
 #ifdef DPRAPR_PUSH
 #import "DMAPService.h"
@@ -55,16 +55,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     CGRect rc = [[UIScreen mainScreen]applicationFrame];
     
     rc.size.height -= (kTopTabHeight+kTabbarHeight);
     
-    self.names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
+    self.names = @[@"养生排行",@"女性保健",@"男性保健",@"中医育儿"];
     
 #ifdef  TraditionalChineseMedicine
-    self.names = @[@"养生排行",@"女性保健",@"男性保健",@"老人保健",@"中医育儿"];
+    self.names = @[@"养生排行",@"女性保健",@"男性保健",@"中医育儿"];
 #elif defined Makeup
     self.names = @[@"美白小窍门",@"保湿技巧",@"饮食美容",@"笑话也美容"];
 #elif defined MakeToast
@@ -114,6 +113,15 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMobisageRecommendSingleTap:) name:kClickRecommendViewEvent object:nil];
     //push ad
     [self registerPushAds:launchOptions];
+    
+    //weixin
+    [WXApi registerApp:kWeixinAppId];
+    
+    //start flurry session
+    [Flurry startSession:kFlurryID];
+#ifndef __RELEASE__
+    [Flurry setDebugLogEnabled:YES];
+#endif
     
     return YES;
 }
@@ -227,11 +235,6 @@
 #pragma  mark init launch methods
 -(void)initLaunch:(NSDictionary *)launchOptions
 {
-    //start flurry session
-    [Flurry startSession:kFlurryID withOptions:launchOptions];
-#ifndef __RELEASE__
-    [Flurry setDebugLogEnabled:YES];
-#endif
     //set umeng key
     [UMSocialData setAppKey:UMENG_APPKEY];
     
@@ -338,16 +341,12 @@
     NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingBanner] forKey:kClickBannerEvent];
     [Flurry logEvent:kClickBannerEvent withParameters:dict];
     
-    //    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingBanner]  cancelButtonTitle:@"好的"];
-    //    [self showCoinsEffect];
-    
     NSLog(@"notify:%@,gold:%d",notification.name,[CommonHelper gold]);
 }
 -(void)handleMobisageRecommendSingleTap:(NSNotification*)notification
 {
     if (notification && [notification.name isEqualToString:kClickRecommendViewEvent]) {
         [CommonHelper setGold:[CommonHelper gold]+kGoldByClickingRecommendView];
-        //        [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%d积分", kGoldByClickingRecommendView]  cancelButtonTitle:@"好的"];
         [self showCoinsEffect];
         NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kGoldByClickingRecommendView] forKey:kClickRecommendViewEvent];
         [Flurry logEvent:kClickRecommendViewEvent withParameters:dict];
@@ -361,9 +360,6 @@
         //parse ads and send notification
         AdsConfiguration* adsConfig = [AdsConfiguration sharedInstance];
         [adsConfig initWithJson:[notification.userInfo objectForKey:kPostResponseData]];
-        
-        NSString* flurryAppkey = [[AdsConfiguration sharedInstance]FlurryId];
-        [CommonHelper saveDefaultsForString:kFlurryAppSavingKey withValue:flurryAppkey];
         
         //youmi config
         [YouMiConfig setShouldGetLocation:NO];
@@ -442,7 +438,6 @@
     {
         NSInteger earnedGold =[CommonHelper latestGoldEarned];
         if (earnedGold>0) {
-            
             //delay
             [self performSelector:@selector(showCoinsEffectInner:) withObject:[NSNumber numberWithInt:earnedGold] afterDelay:kCoinsEffectDelay];
         }
@@ -453,7 +448,6 @@
     NSNumber *freshPoints = [dict objectForKey:kYouMiPointsManagerFreshPointsKey];
     
     // 这里的积分不应该拿来使用, 只是用于告诉一下用户, 可以通过 [YouMiPointsManager spendPoints:]来使用积分
-    //    [RMAppDelegate showAlertView:@"恭喜" message:[NSString stringWithFormat:@"获得%@积分", freshPoints]  cancelButtonTitle:@"好的"];
     [self showCoinsEffect];
     
     [CommonHelper setGold:[CommonHelper gold]+freshPoints.integerValue];
@@ -478,4 +472,15 @@
     [coinview removeFromSuperview];
     coinview = nil;
 }
+
+#pragma weixin callback 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    // 如果你要自己实现微信的回调，可以把相应的回调对象传入到上面的`wxApiDelegate`。如果你除了使用我们sdk之外还要处理另外的url，你可以把`handleOpenURL:wxApiDelegate:`的实现复制到你的代码里面，再添加你要处理的url。
+    return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
+}
+
 @end

@@ -5,7 +5,7 @@
   Created by Ramonqlee on 8/11/13.
   Copyright (c) 2013 iDreems. All rights reserved.
 */
-"Title"="史上今日";
+"Title"="美容秘笈";
 "About"="版本V4.3.0  iDreems.com荣誉出品";
 
 "Back"="返回";
@@ -37,6 +37,8 @@
 "EarnGoldTipForRecommend"="点推荐应用，立赚 %d 积分\n看不到列表?请稍等...";
 "ConsumeGoldHelp"="积分消耗指南";
 "ConsumeGoldDetail"="每查看一次文章，消耗 1 积分.\n\n随时点广告，随时送积分。\n\n简单，现在就试试吧";
+"kSNSTipText"="分享内容较长，已经自动转换为图片。\n想查看更多相同话题？打开App Store，搜索: %@";
+"kSNSTipTitle"="发现一个好玩的应用：%@";
 
 "EarnGoldMethodGPC"="广告条积分";
 "EarnGoldMethodGPR"="荐计划积分";

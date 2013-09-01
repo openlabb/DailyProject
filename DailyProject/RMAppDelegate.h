@@ -20,4 +20,6 @@
 
 -(BOOL)scheduleNotificationWhenQuit;
 -(void)setQuitNotification:(BOOL)enable;
+
+-(void)showCoinsEffectInner:(NSNumber*)number;
 @end
