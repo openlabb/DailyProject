@@ -2,7 +2,7 @@
 #define DailyProject_appConstants_h
 
 #warning 发布时打开，并且确认drappr为非测试模式,并更新info中的weixin appid
-#define __RELEASE__
+//#define __RELEASE__
 #ifdef __RELEASE__
 #define DPRAPR_PUSH//push广告开关
 //#define __PUSH_ON__TEST_MODE__//testmode
@@ -10,7 +10,7 @@
 #endif//__RELEASE__
 
 #warning 发布记得修改为相应的id
-#define Makeup//美容秘笈
+//#define Makeup//美容秘笈
 //#define HealthSecretsForGirls//美女保健小贴士
 //#define MHealth
 //#define Foods
@@ -18,7 +18,7 @@
 //#define careerGuide//职场秘笈
 //#define RaisingKids //育儿指南
 //#define TodayinHistory//史上今日
-//#define MakeToast//场面话之祝酒词
+#define MakeToast//场面话之祝酒词
 //#define TraditionalChineseMedicine //中医小窍门
 //#define SpouseTalks//夫妻密语
 //#define Humer//搞笑集锦
@@ -47,6 +47,7 @@
 #elif defined MakeToast
 #define kFlurryID @"D5WYXYC4R9C6273W7M9Q"
 #define UMENG_APPKEY @"5217eb1356240b5ad302a785"
+#define kWeixinAppId @"wx906a8a63865c9a7f"
 
 #elif defined TraditionalChineseMedicine
 
@@ -213,6 +214,9 @@
 #define kClickBannerEvent @"kClickingBannerEvent"
 #define kClickArticle @"kClickArticle"
 #define kPopGoldEarningUI @"kPopGoldEarningUI"
+#define kGoldAmount @"kGoldAmount"
+#define kEarnGoldAmount @"kEarnGoldAmount"
+
 
 #define kSocialEvent @"kSocialEvent"
 #define kOpenCommentEvent @"kOpenCommentEvent"
@@ -247,5 +251,8 @@
 
 #define kHistoryTipKey @"kHistoryTipKey"
 
+#define kOneMillionBytes 1024*1024
+#define  kMaxMemoryCapacity 4*kOneMillionBytes
+#define  kMaxDiskCapacity 32*kMaxMemoryCapacity
 #endif
 

@@ -216,10 +216,7 @@
 		307621EA17BA285000239F51 /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 307621E517BA285000239F51 /* left_arrow@2x.png */; };
 		307621EB17BA285000239F51 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 307621E617BA285000239F51 /* right_arrow.png */; };
 		307621EC17BA285000239F51 /* right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 307621E717BA285000239F51 /* right_arrow@2x.png */; };
-		307DAB5717D349F10079DDCB /* 保湿技巧.sql in Resources */ = {isa = PBXBuildFile; fileRef = 307DAB5317D349F10079DDCB /* 保湿技巧.sql */; };
-		307DAB5817D349F10079DDCB /* 笑话也美容.sql in Resources */ = {isa = PBXBuildFile; fileRef = 307DAB5417D349F10079DDCB /* 笑话也美容.sql */; };
-		307DAB5917D349F10079DDCB /* 美白小窍门.sql in Resources */ = {isa = PBXBuildFile; fileRef = 307DAB5517D349F10079DDCB /* 美白小窍门.sql */; };
-		307DAB5A17D349F10079DDCB /* 饮食美容.sql in Resources */ = {isa = PBXBuildFile; fileRef = 307DAB5617D349F10079DDCB /* 饮食美容.sql */; };
+		307DAB5C17D3F4960079DDCB /* data.sql in Resources */ = {isa = PBXBuildFile; fileRef = 307DAB5B17D3F4960079DDCB /* data.sql */; };
 		30A6000017C828AC008BB821 /* adchina_stoploading.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5A17C828AC008BB821 /* adchina_stoploading.png */; };
 		30A6000117C828AC008BB821 /* adchina_stoploading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5B17C828AC008BB821 /* adchina_stoploading@2x.png */; };
 		30A6000217C828AC008BB821 /* adchina_toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A6FF5C17C828AC008BB821 /* adchina_toolbar.png */; };
@@ -649,10 +646,7 @@
 		307621E517BA285000239F51 /* left_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_arrow@2x.png"; sourceTree = "<group>"; };
 		307621E617BA285000239F51 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
 		307621E717BA285000239F51 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
-		307DAB5317D349F10079DDCB /* 保湿技巧.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "保湿技巧.sql"; sourceTree = "<group>"; };
-		307DAB5417D349F10079DDCB /* 笑话也美容.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "笑话也美容.sql"; sourceTree = "<group>"; };
-		307DAB5517D349F10079DDCB /* 美白小窍门.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "美白小窍门.sql"; sourceTree = "<group>"; };
-		307DAB5617D349F10079DDCB /* 饮食美容.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "饮食美容.sql"; sourceTree = "<group>"; };
+		307DAB5B17D3F4960079DDCB /* data.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = data.sql; sourceTree = "<group>"; };
 		30A6004617C82962008BB821 /* AdSageAdapterYouMi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSageAdapterYouMi.h; sourceTree = "<group>"; };
 		30A6004717C82962008BB821 /* AdSageAdapterYouMi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSageAdapterYouMi.m; sourceTree = "<group>"; };
 		30A6004A17C82962008BB821 /* YouMiConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiConfig.h; sourceTree = "<group>"; };
@@ -1465,10 +1459,7 @@
 		3076210217B776DA00239F51 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				307DAB5317D349F10079DDCB /* 保湿技巧.sql */,
-				307DAB5417D349F10079DDCB /* 笑话也美容.sql */,
-				307DAB5517D349F10079DDCB /* 美白小窍门.sql */,
-				307DAB5617D349F10079DDCB /* 饮食美容.sql */,
+				307DAB5B17D3F4960079DDCB /* data.sql */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -2099,10 +2090,7 @@
 				30D0626217CC145600224214 /* bgm_coin_01.mp3 in Resources */,
 				30D0626317CC145600224214 /* coin.png in Resources */,
 				30D0626417CC145600224214 /* stars2.png in Resources */,
-				307DAB5717D349F10079DDCB /* 保湿技巧.sql in Resources */,
-				307DAB5817D349F10079DDCB /* 笑话也美容.sql in Resources */,
-				307DAB5917D349F10079DDCB /* 美白小窍门.sql in Resources */,
-				307DAB5A17D349F10079DDCB /* 饮食美容.sql in Resources */,
+				307DAB5C17D3F4960079DDCB /* data.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2374,8 +2362,8 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = DailyProject;
-				PROVISIONING_PROFILE = "40E9C41F-AD36-45F9-A580-EA527A66D051";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "40E9C41F-AD36-45F9-A580-EA527A66D051";
+				PROVISIONING_PROFILE = "59A014DF-379A-4B46-9BEA-F8F52F762A3B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "59A014DF-379A-4B46-9BEA-F8F52F762A3B";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2420,8 +2408,8 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = DailyProject;
-				PROVISIONING_PROFILE = "2CB36ED3-26DF-4E72-9482-0E1E27541D8F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2CB36ED3-26DF-4E72-9482-0E1E27541D8F";
+				PROVISIONING_PROFILE = "D1A8F856-55BE-4171-9409-593D7C42D92E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D1A8F856-55BE-4171-9409-593D7C42D92E";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};

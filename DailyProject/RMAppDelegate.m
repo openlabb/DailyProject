@@ -122,8 +122,19 @@
 #ifndef __RELEASE__
     [Flurry setDebugLogEnabled:YES];
 #endif
-    
+    [self setSharedURLCache:kMaxMemoryCapacity diskCapacity:kMaxDiskCapacity];
     return YES;
+}
+-(void)setSharedURLCache:(NSUInteger)memoryCapacity diskCapacity:(NSUInteger)diskCapacity 
+{
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:memoryCapacity diskCapacity:diskCapacity diskPath:@"URLCache"];
+    [NSURLCache setSharedURLCache:sharedCache];
+    [sharedCache release];
+    sharedCache = nil;
+}
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
