@@ -47,6 +47,7 @@
 #define kConsumeGoldHelp @"ConsumeGoldHelp"
 #define kConsumeGoldDetail @"ConsumeGoldDetail"
 #define kSNSTipText @"kSNSTipText"
+#define kSNSTipTextWithUrl @"kSNSTipTextWithUrl"
 #define kSNSTipTitle @"kSNSTipTitle"
 
 #endif

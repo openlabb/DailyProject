@@ -10,8 +10,15 @@
 
 #import "RMAppDelegate.h"
 
+void uncaughtExceptionHandler(NSException *exception) {
+    NSLogv(@"CRASH: %@", exception);
+    NSLogv(@"Stack Trace: %@", [exception callStackSymbols]);
+    // Internal error reporting
+}
+
 int main(int argc, char *argv[])
 {
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([RMAppDelegate class]));
     }

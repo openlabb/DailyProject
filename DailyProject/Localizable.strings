@@ -37,7 +37,8 @@
 "EarnGoldTipForRecommend"="点推荐应用，立赚 %d 积分\n看不到列表?请稍等...";
 "ConsumeGoldHelp"="积分消耗指南";
 "ConsumeGoldDetail"="每查看一次文章，消耗 1 积分.\n\n随时点广告，随时送积分。\n\n简单，现在就试试吧";
-"kSNSTipText"="分享内容较长，已经自动转换为图片。\n想查看更多相同话题？打开App Store，搜索: %@";
+"kSNSTipText"="分享话题较长，已经自动转换为图片。\n查看更多话题，打开App Store，搜索: %@";
+"kSNSTipTextWithUrl"="分享话题较长，已经自动转换为图片。\n查看更多话题: %@（查看原网页）。";
 "kSNSTipTitle"="发现一个好玩的应用：%@";
 
 "EarnGoldMethodGPC"="广告条积分";

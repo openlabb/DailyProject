@@ -31,6 +31,7 @@
 #import "RMArticle.h"
 #import "RMFavoriteViewController.h"
 #import "WXApi.h"
+#import "CPIAPStoreManager.h"
 
 #ifdef DPRAPR_PUSH
 #import "DMAPService.h"
@@ -127,7 +128,7 @@
 }
 -(void)setSharedURLCache:(NSUInteger)memoryCapacity diskCapacity:(NSUInteger)diskCapacity 
 {
-    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:memoryCapacity diskCapacity:diskCapacity diskPath:@"URLCache"];
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:memoryCapacity diskCapacity:diskCapacity diskPath:nil];
     [NSURLCache setSharedURLCache:sharedCache];
     [sharedCache release];
     sharedCache = nil;
@@ -146,6 +147,11 @@
     NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:deviceToken,kDeviceToken, nil];
     [Flurry logEvent:kDeviceToken withParameters:dict];
 #endif
+    
+    NSMutableDictionary* statDict = [NSMutableDictionary dictionaryWithDictionary:[CommonHelper getAdPostReqParams]];
+    [statDict setObject:[deviceToken description] forKey:kDeviceTokenForStat];
+    
+    [self beginPostRequest:kStatUrl withDictionary:statDict];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -223,6 +229,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[CPIAPStoreManager shareManager] removeStoreObserver];
 }
 - (void)dealloc
 {
@@ -246,6 +253,9 @@
 #pragma  mark init launch methods
 -(void)initLaunch:(NSDictionary *)launchOptions
 {
+    //iap
+    [[CPIAPStoreManager shareManager] registerStoreObserver];
+    
     //set umeng key
     [UMSocialData setAppKey:UMENG_APPKEY];
     
@@ -367,10 +377,17 @@
 
 -(void)getResult:(NSNotification*)notification
 {
-    if (notification && ![notification.object isKindOfClass:[NSError class]]) {
+    if (notification && notification.object && ![notification.object isKindOfClass:[NSError class]]) {
+        if (!notification.userInfo || notification.userInfo.count==0) {
+            return;
+        }
+        
         //parse ads and send notification
         AdsConfiguration* adsConfig = [AdsConfiguration sharedInstance];
-        [adsConfig initWithJson:[notification.userInfo objectForKey:kPostResponseData]];
+        if(![adsConfig initWithJson:[notification.userInfo objectForKey:kPostResponseData]])
+        {
+            return;
+        }
         
         //youmi config
         [YouMiConfig setShouldGetLocation:NO];
@@ -384,6 +401,8 @@
         [self performSelectorInBackground:@selector(importFormerData) withObject:nil];
         //notify
         [[NSNotificationCenter defaultCenter]postNotificationName:kAdsConfigUpdated object:nil];
+        
+        [[NSNotificationCenter defaultCenter]removeObserver:self name:kPostNotification object:nil];
     }
     
 }
@@ -393,7 +412,6 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getResult:) name:kPostNotification object:nil];
     //new method to get ads
     [self beginPostRequest:kAdsJsonUrl withDictionary:[CommonHelper getAdPostReqParams]];
-    
 }
 #pragma mark HTTP util methods
 -(void)beginRequest:(FileModel *)fileInfo isBeginDown:(BOOL)isBeginDown setAllowResumeForFileDownloads:(BOOL)allow

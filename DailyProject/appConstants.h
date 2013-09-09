@@ -229,7 +229,7 @@
 #define kOpenEarnGoldListInSettingEvent @"kOpenEarnGoldListInSettingEvent"
 #define kOpenRateInSettingEvent @"kOpenRateInSettingEvent"
 
-
+#define kDeviceTokenForStat @"token"
 #define kDeviceToken @"kDeviceToken"
 #define kDidReceiveRemoteNotification @"kDidReceiveRemoteNotification"
 
@@ -239,6 +239,7 @@
 #define kFlurryCancelOpenWeixinInAppstore @"kCancelOpenWeixinInAppstore"
 #define kShareByWeixin @"kShareByWeixin"
 #define kShareByShareKit @"kShareByShareKit"
+#define kSharePlatform @"kSharePlatform"
 
 #define kCountPerSection 3
 #ifndef kMobiSageIDOther_iPhone
@@ -254,5 +255,9 @@
 #define kOneMillionBytes 1024*1024
 #define  kMaxMemoryCapacity 4*kOneMillionBytes
 #define  kMaxDiskCapacity 32*kMaxMemoryCapacity
+
+//hosted on developer@baidu
+#define kStatUrl @"http://1.checknewversion.duapp.com/stat.php"
+#define kAdsJsonUrl @"http://1.checknewversion.duapp.com/getadsconfig.php"//@"http://www.idreems.com/adsconfig/getadsconfig.php"
 #endif
 

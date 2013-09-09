@@ -19,6 +19,8 @@
 #import "UMFeedback.h"
 #import "Flurry.h"
 #import "MobisageRecommendTableViewController.h"
+#import "CPPropStoreViewController.h"
+
 
 NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 
@@ -251,12 +253,19 @@ NSString* reuseIdentifier = @"UITableViewCellStyleDefault";
 			cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Premium", @""),[CommonHelper gold]];
             
 			cell.imageView.image = [UIImage imageNamed:@"Coins"];
-		} whenSelected:^(NSIndexPath *indexPath) {            
+		} whenSelected:^(NSIndexPath *indexPath) {
+#if 0
             CGRect rect = self.view.frame;
             EarnGoldMultiPageViewController* c = [[[EarnGoldMultiPageViewController alloc]initWithFrame:rect]autorelease];
             UINavigationController* navi = [[[UINavigationController alloc]initWithRootViewController:c]autorelease];
             [self presentViewController:navi animated:YES completion:nil];
-            
+#else
+            //TODO::显示一个选项，其中包括
+            //1.购买积分
+            //2.做任务，赚积分
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+            [self presentViewController:[storyBoard instantiateViewControllerWithIdentifier:@"CPPropStoreViewController"] animated:NO completion:nil];
+#endif
             [Flurry logEvent:kOpenEarnGoldListInSettingEvent];
 		}];
 	}];

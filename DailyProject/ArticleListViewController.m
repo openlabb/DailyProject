@@ -13,6 +13,7 @@
 #import "RMArticle.h"
 #import "DAPagesContainer.h"
 #import "MBProgressHUD.h"
+#import "CPPropStoreViewController.h"
 
 
 @interface ArticleListViewController ()<TableViewClickDelegate>
@@ -157,8 +158,8 @@
 -(void)popTipView
 {
     //TODO::pop up gold-earning view
+#if 0
     CGRect rect = self.view.frame;
-    
     EarnGoldMultiPageViewController* controller = [[[EarnGoldMultiPageViewController alloc]initWithFrame:rect]autorelease];
     UIResponder *responder = self;
     while (responder && ![responder isKindOfClass:[MultiPageViewController class]]) {
@@ -166,6 +167,13 @@
     }
     UINavigationController* navi = [[[UINavigationController alloc]initWithRootViewController:controller]autorelease];
     [(UIViewController*)responder presentViewController:navi animated:YES completion:nil];
+#else
+    //TODO::显示一个选项，其中包括
+    //1.购买积分
+    //2.做任务，赚积分
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    [self presentViewController:[storyBoard instantiateViewControllerWithIdentifier:@"CPPropStoreViewController"] animated:NO completion:nil];
+#endif
 }
 -(BOOL)canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {

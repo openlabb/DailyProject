@@ -47,6 +47,7 @@
 {
     [super viewDidLoad];
     
+    //显示有米积分墙广告
     [BaseViewController showSpot:nil];
     
     [[MobiSageManager getInstance]setPublisherID:[[AdsConfiguration sharedInstance]mobisageId]];
